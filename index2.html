@@ -3,30 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Desarrollo de colaboradores y parrilla de reemplazo 2025</title>
+<title>Desarrollo de colaboradores y parrilla de reemplazo 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --night:#1b0a2b; --plum:#3a1560; --violet:#7a3fb8; --red:#c8102e; --paper:#f7f2fa; --ink:#25103a; --mute:#b9a6d1;
+  --night:#f5eefb; --plum:#3a1560; --violet:#7a3fb8; --red:#c8102e; --paper:#ffffff; --ink:#25103a; --mute:#6d5890;
   --display:'Unbounded','Arial Black',sans-serif; --body:'Figtree','Segoe UI',Arial,sans-serif;
 }
 *{box-sizing:border-box;margin:0}
 html,body{height:100%}
-body{font-family:var(--body);background:var(--night);color:var(--paper);overflow-x:hidden;
-  background-image:radial-gradient(900px 500px at 85% -10%,rgba(122,63,184,.55),transparent 70%),radial-gradient(700px 500px at -10% 110%,rgba(200,16,46,.28),transparent 70%)}
+body{font-family:var(--body);background:var(--night);color:var(--ink);overflow-x:hidden;
+  background-image:radial-gradient(rgba(122,63,184,.14) 1px,transparent 1.6px),radial-gradient(900px 520px at 85% -10%,rgba(122,63,184,.28),transparent 70%),radial-gradient(700px 520px at -10% 105%,rgba(200,16,46,.15),transparent 70%),radial-gradient(600px 400px at 55% 60%,rgba(190,160,235,.3),transparent 75%);background-size:28px 28px,auto,auto,auto;background-attachment:fixed}
 button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
-:focus-visible{outline:3px solid #fff;outline-offset:3px}
+:focus-visible{outline:3px solid var(--violet);outline-offset:3px}
 
 /* barra superior y ruta de navegación */
-header{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px clamp(16px,4vw,48px);background:rgba(27,10,43,.82);backdrop-filter:blur(8px)}
+header{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px clamp(16px,4vw,48px);background:rgba(255,255,255,.8);backdrop-filter:blur(8px);box-shadow:0 2px 18px rgba(58,21,96,.1)}
 .brand{font-family:var(--display);font-weight:900;font-size:15px;letter-spacing:.02em}
 .brand b{color:var(--red)}
 nav{display:flex;align-items:center;gap:0;overflow-x:auto}
 nav button{position:relative;padding:8px 12px;font-size:13px;font-weight:600;color:var(--mute);white-space:nowrap;border-radius:99px;transition:color .2s}
 nav button::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;border:2px solid var(--mute);margin-right:8px;vertical-align:-1px;transition:.2s}
-nav button:hover{color:#fff}
-nav button[aria-current="page"]{color:#fff}
+nav button:hover{color:var(--ink)}
+nav button[aria-current="page"]{color:var(--ink)}
 nav button[aria-current="page"]::before{background:var(--red);border-color:var(--red);box-shadow:0 0 0 4px rgba(200,16,46,.25)}
 
 main{min-height:calc(100% - 60px)}
@@ -35,12 +35,12 @@ main{min-height:calc(100% - 60px)}
 
 /* portada */
 .cover{min-height:calc(100vh - 60px);max-width:none;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
-.cover h1{font-family:var(--display);font-weight:900;font-size:clamp(30px,6.4vw,84px);line-height:1.02;max-width:15ch;position:relative;z-index:1}
+.cover h1{font-family:var(--display);font-weight:900;font-size:clamp(28px,4.6vw,64px);line-height:1.04;max-width:13ch;position:relative;z-index:1}
 .cover h1 span{display:block;color:var(--red)}
 .cover p{margin:22px 0 34px;max-width:46ch;font-size:clamp(16px,2vw,20px);color:var(--mute);position:relative;z-index:1}
 .go{align-self:flex-start;display:inline-flex;align-items:center;gap:14px;background:var(--red);padding:16px 26px;border-radius:99px;font-weight:700;font-size:17px;position:relative;z-index:1;transition:transform .2s,box-shadow .2s}
 .go:hover{transform:translateX(6px);box-shadow:0 10px 30px rgba(200,16,46,.45)}
-.road{position:absolute;left:0;right:0;bottom:12%;height:70px;background:rgba(0,0,0,.35);border-block:3px solid rgba(255,255,255,.12)}
+.road{position:absolute;left:0;right:0;bottom:12%;height:70px;background:#5a3f7d;border-block:3px solid rgba(255,255,255,.4)}
 .road::after{content:"";position:absolute;left:0;right:0;top:50%;height:4px;margin-top:-2px;
   background:repeating-linear-gradient(90deg,#fff 0 46px,transparent 46px 92px);opacity:.75;animation:drive 2.2s linear infinite}
 @keyframes drive{to{background-position:-92px 0}}
@@ -73,7 +73,7 @@ main{min-height:calc(100% - 60px)}
 
 /* detalle de plaza */
 .back{color:var(--mute);font-weight:600;padding:8px 0;margin-bottom:8px}
-.back:hover{color:#fff}
+.back:hover{color:var(--ink)}
 .plaza h2{font-family:var(--display);font-weight:900;font-size:clamp(30px,6vw,72px);line-height:1}
 .plaza h2 em{font-style:normal;color:var(--red)}
 .plaza .sub{color:var(--mute);margin:12px 0 48px;font-size:18px}
@@ -82,7 +82,87 @@ main{min-height:calc(100% - 60px)}
 .lead small{font-size:14px;color:var(--mute);max-width:16ch}
 .team{display:flex;flex-wrap:wrap;gap:56px 28px;padding-top:28px}
 
+
+/* gerencia, parrilla, proyectos */
+.bosslink{display:flex;justify-content:center;width:100%;max-width:280px;transition:transform .2s}
+.bosslink:hover{transform:scale(1.04)}
+.hub{display:flex;gap:44px;align-items:flex-start;flex-wrap:wrap;padding-top:34px}
+.tiles{flex:1;min-width:280px;display:grid;gap:16px}
+.tile{border-radius:18px;padding:30px 32px;text-align:left;font-family:var(--display);font-weight:700;font-size:clamp(18px,2.6vw,28px);transition:transform .2s}
+.tile small{display:block;margin-top:8px;font-family:var(--body);font-weight:600;font-size:14px;opacity:.8}
+.tile:hover{transform:translateX(10px)}
+.t1{background:#ecb731;color:#1b0a2b}.t2{background:var(--red)}.t3{background:#e3e8fb;color:var(--ink)}
+.succ{display:flex;align-items:center;gap:22px;flex-wrap:wrap;padding-top:40px;margin:8px 0 36px}
+.succ .arrow{flex:1;min-width:60px;height:4px;background:repeating-linear-gradient(90deg,var(--red) 0 8px,transparent 8px 16px)}
+.tag{display:block;font-size:13px;font-weight:700;color:var(--mute);margin-bottom:46px;text-align:center}
+.facts{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:32px}
+.facts div{background:#fff;box-shadow:0 6px 18px rgba(58,21,96,.12);padding:14px 22px;border-radius:14px;font-weight:700}
+.facts b{display:block;font-size:13px;color:var(--mute);font-weight:600}
+.empty{margin-top:40px;padding:48px 32px;border:3px dashed rgba(122,63,184,.35);border-radius:20px;color:var(--mute);font-size:18px;max-width:640px}
+.proj{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:36px;align-items:start}
+.col h3{padding:16px 22px;border-radius:14px 14px 0 0;color:#1b0a2b;font-family:var(--display);font-size:18px}
+.item{background:var(--paper);color:var(--ink);padding:16px 22px;border-top:1px solid #ddd}
+.item:last-child{border-radius:0 0 14px 14px}
+.item b{display:block;font-size:15px;line-height:1.3}
+.item small{color:#6a5580;font-size:13px}
+
+/* mapa estratégico */
+.ladder{margin-top:34px}
+.tier{display:flex;align-items:center;gap:20px;background:#fff;color:var(--ink);border-radius:999px;padding:16px 24px 16px 36px;flex-wrap:wrap}
+.tier .name{font-family:var(--display);font-weight:700;font-size:clamp(15px,2vw,22px);flex:0 0 190px;text-align:left;line-height:1.2;transition:transform .2s}
+.tier .name:hover{transform:translateX(6px)}
+.tier .name small{display:block;margin-top:6px;font-family:var(--body);font-size:13px;font-weight:700;color:var(--red)}
+.chips{flex:1;display:flex;gap:12px;flex-wrap:wrap}
+.chip{flex:1;min-width:150px;border:3px solid;border-radius:999px;padding:10px 18px;text-align:center;font-weight:700;font-size:14px;line-height:1.3;display:grid;place-items:center}
+.tier.a .name{color:#c2500c}.tier.a .chip{border-color:#4b2a9a}
+.tier.b .chip{border-color:var(--red)}
+.tier.c .name{color:#2a1bb3}.tier.c .chip{border-color:#1b0a2b}
+.rise{height:44px;padding-left:56px;display:flex;align-items:center}
+.rise::before{content:"";border:15px solid transparent;border-top:0;border-bottom:26px solid var(--red)}
+.shot{aspect-ratio:4/3;border-radius:14px;background:linear-gradient(135deg,var(--plum),var(--violet));position:relative;overflow:hidden;display:grid;place-items:center;color:#fff;font-weight:700;text-align:center;padding:12px}
+.shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.caps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:32px}
+.cap{background:var(--paper);color:var(--ink);border-radius:20px;padding:14px 14px 24px}
+.cap h3{font-family:var(--display);font-size:16px;margin:18px 6px 6px}
+.cap p{margin:0 6px;color:#5b4573;font-size:15px}
+.split{display:flex;gap:36px;flex-wrap:wrap;align-items:center;background:var(--paper);color:var(--ink);border-radius:24px;padding:28px;margin-top:32px}
+.split .shot{flex:1 1 300px;min-height:260px;aspect-ratio:auto}
+.split .txt{flex:1 1 320px;font-size:clamp(18px,2.2vw,24px);line-height:1.45;color:#4b1d7a}
+.doc{margin-top:32px;display:grid;gap:22px;justify-items:start}
+.doc .shot{width:100%;max-width:720px;aspect-ratio:16/10}
+
+.item{display:block;width:100%;text-align:left;transition:background .2s,padding-left .2s}
+.item:hover{background:#fff;padding-left:30px}
+.item small{display:block;margin-top:4px;color:var(--red);font-weight:700}
+.modal{position:fixed;inset:0;z-index:20;background:rgba(40,20,70,.74);display:grid;place-items:center;padding:20px;animation:in .25s ease both}
+.modal[hidden]{display:none}
+.modal .sheet{max-width:min(1000px,94vw);max-height:88vh;display:grid;place-items:center}
+.modal img{max-width:100%;max-height:88vh;border-radius:14px;background:#fff;box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.modal .miss{background:var(--paper);color:var(--ink);padding:36px 32px;border-radius:18px;font-weight:700;font-size:18px;max-width:520px;text-align:center}
+.modal .x{position:absolute;top:18px;right:18px;width:48px;height:48px;border-radius:50%;background:var(--red);font-size:20px;font-weight:700}
+
+.bg{position:fixed;inset:0;z-index:0;pointer-events:none}
+.bg svg{width:100%;height:100%}
+main{position:relative;z-index:1}
+.view{position:relative;isolation:isolate}
+.view[data-mark]::before{content:attr(data-mark);position:absolute;right:0;bottom:-10px;z-index:-1;font-family:var(--display);font-weight:900;font-size:clamp(44px,9vw,130px);line-height:1;white-space:nowrap;color:transparent;-webkit-text-stroke:2px rgba(122,63,184,.17);pointer-events:none}
+.route{background:linear-gradient(180deg,rgba(255,255,255,.75),rgba(255,255,255,.4));border:1px solid rgba(122,63,184,.2);border-radius:28px;padding:24px 20px 40px;backdrop-filter:blur(4px)}
+.sun{position:absolute;right:7%;top:12%;width:clamp(180px,26vw,380px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 40% 35%,#ffb454,#c8102e 58%,transparent 72%);opacity:.8}
+.bus{position:absolute;right:2%;bottom:calc(12% + 2px);width:clamp(320px,54vw,800px);z-index:1;margin:0;animation:bob 3s ease-in-out infinite}
+.bus img{filter:drop-shadow(0 18px 18px rgba(58,21,96,.28))}
+@keyframes bob{50%{transform:translateY(-4px)}}
+.cover::after{content:"";position:absolute;inset:auto 0 0 0;height:12%;background:linear-gradient(transparent,rgba(58,21,96,.12))}
+
+.go,.t2,.modal .x{color:#fff}
+.card,.cap,.split,.tier,.pin,.col{box-shadow:0 8px 24px rgba(58,21,96,.15)}
+.col{border-radius:14px}
+.tile{box-shadow:0 8px 22px rgba(58,21,96,.18)}
+.bus svg,.bus img{display:block;width:100%;height:auto}
+@media (max-width:820px){.caps{grid-template-columns:1fr}.tier{border-radius:28px;padding:20px}.tier .name{flex:1 0 100%}}
 @media (max-width:820px){
+  .bus{position:relative;right:auto;bottom:auto;width:92%;margin:36px 0 90px 4px}
+  .sun{opacity:.5}
+  .proj{grid-template-columns:1fr}
   .route{grid-template-columns:1fr;gap:56px;padding-top:0}
   .route::before{display:none}
   .pin{margin-top:0}
@@ -93,11 +173,19 @@ main{min-height:calc(100% - 60px)}
 </style>
 </head>
 <body>
+<div class="bg" aria-hidden="true"><svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+<defs><linearGradient id="gold" x1="0" x2="1"><stop offset="0" stop-color="#d9a441" stop-opacity="0"/><stop offset=".55" stop-color="#d9a441" stop-opacity=".95"/><stop offset="1" stop-color="#b8892f" stop-opacity="0"/></linearGradient></defs>
+<g fill="none" stroke="url(#gold)" stroke-width="1.3" opacity=".6">
+<path d="M-100 840C300 640 820 720 1540 360"/><path d="M-100 856C300 656 820 736 1540 384"/><path d="M-100 872C300 672 820 752 1540 408"/><path d="M-100 888C300 688 820 768 1540 432"/><path d="M-100 904C300 704 820 784 1540 456"/></g>
+<path d="M40 150C300 290 430 40 720 170S1120 340 1400 110" fill="none" stroke="#c8102e" stroke-width="3" stroke-dasharray="3 14" stroke-linecap="round" opacity=".5"/>
+<g fill="#c8102e" opacity=".7"><circle cx="40" cy="150" r="6"/><circle cx="720" cy="170" r="6"/><circle cx="1400" cy="110" r="6"/></g>
+<g fill="#7a3fb8"><circle cx="180" cy="520" r="2" opacity=".6"/><circle cx="420" cy="360" r="1.6" opacity=".5"/><circle cx="640" cy="620" r="2.2" opacity=".5"/><circle cx="900" cy="300" r="1.8" opacity=".6"/><circle cx="1120" cy="560" r="2" opacity=".5"/><circle cx="1300" cy="400" r="2.4" opacity=".7"/><circle cx="260" cy="760" r="1.6" opacity=".5"/><circle cx="980" cy="800" r="2" opacity=".5"/><circle cx="1380" cy="700" r="1.6" opacity=".6"/><circle cx="80" cy="330" r="1.8" opacity=".5"/></g></svg></div>
 <header>
   <div class="brand">GAD <b>SURESTE</b></div>
   <nav id="nav" aria-label="Secciones"></nav>
 </header>
 <main id="app"></main>
+<div id="modal" class="modal" role="dialog" aria-modal="true" aria-label="Carátula del proyecto" hidden><button class="x" aria-label="Cerrar">&#10005;</button><div class="sheet"></div></div>
 
 <script>
 /* ===== DATOS: edita aquí nombres, puestos y agrega personas =====
@@ -116,7 +204,7 @@ const PLAZAS = [
     {id:'julio', n:'Julio César Hernández Gómez', r:'Jefe Centro de Pago'},
     {id:'miguel', n:'Miguel Ángel Sánchez Ovando', r:'Jefe Administrativo Central Prepago'}]}
 ];
-const VIEWS = [{k:'inicio',n:'Inicio'},{k:'organigrama',n:'Organigrama'},...PLAZAS.map(p=>({k:p.k,n:p.n}))];
+const VIEWS = [{k:'inicio',n:'Inicio'},{k:'organigrama',n:'Organigrama'},{k:'gerencia',n:'Gerencia'},...PLAZAS.map(p=>({k:p.k,n:p.n}))];
 
 const ini = n => n.split(' ').filter(w=>w.length>2).slice(0,2).map(w=>w[0]).join('');
 const card = (p,cls='') => `<article class="card ${cls}">
@@ -128,39 +216,107 @@ nav.innerHTML = VIEWS.map(v=>`<button data-k="${v.k}">${v.n}</button>`).join('')
 nav.onclick = e => { const b=e.target.closest('button'); if(b) go(b.dataset.k); };
 const go = k => location.hash = '#/'+k;
 
+const SUBS={mapa:'Mapa estratégico',parrilla:'Parrilla de reemplazo',proyectos:'Proyectos regionales',desempeno:'Evaluación de desempeño',integracion:'Integración',capacitaciones:'Capacitaciones 2026'};
+const shot=(src,l)=>`<div class="shot">${l}<img src="${src}" alt="${l}" onerror="this.remove()"></div>`;
+const TIERS=[
+ {c:'a',n:'Desarrollo continuo',to:'desempeno',chips:['Seguimiento a sus resultados a través del EDI trimestral','Participación en plenarias regionales','Se promueve la integración de proyectos DCAF']},
+ {c:'b',n:'Mejora de habilidades',to:'integracion',chips:['Entrenamiento en habilidades interpersonales','Clima laboral y liderazgo','Control emocional']},
+ {c:'c',n:'Capacitaciones',to:'capacitaciones',chips:['Coursera 2026','LinkedIn Learning','EFA: RP Financiero','DCIT: Office 365']}];
+const PROY=[
+ {n:'Chiapas',c:'#d9a441',items:[['Control Gate','control-gate'],['Semáforo CIA','semaforo-cia']]},
+ {n:'Villahermosa',c:'#6fd08a',items:[['Happy Moments','happy-moments'],['Concil.IA','concil-ia'],['Admin Bus360','admin-bus360']]},
+ {n:'Coatzacoalcos',c:'#cdbcf2',items:[['Digital Formats','digital-formats'],['Alerta Gerencial','alerta-gerencial'],['Monitor de pistas en efectivo','monitor-pistas-efectivo']]}];
+const SUCESOR = PLAZAS[0].people[1];
+const backBtn=(to,t)=>`<button class="back" data-go="${to}">&#10094; ${t}</button>`;
+
 function render(){
   const k = location.hash.replace('#/','') || 'inicio';
-  const idx = Math.max(0, VIEWS.findIndex(v=>v.k===k));
-  const key = VIEWS[idx].k;
-  nav.querySelectorAll('button').forEach(b=>b.toggleAttribute('aria-current',b.dataset.k===key) || b.removeAttribute('aria-current'));
-  nav.querySelectorAll('button').forEach(b=>{ if(b.dataset.k===key) b.setAttribute('aria-current','page'); });
+  const sub = SUBS[k] ? k : null;
+  const key = sub ? 'gerencia' : (VIEWS.find(v=>v.k===k)||VIEWS[0]).k;
+  nav.querySelectorAll('button').forEach(b=>{ b.dataset.k===key ? b.setAttribute('aria-current','page') : b.removeAttribute('aria-current'); });
+  const page = sub || key;
   let h='';
-  if(key==='inicio'){
-    h=`<section class="view cover"><h1>Desarrollo de colaboradores <span>y parrilla de reemplazo 2025</span></h1>
+  if(page==='inicio'){
+    h=`<section class="view cover"><h1>Desarrollo de colaboradores <span>y parrilla de reemplazo 2026</span></h1>
     <p>Conoce al equipo de la Gerencia Administrativa Divisional Sureste, plaza por plaza.</p>
     <button class="go" data-go="organigrama">Comenzar el recorrido <span aria-hidden="true">&#10095;</span></button>
+    <div class="sun" aria-hidden="true"></div>
+    <figure class="bus"><img src="img/camion-ado.png" alt="Autobús ADO Platino"></figure>
     <div class="road" aria-hidden="true"></div></section>`;
-  } else if(key==='organigrama'){
-    h=`<section class="view"><div class="top">${card(GERENTE,'boss')}<div class="stem"></div></div>
+  } else if(page==='organigrama'){
+    h=`<section class="view"><div class="top"><button class="bosslink" data-go="gerencia" aria-label="Ver la gerencia divisional">${card(GERENTE,'boss')}</button><div class="stem"></div></div>
     <div class="route">${PLAZAS.map(p=>`<div class="stop">
       <button class="pin" data-go="${p.k}" aria-label="Ver equipo de ${p.n}">${p.n}</button>
       <div class="people">${p.people.map(x=>card(x)).join('')}</div></div>`).join('')}</div>
-    <p class="hint">Toca una plaza para ver su equipo completo.</p></section>`;
+    <p class="hint">Toca una plaza para ver su equipo, o al gerente para ver su mapa, parrilla y proyectos.</p></section>`;
+  } else if(page==='gerencia'){
+    h=`<section class="view">${backBtn('organigrama','Organigrama')}
+    <div class="hub">${card(GERENTE,'boss')}<div class="tiles">
+      <button class="tile t1" data-go="mapa">Mapa estratégico</button>
+      <button class="tile t2" data-go="parrilla">Parrilla de reemplazo<small>Sucesión y plan de desarrollo</small></button>
+      <button class="tile t3" data-go="proyectos">Proyectos regionales<small>8 proyectos en 3 plazas</small></button></div></div></section>`;
+  } else if(page==='mapa'){
+    h=`<section class="view plaza">${backBtn('gerencia','Gerencia')}<h2>Mapa <em>estratégico</em></h2>
+    <p class="sub">Se construye de abajo hacia arriba. Toca cada nivel para ver el detalle.</p>
+    <div class="ladder">${TIERS.map((t,i)=>`${i?'<div class="rise" aria-hidden="true"></div>':''}
+    <div class="tier ${t.c}"><button class="name" data-go="${t.to}">${t.n}<small>Ver detalle &#10095;</small></button>
+    <div class="chips">${t.chips.map(c=>`<span class="chip">${c}</span>`).join('')}</div></div>`).join('')}</div></section>`;
+  } else if(page==='desempeno'){
+    h=`<section class="view plaza">${backBtn('mapa','Mapa estratégico')}<h2>Evaluación de <em>desempeño</em></h2>
+    <p class="sub">1er semestre 2026</p>
+    <div class="doc">${shot('img/evaluacion-desempeno.png','Evaluación de desempeño')}
+    <a class="go" href="docs/evaluacion-desempeno.pdf" target="_blank" rel="noopener">Abrir la evaluación completa</a></div></section>`;
+  } else if(page==='integracion'){
+    h=`<section class="view plaza">${backBtn('mapa','Mapa estratégico')}<h2>Mejora de <em>habilidades</em></h2>
+    <div class="split">${shot('img/integracion.jpg','Integración')}
+    <div class="txt"><h3 style="font-family:var(--display);color:var(--ink);font-size:clamp(24px,3.4vw,38px);margin-bottom:16px">Integración</h3>
+    Actividades de integración para reforzar el trabajo en equipo e integración a equipos de trabajo dinámicos.</div></div></section>`;
+  } else if(page==='capacitaciones'){
+    const C=[['LinkedIn Learning','Tronco común, 1 semana','linkedin'],['Cursos ERP financiero','Fundamentos comunes JDE','erp'],['Office 365','Certificado DCIT','office365']];
+    h=`<section class="view plaza">${backBtn('mapa','Mapa estratégico')}<h2>Capacitaciones <em>2026</em></h2>
+    <div class="caps">${C.map(c=>`<article class="cap">${shot('img/'+c[2]+'.jpg',c[0])}<h3>${c[0]}</h3><p>${c[1]}</p></article>`).join('')}</div></section>`;
+  } else if(page==='parrilla'){
+    h=`<section class="view plaza">${backBtn('gerencia','Gerencia')}<h2>Parrilla de <em>reemplazo</em></h2>
+    <p class="sub">Quién asume la gerencia divisional si llega a ser necesario.</p>
+    <div class="succ"><div><span class="tag">Puesto actual</span>${card(GERENTE,'big')}</div><div class="arrow"></div>
+    <div><span class="tag">Reemplazo</span>${card(SUCESOR,'big')}</div></div>
+    <div class="facts"><div><b>Plan de desarrollo</b>Anexo 1</div><div><b>Última actualización</b>01-06-2026</div></div>
+    <a class="go" href="docs/parrilla-reemplazo.pdf" target="_blank" rel="noopener">Abrir el formato completo</a></section>`;
+  } else if(page==='proyectos'){
+    h=`<section class="view plaza">${backBtn('gerencia','Gerencia')}<h2>Proyectos <em>regionales</em></h2>
+    <p class="sub">Toca un proyecto para ver su carátula.</p>
+    <div class="proj">${PROY.map(p=>`<div class="col"><h3 style="background:${p.c}">${p.n}</h3>
+    ${p.items.map(i=>`<button class="item" data-proj="${i[1]}" data-name="${i[0]}"><b>${i[0]}</b><small>Ver carátula &#10095;</small></button>`).join('')}</div>`).join('')}</div></section>`;
   } else {
-    const p = PLAZAS.find(x=>x.k===key), i = PLAZAS.indexOf(p);
+    const p = PLAZAS.find(x=>x.k===page), i = PLAZAS.indexOf(p);
     const nx = PLAZAS[(i+1)%PLAZAS.length];
-    h=`<section class="view plaza"><button class="back" data-go="organigrama">&#10094; Organigrama</button>
+    h=`<section class="view plaza">${backBtn('organigrama','Organigrama')}
     <h2>${p.n}</h2><p class="sub">${p.people.length} jefaturas reportan a la gerencia divisional.</p>
     <div class="lead">${card(GERENTE,'boss')}<div class="line"></div><small>Reportan a ${GERENTE.n.split(' ')[0]}</small></div>
     <div class="team">${p.people.map(x=>card(x,'big')).join('')}</div>
     <p class="hint"><button class="back" data-go="${nx.k}">Siguiente parada: ${nx.n} &#10095;</button></p></section>`;
   }
   app.innerHTML=h; scrollTo(0,0);
+  const mark = SUBS[page] || (PLAZAS.find(p=>p.k===page)||VIEWS.find(x=>x.k===page)||{}).n;
+  const vw = app.querySelector('.view'); if(vw && page!=='inicio' && mark) vw.dataset.mark = mark;
 }
-app.onclick = e => { const b=e.target.closest('[data-go]'); if(b) go(b.dataset.go); };
+app.onclick = e => {
+  const p=e.target.closest('[data-proj]'); if(p) return openProj(p.dataset.proj,p.dataset.name);
+  const b=e.target.closest('[data-go]'); if(b) go(b.dataset.go);
+};
+const modal=document.getElementById('modal'); let lastBtn=null;
+function openProj(slug,name){
+  lastBtn=document.activeElement;
+  modal.querySelector('.sheet').innerHTML=`<img src="img/proyectos/${slug}.png" alt="Carátula del proyecto ${name}" onerror="this.replaceWith(Object.assign(document.createElement('p'),{className:'miss',textContent:'Falta la carátula de ${name}. Guárdala como img/proyectos/${slug}.png'}))">`;
+  modal.hidden=false; modal.querySelector('.x').focus();
+}
+function closeProj(){ modal.hidden=true; if(lastBtn) lastBtn.focus(); }
+modal.onclick = e => { if(e.target===modal || e.target.closest('.x')) closeProj(); };
+addEventListener('keydown',e=>{ if(e.key==='Escape'&&!modal.hidden) closeProj(); });
 addEventListener('hashchange',render);
 addEventListener('keydown',e=>{
-  const k=location.hash.replace('#/','')||'inicio', i=VIEWS.findIndex(v=>v.k===k);
+  if(!modal.hidden) return;
+  const k=location.hash.replace('#/','')||'inicio', i=VIEWS.findIndex(v=>v.k===k); if(i<0) return;
   if(e.key==='ArrowRight'&&i<VIEWS.length-1) go(VIEWS[i+1].k);
   if(e.key==='ArrowLeft'&&i>0) go(VIEWS[i-1].k);
 });
