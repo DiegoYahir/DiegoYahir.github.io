@@ -50,7 +50,7 @@ main{min-height:calc(100% - 60px)}
 .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,.4)}
 .pic{width:92px;height:92px;border-radius:50%;margin-top:-26px;background:linear-gradient(135deg,var(--violet),var(--red));display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:26px;color:#fff;border:4px solid var(--paper);overflow:hidden;position:relative;flex:none}
 .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.card h3{font-family:var(--display);font-weight:700;font-size:13px;line-height:1.35;margin:14px 0 6px;text-transform:capitalize}
+.card h3{font-family:var(--display);font-weight:700;font-size:13px;line-height:1.35;margin:14px 0 6px}
 .card p{font-size:14px;color:#5b4573;line-height:1.35}
 .card.boss{max-width:280px;border-bottom:6px solid var(--red)}
 .card.boss .pic{width:112px;height:112px}
@@ -168,7 +168,7 @@ main{position:relative;z-index:1}
 .mem{display:flex;align-items:center;gap:14px;background:#fff;border-radius:999px 20px 20px 999px;padding:10px 22px 10px 10px;box-shadow:0 8px 22px rgba(58,21,96,.15);transition:transform .2s}
 .mem:hover{transform:translateY(-4px)}
 .mem .pic{width:76px;height:76px;margin-top:0;font-size:20px;border-width:3px}
-.mem h3{font-family:var(--display);font-size:12.5px;line-height:1.35;text-transform:capitalize;margin:2px 0 4px}
+.mem h3{font-family:var(--display);font-size:12.5px;line-height:1.35;margin:2px 0 4px}
 .mem p{font-size:14px;color:#5b4573;font-weight:600}
 .mem small{color:var(--red);font-weight:700;font-size:13px}
 
@@ -279,6 +279,42 @@ main{position:relative;z-index:1}
 @keyframes draw{to{stroke-dashoffset:0}}
 .trsel{position:fixed;left:14px;bottom:14px;z-index:30;background:#fff;color:var(--ink);border-radius:99px;padding:6px 8px 6px 14px;font-size:13px;font-weight:700;box-shadow:0 6px 18px rgba(58,21,96,.25);display:flex;gap:8px;align-items:center}
 .trsel select{font:inherit;border:1px solid #cdbcf2;border-radius:99px;padding:4px 8px;background:#f5eefb;color:var(--ink)}
+
+
+.tree{flex:1;min-width:320px;display:flex;flex-direction:column;gap:20px;border-left:4px dotted var(--red);padding:6px 0 6px 28px}
+.trow{display:flex;align-items:center}
+.trow>.mem,.trow>.memlink{flex:0 0 min(340px,100%)}
+.trow .wire{width:44px}
+.subs{flex:1;min-width:0;display:flex;flex-direction:column;gap:12px;border-left:4px dotted var(--red);padding-left:26px}
+@media (max-width:900px){.trow{flex-direction:column;align-items:flex-start;gap:12px}.trow .wire{display:none}.subs{margin-left:28px;width:calc(100% - 28px)}}
+/* organigrama: cada plaza en columna, con líneas que muestran quién reporta a quién */
+.stop{align-items:flex-start;gap:30px}
+.people{flex-direction:column;flex-wrap:nowrap;justify-content:flex-start;align-items:flex-start;gap:30px;margin-top:0;padding-left:55px;width:100%}
+.people>*{position:relative}
+.people>*,.people>.bosslink.team{width:230px;max-width:100%}
+.bosslink{padding:0}
+.people>*::before{content:"";position:absolute;left:-34px;top:76px;width:34px;border-top:4px dotted var(--red)}
+.people>*::after{content:"";position:absolute;left:-36px;top:-30px;bottom:-30px;border-left:4px dotted var(--red)}
+.people>*:last-child::after{bottom:auto;height:110px}
+.route::before{left:41px;right:auto;width:calc(66.666% - 13.33px)}
+@media (max-width:1100px){.route{grid-template-columns:1fr;gap:56px;padding-top:0}.route::before{display:none}.pin{margin-top:0}}
+
+/* árbol de equipo: líneas por rama, que terminan en la última persona */
+.tree{border-left:0;padding-left:30px;gap:20px}
+.tree>.trow{position:relative}
+.tree>.trow::before{content:"";position:absolute;left:-30px;top:50%;width:30px;border-top:4px dotted var(--red)}
+.tree>.trow::after{content:"";position:absolute;left:-32px;top:-20px;bottom:-20px;border-left:4px dotted var(--red)}
+.tree>.trow:first-child::after{top:50%}
+.tree>.trow:last-child::after{bottom:50%}
+.tree.single{padding-left:0}
+.tree.single>.trow::before,.tree.single>.trow::after{display:none}
+.subs{border-left:0;padding-left:30px}
+.subs>*{position:relative}
+.subs>*::before{content:"";position:absolute;left:-30px;top:50%;width:30px;border-top:4px dotted var(--red)}
+.subs>*::after{content:"";position:absolute;left:-32px;top:-12px;bottom:-12px;border-left:4px dotted var(--red)}
+.subs>*:first-child::after{top:50%}
+.subs>*:last-child::after{bottom:50%}
+.subs>*:only-child::after{display:none}
 @media (max-width:820px){.res,.tri{grid-template-columns:1fr}.step{margin-left:calc(var(--i)*22px)}.nextlvl{margin-left:40px}.vs{grid-template-columns:1fr}.vsb{justify-self:center}.ptiles,.foda,.proj.two,.rp{grid-template-columns:1fr}.arrow2{width:4px;height:28px;margin-left:40px;background:repeating-linear-gradient(var(--red) 0 6px,transparent 6px 12px)}.rh:nth-child(2){display:none}}
 @media (max-width:820px){.members{grid-template-columns:1fr;border-left:0;border-top:4px dotted var(--red);padding:24px 0 0}.wire{width:4px;height:36px;background:repeating-linear-gradient(var(--red) 0 6px,transparent 6px 12px);margin-left:60px}}
 @media (max-width:820px){.caps{grid-template-columns:1fr}.tier{border-radius:28px;padding:20px}.tier .name{flex:1 0 100%}}
@@ -381,13 +417,67 @@ const PLAZAS = [
       parrilla:{fecha:'15/03/2026',doc:'docs/parrilla-darwin.pdf',rows:[['darwin','julio-cruz'],['darwin','nicolas'],['julio-cruz','juana']]},
       replicas:[['Consultas de viajes pagados','RP-GRU-CTR-25-002'],['Digital Driver, el futuro de la capacitación','RP-GRU-CTR-25-002']]
     }},
-    {id:'lilia', n:'Lilia Pinacho Pinacho', r:'Jefe de Centro de Pago y Equipo de Apoyo'}]},
+    {id:'lilia', n:'Lilia Pinacho Pinacho', r:'Jefe de Centro de Pago y Equipo de Apoyo', team:[
+      {id:'luis', k:'1331501', n:'Luis Hernández Velázquez', r:'Analista Administrativo'},
+      {id:'guadalupe', k:'1060347', n:'Guadalupe Cruz Cabrera', r:'Analista de Ingresos', team:[
+        {id:'isis', k:'1334078', n:'Isis Mariana Gómez Crisanto', r:'Auxiliar Administrativo'},
+        {id:'zayda', k:'1417275', n:'Zayda Natalia Sánchez Maya', r:'Auxiliar Administrativo'},
+        {id:'kristell', k:'1349426', n:'Kristell Yamileth Gómez Fuentes', r:'Sup. de Ingresos Regional'},
+        {id:'andres', k:'1426841', n:'Andrés Armando Ortiz Revilla', r:'Auxiliar Administrativo'}]},
+      {id:'veronica', k:'1195826', n:'Verónica Gómez Morales', r:'Analista Administrativo'}],
+    perfil:{
+      tiles:[['foda','FODA','t4'],['obs','Observaciones','t3'],['mapa','Mapa estratégico','t1'],['parrilla','Parrilla de reemplazo','t2']], extra:['proyectos','Proyectos'],
+      psico:'Da seguimiento a los procesos de acuerdo a un análisis lógico y objetivo, pero sabe comunicarse con las personas. Tiene facilidad para motivar y persuadir a sus subalternos para alcanzar objetivos. Escucha con cuidado y revisa su posición antes de tomar decisiones. Se apega a los principios y métodos de trabajo pues le interesa lograr resultados con exactitud. Es hábil para contra-argumentar, pero evita la tensión.',
+      foda:{
+        debilidades:{items:['Tiene dificultad para emitir juicios personales, pues es influenciable por las opiniones de otros.','Planea su trabajo de manera inconsistente. Cuando ejecuta su trabajo olvida la planeación realizada.','Organiza su trabajo de manera confusa. Busca organizar su trabajo, aunque le resulta complicado determinar prioridades.','Es inconsistente en el seguimiento de su trabajo.','Conoce la ejecución de los proyectos, aunque suele ignorar datos importantes.'],
+          acciones:['Se toman cursos para trabajar sobre las áreas de oportunidad.','Se emplean herramientas de medición de desempeño cuantificar resultados y apoyar con la planeación.','Se emplean métodos de planeación para adelantarse a la problemática.']},
+        amenazas:{items:['Busca organizar su trabajo, aunque le resulta complicado determinar prioridades.','Actividades que requieren seguimiento constante.','Es inconsistente en el seguimiento de su trabajo.','Acumulación de actividades no delegables.'],
+          acciones:['Reconociendo las amenazas se implementan diferentes acciones de mejora para mejorar el desempeño.','Se trabaja en automatizar procesos para agilizar el cumplimiento de actividades.','Soporte con herramientas digitales de seguimiento de actividades.']},
+        fortalezas:['Soluciona los problemas que se le presentan con base en un análisis.','Participa como parte de la solución y no del problema.','Muestra control y velocidad para responder ante situaciones de presión.','Tolera la presión ante la presencia de situaciones adversas.','Reconoce y agradece oportunamente y de manera imparcial los logros obtenidos por los colaboradores.'],
+        oportunidades:['Asume su responsabilidad para el logro de los objetivos.','Alienta a las personas para alcanzar los objetivos.','Conoce las capacidades actuales y potenciales propias y de sus colaboradores.','Retroalimenta de manera privada, constructiva, respetuosa y oportuna el desempeño de su personal a cargo.']},
+      obs:['Da seguimiento a los procesos de acuerdo a un análisis lógico y objetivo, pero sabe comunicarse con las personas. Tiene facilidad para motivar y persuadir a sus subalternos para alcanzar objetivos.','Escucha con cuidado y revisa su posición antes de tomar decisiones. Se apega a los principios y métodos de trabajo pues le interesa lograr resultados con exactitud.','Es hábil para contra-argumentar, pero evita la tensión. Sabe conservar la calma.','Evalúa con cuidado los problemas y analiza la forma de lograr los objetivos, con el mínimo riesgo.'],
+      tiers:[
+        {c:'a',n:'Desarrollo continuo',chips:['Seguimiento a sus resultados a través del EDI trimestral','Participación en plenarias regionales','Se promueve la integración de proyectos DCAF']},
+        {c:'b',n:'Mejora de habilidades',chips:['Entrenamiento en habilidades interpersonales','Clima laboral y liderazgo']},
+        {c:'c',n:'Capacitaciones',chips:['Coursera 2026','LinkedIn Learning','EFA: RP Financiero']},
+        {c:'d',n:'Competencias a mejorar',chips:['Enfoque a resultados','Gestión de otros','Planeación, organización y seguimiento']}],
+      parrilla:{fecha:'29/03/2026',doc:'docs/parrilla-lilia.pdf',rows:[['lilia','guadalupe'],['guadalupe','kristell']]},
+      replicas:[['Consultas de viajes pagados','RP-GRU-CTR-25-002'],['Digital Driver, el futuro de la capacitación','RP-GRU-CTR-25-002']]
+    }}]},
   {k:'villahermosa', n:'Villahermosa', people:[
     {id:'leonides', n:'Leonides Campañ Velázquez', r:'Jefe de Equipo de Apoyo Administrativo'},
     {id:'jaime', n:'Jaime Díaz Rodríguez', r:'Jefe Centro de Pago y Recaudación'}]},
   {k:'chiapas', n:'Chiapas', people:[
     {id:'ricardo', n:'Ricardo González Escobar', r:'Jefe Equipo de Apoyo'},
-    {id:'julio', n:'Julio César Hernández Gómez', r:'Jefe Centro de Pago'},
+    {id:'julio', n:'Julio César Hernández Gómez', r:'Jefe Centro de Pago', team:[
+      {id:'johnny', k:'1326986', n:'Johnny Alonso de Paz Vázquez', r:'Analista Administrativo', team:[
+        {id:'jazmin', k:'1436608', n:'Jazmín Elizabeth Montoya Maza', r:'Cajero "C"'},
+        {id:'paola', k:'1434264', n:'Paola Arguello Hernández', r:'Cajero "C"'},
+        {id:'adolfo', k:'1334726', n:'Adolfo Cuevas de la Cruz', r:'Cajero "C"'},
+        {id:'montserrat', k:'1423492', n:'Montserrat Borges López', r:'Cajero "C"'},
+        {id:'brenda', k:'1414876', n:'Brenda Janeth Ramos Gómez', r:'Cajero "C"'},
+        {id:'maria-carmen', k:'1416422', n:'María del Carmen Hernández Carrasco', r:'Cajero "C"'},
+        {id:'carlos', k:'1438602', n:'Carlos Alejandro Gómez González', r:'Cajero "C"'}]}],
+    perfil:{
+      tiles:[['foda','FODA','t4'],['obs','Observaciones','t3'],['mapa','Mapa estratégico','t1'],['parrilla','Parrilla de reemplazo','t2']], extra:['proyectos','Proyectos'],
+      psico:'Es conservador y respetuoso de las ideas establecidas. Puede mostrarse como una persona leal y estable e identificarse con la cultura de la empresa, así como seguir políticas y procedimientos claramente definidos. Le gusta trabajar en equipo y tiene sentido de colaboración. Muestra necesidad de pertenencia y es fiel seguidor de las normas del grupo. Tiene dificultad para emitir juicios personales, pues es influenciable por las opiniones de otros. Es disciplinado y cumplido. Puede ser ordenado y organizado y está acostumbrado a tener sus emociones bajo control. Puede canalizar su energía con efectividad y llevar a cabo con éxito las labores emprendidas. Es enérgico en la realización de su trabajo, por lo que es productivo y eficiente.',
+      foda:{
+        debilidades:{items:['<b>Influenciabilidad:</b> Tiene dificultad para emitir juicios personales y es influenciable por las opiniones de otros, lo que puede afectar su autonomía en la toma de decisiones.','<b>Rigidez ante el cambio:</b> Su naturaleza conservadora y respeto por las ideas establecidas pueden hacer que sea menos adaptable a cambios rápidos o innovaciones.','<b>Falta de innovación:</b> Su tendencia a seguir normas y procedimientos establecidos puede limitar su creatividad y capacidad para proponer ideas nuevas.'],
+          acciones:['Se toman cursos para trabajar sobre las áreas de oportunidad.','Se trabaja de manera colaborativa para compartir perspectivas e ideas para mejorar procesos y operaciones.','Se emplean herramientas de medición de desempeño cuantificar resultados y apoyar con la planeación.','Se emplean métodos de planeación para adelantarse a problemas futuros.']},
+        amenazas:{items:['Su conservadurismo y respeto por las ideas establecidas pueden generar resistencia al cambio en un entorno empresarial dinámico.','Su cumplimiento estricto de normas puede limitar su capacidad para cuestionar prácticas existentes y proponer mejoras.','Su disciplina y capacidad organizativa pueden llevar a que asuma demasiadas responsabilidades, lo que podría resultar en agotamiento.'],
+          acciones:['Reconociendo las amenazas se implementan diferentes acciones de mejora para mejorar el desempeño.','Coordina junto con demás miembros del equipo revisiones de procesos internos, escuchando opiniones e ideas.','Se trabaja en automatizar procesos para agilizar el cumplimiento de actividades.','Soporte con herramientas digitales de seguimiento de actividades.']},
+        fortalezas:['<b>Conservador y respetuoso:</b> Es respetuoso de las ideas establecidas, lo que puede contribuir a la estabilidad y consistencia dentro de la empresa.','<b>Trabajo en equipo:</b> Le gusta trabajar en equipo y tiene un fuerte sentido de colaboración, lo que fomenta un ambiente de trabajo positivo y cohesionado.','Es disciplinado y cumplido, asegurando que las tareas se realicen de manera eficiente y dentro de los plazos establecidos.','<b>Organización.</b>','<b>Control emocional:</b> Está acostumbrado a mantener sus emociones bajo control, lo que puede ser beneficioso en situaciones de estrés.'],
+        oportunidades:['<b>Adaptación a la cultura organizacional:</b> Su lealtad y alineación con la cultura de la empresa pueden ser aprovechadas para fortalecer la cohesión y la identidad organizacional.','<b>Mejora de procedimientos:</b> Su respeto por las políticas y procedimientos establecidos puede ser utilizado para mantener y mejorar los estándares operativos.','<b>Fomento del trabajo en equipo.</b>','<b>Liderazgo en cumplimiento y organización:</b> Su disciplina y capacidad organizativa pueden ser aprovechadas para roles de liderazgo que requieren estas habilidades.']},
+      obs:['Reconoce y agradece oportunamente y de manera imparcial los logros obtenidos por los colaboradores. Alienta a las personas para alcanzar los objetivos. Conoce las capacidades actuales y potenciales propias y de sus colaboradores.','Retroalimenta de manera privada, constructiva, respetuosa y oportuna el desempeño de su personal a cargo para alcanzar los resultados esperados y mejorar su operación.','Se involucra activamente como parte del equipo de trabajo. Participa y aporta al trabajo del grupo. Permite aportaciones y contrapropuestas del equipo.','Brinda ayuda para que sus compañeros de trabajo alcancen sus objetivos. Comparte y colabora para que el equipo alcance sus objetivos. Busca convencer al equipo más que imponer o vencer.'],
+      tiers:[
+        {c:'a',n:'Desarrollo continuo',chips:['Seguimiento a sus resultados a través del EDI trimestral','Participación en plenarias regionales','Se promueve la integración de proyectos DCAF']},
+        {c:'b',n:'Mejora de habilidades',chips:['Actividades colaborativas','Clima laboral y liderazgo','Formación continua']},
+        {c:'c',n:'Capacitaciones',chips:['Coursera 2026','LinkedIn Learning','EFA: RP Financiero']},
+        {c:'d',n:'Competencias a mejorar',chips:['Gestión de otros','Planeación, organización y seguimiento']}],
+      parrilla:{doc:'docs/parrilla-julio.pdf',rows:[['julio','johnny'],['johnny',{id:'lorena',k:'1421520',n:'Lorena Guadalupe Morales Matías',r:'Analista Nómina'}]],
+        extra:[['Tiempo aproximado para ocupar el cargo','2 años'],['Competencias a desarrollar','Trabajo con personal a cargo, liderazgo, análisis de problemas y toma de decisiones']]},
+      replicas:[['App incidencias traslado de valores','RP-GRU-CTR-25-010'],['Consulta de viajes pagados',''],['Inmebus','']]
+    }},
     {id:'miguel', n:'Miguel Ángel Sánchez Ovando', r:'Jefe Administrativo Central Prepago', team:[
       {id:'anna', k:'1387402', n:'Anna Esperanza López Flores', r:'Analista Administrativo', perfil:{
       psico:'Puede ser considerada como una persona práctica y objetiva en su forma de actuar. Consciente y preocupada por sus obligaciones, no divaga ni fantasea. Le interesan los resultados inmediatos y está atenta a sus necesidades cotidianas. Puede comportarse en forma convencional, cuidadosa y estable. Emite juicios prácticos. Tolera la frustración y el estrés, aunque las personas del trabajo en ocasiones alteran su estado de ánimo.',
@@ -424,10 +514,10 @@ const PLAZAS = [
 ];
 const VIEWS = [{k:'inicio',n:'Inicio'},{k:'organigrama',n:'Organigrama'},{k:'gerencia',n:'Gerencia'},...PLAZAS.map(p=>({k:p.k,n:p.n}))];
 
-const ini = n => n.split(' ').filter(w=>w.length>2).slice(0,2).map(w=>w[0]).join('');
+const ini = n => n.split(' ').filter(w=>w.length>2&&!['del','las','los'].includes(w.toLowerCase())).slice(0,2).map(w=>w[0]).join('').toUpperCase();
 const card = (p,cls='') => `<article class="card ${cls}">
   <div class="pic">${ini(p.n)}<img src="img/${p.id}.jpg" alt="Foto de ${p.n}" onerror="this.remove()"></div>
-  <h3>${p.n.toLowerCase()}</h3><p>${p.r}</p></article>`;
+  <h3>${p.n}</h3><p>${p.r}</p></article>`;
 
 const app = document.getElementById('app'), nav = document.getElementById('nav');
 nav.innerHTML = VIEWS.map(v=>`<button data-k="${v.k}">${v.n}</button>`).join('');
@@ -448,8 +538,9 @@ const SUCESOR = PLAZAS[0].people[1];
 const SHOW_CLAVE = true; /* pon false para ocultar los números de empleado */
 PLAZAS.forEach(pl=>pl.people.forEach(p=>{ if(p.team) SUBS['equipo-'+p.id]='Equipo de '+p.n.split(' ')[0]; }));
 const mem = (m,link=true) => { const a=`<article class="mem"><div class="pic">${ini(m.n)}<img src="img/${m.id}.jpg" alt="Foto de ${m.n}" onerror="this.remove()"></div>
-  <div class="mtxt">${SHOW_CLAVE&&m.k?`<small>${m.k}</small>`:''}<h3>${m.n.toLowerCase()}</h3><p>${m.r}</p>${link&&m.perfil?'<small class="more">Ver perfil &#10095;</small>':''}</div></article>`; return link&&m.perfil?`<button class="memlink" data-go="p-${m.id}" aria-label="Ver el perfil de ${m.n}">${a}</button>`:a; };
-const pc = (p,cls='') => p.team ? `<button class="bosslink team" data-go="equipo-${p.id}" aria-label="Ver el equipo de ${p.n}">${card(p,cls)}<span class="badge">Ver equipo (${p.team.length}) &#10095;</span></button>` : card(p,cls);
+  <div class="mtxt">${SHOW_CLAVE&&m.k?`<small>${m.k}</small>`:''}<h3>${m.n}</h3><p>${m.r}</p>${link&&m.perfil?'<small class="more">Ver perfil &#10095;</small>':''}</div></article>`; return link&&m.perfil?`<button class="memlink" data-go="p-${m.id}" aria-label="Ver el perfil de ${m.n}">${a}</button>`:a; };
+const cnt = t => t.reduce((a,m)=>a+1+(m.team?cnt(m.team):0),0);
+const pc = (p,cls='') => p.team ? `<button class="bosslink team" data-go="equipo-${p.id}" aria-label="Ver el equipo de ${p.n}">${card(p,cls)}<span class="badge">Ver equipo (${cnt(p.team)}) &#10095;</span></button>` : card(p,cls);
 const backBtn=(to,t)=>`<button class="back" data-go="${to}">&#10094; ${t}</button>`;
 
 const BUS_SVG=`<svg viewBox="0 0 520 170" role="img" aria-label="Autobús ADO">
@@ -472,7 +563,7 @@ PLAZAS.forEach(pl=>pl.people.forEach(b=>[b,...(b.team||[])].forEach(p=>{ if(p.pe
 const findPerfil=sub=>{ for(const {pl,p,boss} of PERFILES){ if(sub==='p-'+p.id) return {pl,p,boss,sec:''}; for(const k in SECS) if(sub==='p-'+p.id+'-'+k) return {pl,p,boss,sec:k}; } return null; };
 const ladder=T=>`<div class="ladder">${T.map((t,i)=>`${i?'<div class="rise" aria-hidden="true"></div>':''}<div class="tier ${t.c}">${t.to?`<button class="name" data-go="${t.to}">${t.n}<small>Ver detalle &#10095;</small></button>`:`<span class="name">${t.n}</span>`}<div class="chips">${t.chips.map(c=>`<span class="chip">${c}</span>`).join('')}</div></div>`).join('')}</div>`;
 function perfilPage({pl,p,sec,boss}){
-  const pf=p.perfil, me='p-'+p.id, first=p.n.split(' ')[0], bk=boss||p, P=id=>id===p.id?p:p.team.find(m=>m.id===id);
+  const pf=p.perfil, me='p-'+p.id, first=p.n.split(' ')[0], bk=boss||p, flat=t=>t.flatMap(m=>[m,...(m.team?flat(m.team):[])]), P=id=>typeof id==='object'?id:(id===p.id?p:flat(p.team).find(m=>m.id===id));
   if(!sec) return `<section class="view plaza">${backBtn('equipo-'+bk.id,'Equipo de '+bk.n.split(' ')[0])}
     <div class="perfil">${card(p,'big')}<div class="pbody"><h3>Psicometría</h3><p class="psico">${pf.psico}</p>
     <div class="ptiles">${pf.tiles.map(t=>`<button class="tile ${t[2]}" data-go="${me}-${t[0]}">${t[1]}</button>`).join('')}</div>
@@ -490,7 +581,7 @@ function perfilPage({pl,p,sec,boss}){
     b=head('Mapa <em>estratégico</em>')+(pf.pasos?`<div class="steps">${pf.pasos.map((x,i)=>`<button class="step ${x[2]}" style="--i:${i}" data-go="${me}-${x[0]}"><span class="num">${i+1}</span>${x[1]}</button>`).join('')}<div class="nextlvl"><span aria-hidden="true">&#8635;</span>Nivel siguiente: <b>${pf.siguiente}</b></div></div>`:ladder(pf.tiers));
   } else if(sec==='parrilla'){
     b=head('Parrilla de <em>reemplazo</em>')+`<div class="rp"><div class="rh">Puesto actual</div><div></div><div class="rh">Reemplazo</div>${pf.parrilla.rows.map(r=>`${mem(P(r[0]),false)}<div class="arrow2" aria-hidden="true"></div>${mem(P(r[1]),false)}`).join('')}</div>
-    <div class="facts"><div><b>Última actualización</b>${pf.parrilla.fecha}</div></div>
+    <div class="facts">${[...(pf.parrilla.fecha?[['Última actualización',pf.parrilla.fecha]]:[]),...(pf.parrilla.extra||[])].map(f=>`<div><b>${f[0]}</b>${f[1]}</div>`).join('')}</div>
     <a class="go" href="${pf.parrilla.doc}" target="_blank" rel="noopener">Abrir el formato completo</a>`;
   } else if(sec==='resultados'){
     const cs=pf.comp, t0=cs.reduce((a,c)=>a+c[2],0), t1=cs.reduce((a,c)=>a+c[3],0);
@@ -544,9 +635,9 @@ function render(){
   } else if(eq){
     const boss = eq.people.find(p=>'equipo-'+p.id===sub);
     h=`<section class="view plaza">${backBtn(eq.k,eq.n)}<h2>Equipo de <em>${boss.n.split(' ')[0]}</em></h2>
-    <p class="sub">${boss.r}, ${eq.n}. ${boss.team.length} colaboradores a su cargo.</p>
+    <p class="sub">${boss.r}, ${eq.n}. ${cnt(boss.team)} colaboradores a su cargo.</p>
     <div class="branch">${boss.perfil?`<button class="bosslink team" data-go="p-${boss.id}" aria-label="Ver el perfil de ${boss.n}">${card(boss,'big')}<span class="badge">Ver perfil &#10095;</span></button>`:card(boss,'big')}<div class="wire" aria-hidden="true"></div>
-    <div class="members">${boss.team.map(m=>mem(m)).join('')}</div></div></section>`;
+    ${boss.team.some(m=>m.team)?`<div class="tree${boss.team.length===1?' single':''}">${boss.team.map(m=>`<div class="trow">${mem(m)}${m.team?`<div class="wire" aria-hidden="true"></div><div class="subs">${m.team.map(x=>mem(x)).join('')}</div>`:''}</div>`).join('')}</div>`:`<div class="members">${boss.team.map(m=>mem(m)).join('')}</div>`}</div></section>`;
   } else if(page==='mapa'){
     h=`<section class="view plaza">${backBtn('gerencia','Gerencia')}<h2>Mapa <em>estratégico</em></h2>
     <p class="sub">Se construye de abajo hacia arriba. Toca cada nivel para ver el detalle.</p>
