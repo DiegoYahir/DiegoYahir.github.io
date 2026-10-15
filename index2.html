@@ -445,7 +445,34 @@ const PLAZAS = [
       replicas:[['Consultas de viajes pagados','RP-GRU-CTR-25-002'],['Digital Driver, el futuro de la capacitación','RP-GRU-CTR-25-002']]
     }}]},
   {k:'villahermosa', n:'Villahermosa', people:[
-    {id:'leonides', n:'Leonides Campañ Velázquez', r:'Jefe de Equipo de Apoyo Administrativo'},
+    {id:'leonides', n:'Leonides Campañ Velázquez', r:'Jefe de Equipo de Apoyo Administrativo', team:[
+      {id:'carla', k:'1234410', n:'Carla María Hernández', r:'Analista de Nómina'},
+      {id:'joel', k:'1279715', n:'Joel Hernández Morales', r:'Analista de CXC', team:[
+        {id:'gabriela', k:'1311678', n:'Gabriela Ovando Sánchez', r:'Auxiliar Administrativo'},
+        {id:'argelia', k:'1304989', n:'Argelia Pérez Arias', r:'Auxiliar Administrativo'},
+        {id:'guadalupe-valencia', k:'1340780', n:'Guadalupe Valencia Hernández', r:'Auxiliar Administrativo'},
+        {id:'juana-ovando', k:'1345856', n:'Juana Ovando Contreras', r:'Auxiliar Administrativo'}]},
+      {id:'cristian', k:'1278601', n:'Cristian Alejandro Hernández Díaz', r:'Analista Contable C', team:[
+        {id:'azucena', k:'1409595', n:'Azucena del Carmen Silva Ramos', r:'Auxiliar Contable de Egreso'}]}],
+    perfil:{
+      tiles:[['foda','FODA','t4'],['obs','Observaciones','t3'],['mapa','Mapa estratégico','t1'],['parrilla','Parrilla de reemplazo','t2']], extra:['proyectos','Proyectos'],
+      psico:'Es diplomático y socialmente hábil para actuar. Dice lo que le conviene. Es perspicaz para captar los motivos de otros. Puede manipular a los demás para conseguir lo que desea. Es conservador y respetuoso de las ideas establecidas. Puede mostrarse como una persona leal y estable e identificarse con la cultura de la empresa, así como seguir políticas y procedimientos claramente definidos.',
+      foda:{
+        debilidades:{items:['Tiene dificultad para emitir juicios personales, pues es influenciable por las opiniones de otros.','Planea su trabajo de manera inconsistente. Cuando ejecuta su trabajo olvida la planeación realizada.','Organiza su trabajo de manera confusa. Busca organizar su trabajo, aunque le resulta complicado determinar prioridades.','Es inconsistente en el seguimiento de su trabajo.','Conoce la ejecución de los proyectos, aunque suele ignorar datos importantes.'],
+          acciones:['Se toman cursos para trabajar sobre las áreas de oportunidad.','Se emplean herramientas de medición de desempeño cuantificar resultados y apoyar con la planeación.','Se emplean métodos de planeación para adelantarse a la problemática.']},
+        amenazas:{items:['Busca organizar su trabajo, aunque le resulta complicado determinar prioridades.','Actividades que requieren seguimiento constante.','Es inconsistente en el seguimiento de su trabajo.','Acumulación de actividades no delegables.'],
+          acciones:['Reconociendo las amenazas se implementan diferentes acciones de mejora para mejorar el desempeño.','Se trabaja en automatizar procesos para agilizar el cumplimiento de actividades.','Soporte con herramientas digitales de seguimiento de actividades.']},
+        fortalezas:['Soluciona los problemas que se le presentan con base en un análisis.','Participa como parte de la solución y no del problema.','Muestra control y velocidad para responder ante situaciones de presión.','Tolera la presión ante la presencia de situaciones adversas.','Reconoce y agradece oportunamente y de manera imparcial los logros obtenidos por los colaboradores.'],
+        oportunidades:['Asume su responsabilidad para el logro de los objetivos.','Alienta a las personas para alcanzar los objetivos.','Conoce las capacidades actuales y potenciales propias y de sus colaboradores.','Retroalimenta de manera privada, constructiva, respetuosa y oportuna el desempeño de su personal a cargo.']},
+      obs:['Posee un nivel de inteligencia emocional aceptable. La mayoría de las veces es capaz de identificar y controlar sus emociones, generando un buen desempeño.','Es capaz de resolver problemas que implican el análisis de problemas lógicos y numéricos.','Su capacidad de razonamiento verbal, lógico y numérico corresponde al término medio de la población.','Es capaz de manejar problemas de mediana complejidad.'],
+      tiers:[
+        {c:'a',n:'Desarrollo continuo',chips:['Seguimiento a sus resultados a través del EDI trimestral','Participación en plenarias regionales','Se promueve la integración de proyectos DCAF']},
+        {c:'b',n:'Mejora de habilidades',chips:['Entrenamiento en habilidades interpersonales','Clima laboral y liderazgo']},
+        {c:'c',n:'Capacitaciones',chips:['LinkedIn Learning','EFA: RP Financiero']},
+        {c:'d',n:'Competencias a mejorar',chips:['Enfoque a resultados','Gestión de otros','Planeación, organización y seguimiento']}],
+      parrilla:{fecha:'01/05/2026',doc:'docs/parrilla-leonides.pdf',rows:[['leonides','joel'],['joel','argelia']]},
+      replicas:[['AITA','RP-GRU-CTR-25-005'],['Reporte de incidencias del estado de valores','RP-GRU-CTR-25-012']]
+    }},
     {id:'jaime', n:'Jaime Díaz Rodríguez', r:'Jefe Centro de Pago y Recaudación'}]},
   {k:'chiapas', n:'Chiapas', people:[
     {id:'ricardo', n:'Ricardo González Escobar', r:'Jefe Equipo de Apoyo'},
