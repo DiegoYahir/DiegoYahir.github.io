@@ -564,7 +564,7 @@ const TIERS=[
  {c:'c',n:'Capacitaciones',to:'capacitaciones',chips:['Coursera 2026','LinkedIn Learning','EFA: RP Financiero','DCIT: Office 365']}];
 const PROY=[
  {n:'Chiapas',c:'#d9a441',items:[['Control Gate','control-gate'],['Semáforo CIA','semaforo-cia']]},
- {n:'Villahermosa',c:'#6fd08a',items:[['Happy Moments','happy-moments'],['Concil.IA','concil-ia'],['Admin Bus360','admin-bus360']]},
+ {n:'Villahermosa',c:'#6fd08a',items:[['Happy Moments','happy-moments'],['Concil.IA','concil-ia'],['Admin Bus360','admin-bus360'],['DIGIREM','digirem']]},
  {n:'Coatzacoalcos',c:'#cdbcf2',items:[['Digital Formats','digital-formats'],['Alerta Gerencial','alerta-gerencial'],['Monitor de pistas en efectivo','monitor-pistas-efectivo']]}];
 const SUCESOR = PLAZAS[0].people[1];
 const SUCESORES = ['lilia','leonides'].map(id=>PLAZAS.flatMap(pl=>pl.people).find(p=>p.id===id));
@@ -664,7 +664,7 @@ function render(){
     <div class="hub">${card(GERENTE,'boss')}<div class="tiles">
       <button class="tile t1" data-go="mapa">Mapa estratégico</button>
       <button class="tile t2" data-go="parrilla">Parrilla de reemplazo<small>Sucesión y plan de desarrollo</small></button>
-      <button class="tile t3" data-go="proyectos">Proyectos regionales<small>8 proyectos en 3 plazas</small></button></div></div></section>`;
+      <button class="tile t3" data-go="proyectos">Proyectos regionales<small>${PROY.reduce((a,p)=>a+p.items.length,0)} proyectos en ${PROY.length} plazas</small></button></div></div></section>`;
   } else if(pf){
     h=perfilPage(pf);
   } else if(eq){
