@@ -202,7 +202,7 @@ main{position:relative;z-index:1}
 .obs h3{background:#3a1560;color:#fff;text-align:center;padding:14px;font-size:17px}
 .obs p{padding:18px 24px;font-size:17px;line-height:1.55}
 .obs p:nth-of-type(even){background:#f0e9fb}
-.rp{display:grid;grid-template-columns:1fr 70px 1fr;gap:18px 0;align-items:center;margin:34px 0 28px}
+.rp{display:grid;grid-template-columns:minmax(0,1fr) 70px minmax(0,2fr);gap:18px 0;align-items:center;margin:34px 0 28px}
 .rh{font-size:13px;font-weight:700;color:var(--mute)}
 .arrow2{height:4px;background:repeating-linear-gradient(90deg,var(--red) 0 8px,transparent 8px 16px)}
 .proj.two{grid-template-columns:repeat(2,1fr)}
@@ -317,6 +317,8 @@ main{position:relative;z-index:1}
 .subs>*:only-child::after{display:none}
 .succs{display:flex;gap:24px;flex-wrap:wrap}
 a.go{text-decoration:none}
+.tos{display:flex;flex-direction:row;flex-wrap:wrap;gap:14px}
+.tos>*{flex:1 1 280px;max-width:380px}
 @media (max-width:820px){.res,.tri{grid-template-columns:1fr}.step{margin-left:calc(var(--i)*22px)}.nextlvl{margin-left:40px}.vs{grid-template-columns:1fr}.vsb{justify-self:center}.ptiles,.foda,.proj.two,.rp{grid-template-columns:1fr}.arrow2{width:4px;height:28px;margin-left:40px;background:repeating-linear-gradient(var(--red) 0 6px,transparent 6px 12px)}.rh:nth-child(2){display:none}}
 @media (max-width:820px){.members{grid-template-columns:1fr;border-left:0;border-top:4px dotted var(--red);padding:24px 0 0}.wire{width:4px;height:36px;background:repeating-linear-gradient(var(--red) 0 6px,transparent 6px 12px);margin-left:60px}}
 @media (max-width:820px){.caps{grid-template-columns:1fr}.tier{border-radius:28px;padding:20px}.tier .name{flex:1 0 100%}}
@@ -503,7 +505,7 @@ const PLAZAS = [
         {c:'b',n:'Mejora de habilidades',chips:['Actividades colaborativas','Clima laboral y liderazgo','Formación continua']},
         {c:'c',n:'Capacitaciones',chips:['Coursera 2026','LinkedIn Learning','EFA: RP Financiero']},
         {c:'d',n:'Competencias a mejorar',chips:['Gestión de otros','Planeación, organización y seguimiento']}],
-      parrilla:{doc:'docs/parrilla-julio.pdf',rows:[['julio','johnny'],['johnny',{id:'lorena',k:'1421520',n:'Lorena Guadalupe Morales Matías',r:'Analista Nómina'}]],
+      parrilla:{doc:'docs/parrilla-julio.pdf',rows:[['julio','johnny'],['johnny','montserrat']],
         extra:[['Tiempo aproximado para ocupar el cargo','2 años'],['Competencias a desarrollar','Trabajo con personal a cargo, liderazgo, análisis de problemas y toma de decisiones']]},
       replicas:[['App incidencias traslado de valores','RP-GRU-CTR-25-010'],['Consulta de viajes pagados',''],['Inmebus','']]
     }},
@@ -520,7 +522,8 @@ const PLAZAS = [
         {t:'LinkedIn Learning 2026',items:['Sharpen Your Logic','Toma de decisiones ejecutivas','Coaching para la mejora continua','Pensamiento crítico y resolución de problemas','Estrategias de toma de decisiones','Cómo tomar decisiones (2014)','Estrategias para tomar decisiones','Técnicas de resolución de problemas','Diez hábitos de los grandes tomadores de decisiones','Desarrolle sus habilidades de pensamiento lógico','Pensamiento crítico','Toma de decisiones en situaciones de gran estrés','Pensamiento crítico para ponderar y decidir mejor','Trucos rápidos de Excel (Office 365/Microsoft 365)','Cómo usar preguntas para fomentar el pensamiento crítico y la curiosidad','Tomar decisiones rápidas','Cómo mejorar tu capacidad de toma de decisiones','Desarrollar una mentalidad de pensamiento crítico','Curiosidad aplicada','Mejorando tu pensamiento']},
         {t:'EFA 2026',sub:'Cursos ERP financiero',items:['Fundamentos Comunes JDE','Estructuras Contables']}],
       trimestres:[['EDI 1er trimestre','img/anna-1er-trimestre.png'],['EDI 2do trimestre','img/anna-2do-trimestre.png']]
-    }}],
+    }},
+      {id:'eber', n:'Eber Daniel López Ochoa', r:''}],
     perfil:{
       tiles:[['foda','FODA','t4'],['obs','Observaciones','t3'],['mapa','Mapa estratégico','t1'],['parrilla','Parrilla de reemplazo','t2']], extra:['proyectos','Proyectos'],
       psico:'Tiene problemas evidentes en sus relaciones interpersonales, pues no soporta los errores de otros, es siempre un opositor y le gusta la disputa y las situaciones antagónicas. Piensa con facilidad que los demás tratan de ofenderlo. Resentido y hostil, frecuentemente proyecta su agresión en los otros. Impone sus puntos de vista, es suspicaz y oposicionista. Es disciplinado y cumplido. Puede ser ordenado y organizado y está acostumbrado a tener sus emociones bajo control. Puede canalizar su energía con efectividad y llevar a cabo con éxito las labores emprendidas.',
@@ -537,7 +540,7 @@ const PLAZAS = [
         {c:'b',n:'Mejora de habilidades',chips:['Entrenamiento en habilidades interpersonales','Clima laboral y liderazgo','Control emocional']},
         {c:'c',n:'Capacitaciones',chips:['Coursera 2026','LinkedIn Learning','EFA: RP Financiero']},
         {c:'d',n:'Competencias a mejorar',chips:['Enfoque a resultados','Gestión de otros, comunicación, trabajo en equipo','Planeación, organización y seguimiento']}],
-      parrilla:{fecha:'30/06/2026',doc:'docs/parrilla-miguel.pdf',rows:[['miguel','anna']]},
+      parrilla:{fecha:'30/06/2026',doc:'docs/parrilla-miguel.pdf',rows:[['miguel','anna'],['miguel','eber']]},
       replicas:[['App incidencias traslado de valores','RP-GRU-CTR-25-010'],['Consulta de viajes pagados',''],['Inmebus','']]
     }}]}
 ];
@@ -610,7 +613,9 @@ function perfilPage({pl,p,sec,boss}){
   } else if(sec==='mapa'){
     b=head('Mapa <em>estratégico</em>')+(pf.pasos?`<div class="steps">${pf.pasos.map((x,i)=>`<button class="step ${x[2]}" style="--i:${i}" data-go="${me}-${x[0]}"><span class="num">${i+1}</span>${x[1]}</button>`).join('')}<div class="nextlvl"><span aria-hidden="true">&#8635;</span>Nivel siguiente: <b>${pf.siguiente}</b></div></div>`:ladder(pf.tiers));
   } else if(sec==='parrilla'){
-    b=head('Parrilla de <em>reemplazo</em>')+`<div class="rp"><div class="rh">Puesto actual</div><div></div><div class="rh">Reemplazo</div>${pf.parrilla.rows.map(r=>`${mem(P(r[0]),false)}<div class="arrow2" aria-hidden="true"></div>${mem(P(r[1]),false)}`).join('')}</div>
+    const G=[]; pf.parrilla.rows.forEach(r=>{ const k=typeof r[0]==='object'?r[0].id:r[0]; let e=G.find(x=>x.k===k); if(!e){ e={k,from:r[0],to:[]}; G.push(e); } e.to.push(r[1]); });
+    const plural=G.some(e=>e.to.length>1);
+    b=head('Parrilla de <em>reemplazo</em>')+`<div class="rp"><div class="rh">Puesto actual</div><div></div><div class="rh">${plural?'Reemplazos':'Reemplazo'}</div>${G.map(e=>`${mem(P(e.from),false)}<div class="arrow2" aria-hidden="true"></div><div class="tos">${e.to.map(t=>mem(P(t),false)).join('')}</div>`).join('')}</div>
     <div class="facts">${[...(pf.parrilla.fecha?[['Última actualización',pf.parrilla.fecha]]:[]),...(pf.parrilla.extra||[])].map(f=>`<div><b>${f[0]}</b>${f[1]}</div>`).join('')}</div>
     <a class="go" href="${pf.parrilla.doc}" target="_blank" rel="noopener">Abrir el formato completo</a>`;
   } else if(sec==='resultados'){
@@ -667,7 +672,7 @@ function render(){
     h=`<section class="view plaza">${backBtn(eq.k,eq.n)}<h2>Equipo de <em>${boss.n.split(' ')[0]}</em></h2>
     <p class="sub">${boss.r}, ${eq.n}. ${cnt(boss.team)} colaboradores a su cargo.</p>
     <div class="branch">${boss.perfil?`<button class="bosslink team" data-go="p-${boss.id}" aria-label="Ver el perfil de ${boss.n}">${card(boss,'big')}<span class="badge">Ver perfil &#10095;</span></button>`:card(boss,'big')}<div class="wire" aria-hidden="true"></div>
-    ${boss.team.some(m=>m.team)?`<div class="tree${boss.team.length===1?' single':''}">${boss.team.map(m=>`<div class="trow">${mem(m)}${m.team?`<div class="wire" aria-hidden="true"></div><div class="subs">${m.team.map(x=>mem(x)).join('')}</div>`:''}</div>`).join('')}</div>`:`<div class="members">${boss.team.map(m=>mem(m)).join('')}</div>`}</div></section>`;
+    ${(boss.team.some(m=>m.team)||boss.team.length<=3)?`<div class="tree${boss.team.length===1?' single':''}">${boss.team.map(m=>`<div class="trow">${mem(m)}${m.team?`<div class="wire" aria-hidden="true"></div><div class="subs">${m.team.map(x=>mem(x)).join('')}</div>`:''}</div>`).join('')}</div>`:`<div class="members">${boss.team.map(m=>mem(m)).join('')}</div>`}</div></section>`;
   } else if(page==='mapa'){
     h=`<section class="view plaza">${backBtn('gerencia','Gerencia')}<h2>Mapa <em>estratégico</em></h2>
     <p class="sub">Se construye de abajo hacia arriba. Toca cada nivel para ver el detalle.</p>
