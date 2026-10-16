@@ -345,6 +345,19 @@ a.go{text-decoration:none}
 .modal.has-gal .nav{display:block;position:absolute;top:50%;transform:translateY(-50%);width:54px;height:54px;border-radius:50%;background:var(--red);color:#fff;font-size:20px;font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,.35)}
 .modal .prev{left:18px}.modal .next{right:18px}
 .modal.has-gal .count{display:block;position:absolute;bottom:18px;left:50%;transform:translateX(-50%);color:#fff;font-weight:700;background:rgba(0,0,0,.4);padding:6px 16px;border-radius:99px}
+
+.cursos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;margin-top:30px;align-items:stretch}
+.curso{display:flex;flex-direction:column;text-align:left;background:#fff;border-radius:18px;padding:10px 10px 18px;box-shadow:0 8px 24px rgba(58,21,96,.18);cursor:zoom-in;transition:transform .2s,box-shadow .2s}
+.curso:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(58,21,96,.28)}
+.cfoto{position:relative;display:block;aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:#eee}
+.cfoto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.cfoto .ph{display:none}
+.cfoto.vacio{background:linear-gradient(135deg,var(--plum),var(--violet));color:#fff}
+.cfoto.vacio .ph{display:grid;position:absolute;inset:0;place-content:center;gap:4px;text-align:center;font-weight:700;font-size:15px;padding:8px}
+.cfoto .ph small{font-size:11px;font-weight:600;opacity:.8;word-break:break-all}
+.ctit{display:block;margin:14px 8px 0;font-family:var(--display);font-weight:700;font-size:14px;line-height:1.35;color:var(--ink)}
+@media (max-width:1100px){.cursos{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.cursos{grid-template-columns:1fr}}
 @media (max-width:820px){.gal{grid-template-columns:repeat(2,1fr)}.modal .nav{width:44px;height:44px}}
 @media (max-width:820px){.res,.tri{grid-template-columns:1fr}.step{margin-left:calc(var(--i)*22px)}.nextlvl{margin-left:40px}.vs{grid-template-columns:1fr}.vsb{justify-self:center}.ptiles,.foda,.proj.two,.rp{grid-template-columns:1fr}.arrow2{width:4px;height:28px;margin-left:40px;background:repeating-linear-gradient(var(--red) 0 6px,transparent 6px 12px)}.rh:nth-child(2){display:none}}
 @media (max-width:820px){.members{grid-template-columns:1fr;border-left:0;border-top:4px dotted var(--red);padding:24px 0 0}.wire{width:4px;height:36px;background:repeating-linear-gradient(var(--red) 0 6px,transparent 6px 12px);margin-left:60px}}
@@ -588,7 +601,7 @@ const shot=(src,l)=>`<div class="shot">${l}<img src="${src}" alt="${l}" onerror=
 const TIERS=[
  {c:'a',n:'Desarrollo continuo',to:'desempeno',chips:['Seguimiento a sus resultados a través del EDI trimestral','Participación en plenarias regionales','Se promueve la integración de proyectos DCAF']},
  {c:'b',n:'Mejora de habilidades',to:'integracion',chips:['Entrenamiento en habilidades interpersonales','Clima laboral y liderazgo','Control emocional']},
- {c:'c',n:'Capacitaciones',to:'capacitaciones',chips:['Coursera 2026','LinkedIn Learning','EFA: RP Financiero','DCIT: Office 365']}];
+ {c:'c',n:'Capacitaciones',to:'capacitaciones',chips:['ICAMI','LinkedIn Learning 2026','Negociación y relaciones laborales exitosas']}];
 const PROY=[
  {n:'Chiapas',c:'#d9a441',items:[['Control Gate','control-gate'],['Semáforo CIA','semaforo-cia']]},
  {n:'Villahermosa',c:'#6fd08a',items:[['Happy Moments','happy-moments'],['Concil.IA','concil-ia'],['Admin Bus360','admin-bus360'],['DIGIREM','digirem']]},
@@ -617,6 +630,15 @@ const BUS_SVG=`<svg viewBox="0 0 520 170" role="img" aria-label="Autobús ADO">
 <circle cx="120" cy="128" r="31" fill="#1a0a2b"/><circle cx="410" cy="128" r="31" fill="#1a0a2b"/>
 <circle cx="120" cy="136" r="24" fill="#2b2b33"/><circle cx="410" cy="136" r="24" fill="#2b2b33"/>
 <circle cx="120" cy="136" r="10" fill="#b9b3c4"/><circle cx="410" cy="136" r="10" fill="#b9b3c4"/></svg>`;
+const CURSOS=[
+ ['ICAMI','icami'],
+ ['LinkedIn Learning','linkedin-learning'],
+ ['Negociación y relaciones laborales exitosas','negociacion-relaciones-laborales'],
+ ['Control Interno EFA-DCAF','control-interno-efa-dcaf'],
+ ['Inspira Líder','inspira-lider'],
+ ['Inteligencia Artificial más allá de la ingeniería','ia-mas-alla-de-la-ingenieria'],
+ ['¿Qué es la IA generativa?','ia-generativa'],
+ ['Descubre Microsoft 365 Copilot','microsoft-365-copilot']];
 const GALERIA=Array.from({length:8},(_,i)=>`img/integracion/${i+1}.jpg`);
 const SECS={foda:'FODA',obs:'Observaciones',mapa:'Mapa estratégico',parrilla:'Parrilla de reemplazo',proyectos:'Proyectos',resultados:'Resultados psicométricos',estrategia:'Estrategia de desarrollo',cursos:'Capacitaciones',trimestres:'Desarrollo continuo'};
 const PERFILES=[];
@@ -719,9 +741,9 @@ function render(){
     <div class="gal" role="list" aria-label="Galería de integración">${GALERIA.map((g,i)=>`<button class="gitem" role="listitem" data-gal="${i}" aria-label="Ampliar foto ${i+1} de ${GALERIA.length}"><img src="${g}" alt="Integración, foto ${i+1}" loading="lazy" onerror="this.parentNode.classList.add('vacio');this.remove()"><span class="ph">Foto ${i+1}<small>${g}</small></span></button>`).join('')}</div>
     <p class="evcap">Toca una foto para ampliarla y usa las flechas para ver las demás.</p></section>`;
   } else if(page==='capacitaciones'){
-    const C=[['LinkedIn Learning','Tronco común, 1 semana','linkedin'],['Cursos ERP financiero','Fundamentos comunes JDE','erp'],['Office 365','Certificado DCIT','office365']];
     h=`<section class="view plaza">${backBtn('mapa','Mapa estratégico')}<h2>Capacitaciones <em>2026</em></h2>
-    <div class="caps">${C.map(c=>`<article class="cap">${shot('img/'+c[2]+'.jpg',c[0])}<h3>${c[0]}</h3><p>${c[1]}</p></article>`).join('')}</div></section>`;
+    <p class="sub">${CURSOS.length} capacitaciones. Toca una para ver su imagen.</p>
+    <div class="cursos">${CURSOS.map(c=>`<button class="curso" data-img="img/capacitaciones/${c[1]}.jpg" data-name="${c[0]}" aria-label="Ampliar la imagen de ${c[0]}"><span class="cfoto"><img src="img/capacitaciones/${c[1]}.jpg" alt="${c[0]}" loading="lazy" onerror="this.parentNode.classList.add('vacio');this.remove()"><span class="ph">Falta la foto<small>img/capacitaciones/${c[1]}.jpg</small></span></span><span class="ctit">${c[0]}</span></button>`).join('')}</div></section>`;
   } else if(page==='parrilla'){
     h=`<section class="view plaza">${backBtn('gerencia','Gerencia')}<h2>Parrilla de <em>reemplazo</em></h2>
     <p class="sub">Quiénes asumirían la gerencia divisional si llega a ser necesario.</p>
