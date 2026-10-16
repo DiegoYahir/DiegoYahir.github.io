@@ -358,6 +358,7 @@ a.go{text-decoration:none}
 .ctit{display:block;margin:14px 8px 0;font-family:var(--display);font-weight:700;font-size:14px;line-height:1.35;color:var(--ink)}
 @media (max-width:1100px){.cursos{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:520px){.cursos{grid-template-columns:1fr}}
+.proj.one{grid-template-columns:minmax(0,520px)}
 @media (max-width:820px){.gal{grid-template-columns:repeat(2,1fr)}.modal .nav{width:44px;height:44px}}
 @media (max-width:820px){.res,.tri{grid-template-columns:1fr}.step{margin-left:calc(var(--i)*22px)}.nextlvl{margin-left:40px}.vs{grid-template-columns:1fr}.vsb{justify-self:center}.ptiles,.foda,.proj.two,.rp{grid-template-columns:1fr}.arrow2{width:4px;height:28px;margin-left:40px;background:repeating-linear-gradient(var(--red) 0 6px,transparent 6px 12px)}.rh:nth-child(2){display:none}}
 @media (max-width:820px){.members{grid-template-columns:1fr;border-left:0;border-top:4px dotted var(--red);padding:24px 0 0}.wire{width:4px;height:36px;background:repeating-linear-gradient(var(--red) 0 6px,transparent 6px 12px);margin-left:60px}}
@@ -459,7 +460,8 @@ const PLAZAS = [
         {c:'c',n:'Capacitaciones',chips:['Coursera 2026','LinkedIn Learning CA. Convencional','EFA: RP Financiero']},
         {c:'d',n:'Competencias a mejorar',chips:['Análisis y toma de decisiones','Gestión de otros']}],
       parrilla:{fecha:'15/03/2026',doc:'docs/parrilla-darwin.pdf',rows:[['darwin','julio-cruz'],['darwin','nicolas'],['julio-cruz','juana']]},
-      replicas:[['Consultas de viajes pagados','RP-GRU-CTR-25-002'],['Digital Driver, el futuro de la capacitación','RP-GRU-CTR-25-002']]
+      replicas:[],
+      proy:['alerta-gerencial']
     }},
     {id:'lilia', n:'Lilia Pinacho Pinacho', r:'Jefe de Centro de Pago y Equipo de Apoyo', team:[
       {id:'luis', k:'1331501', n:'Luis Hernández Velázquez', r:'Analista Administrativo'},
@@ -486,6 +488,7 @@ const PLAZAS = [
         {c:'c',n:'Capacitaciones',chips:['Coursera 2026','LinkedIn Learning','EFA: RP Financiero']},
         {c:'d',n:'Competencias a mejorar',chips:['Enfoque a resultados','Gestión de otros','Planeación, organización y seguimiento']}],
       parrilla:{fecha:'29/03/2026',doc:'docs/parrilla-lilia.pdf',rows:[['lilia','guadalupe'],['guadalupe','kristell']]},
+      proy:['digital-formats','monitor-pistas-efectivo'],
       replicas:[['Consultas de viajes pagados','RP-GRU-CTR-25-002'],['Digital Driver, el futuro de la capacitación','RP-GRU-CTR-25-002']]
     }}]},
   {k:'villahermosa', n:'Villahermosa', people:[
@@ -681,8 +684,10 @@ function perfilPage({pl,p,sec,boss}){
     b=head('Desarrollo <em>continuo</em>','Seguimiento de resultados a través del EDI trimestral')+`<div class="tri">${pf.trimestres.map(t=>`<button class="trib" data-img="${t[1]}" data-name="${t[0]}"><div class="shot">${t[0]}<img src="${t[1]}" alt="${t[0]}" onerror="this.remove()"></div><span>${t[0]}: ampliar &#10095;</span></button>`).join('')}</div>`;
   } else {
     const cp=PROY.find(x=>x.n===pl.n);
-    b=head('Iniciativas <em>regionales</em>',pl.n)+`<div class="proj two"><div class="col"><h3 style="background:#cdbcf2">Proyectos</h3>${cp.items.map(i=>`<button class="item" data-proj="${i[1]}" data-name="${i[0]}"><b>${i[0]}</b><small>Ver carátula &#10095;</small></button>`).join('')}</div>
-    <div class="col"><h3 style="background:#cdbcf2">Réplicas</h3>${pf.replicas.map(r=>`<div class="item"><b>${r[0]}</b><small>${r[1]}</small></div>`).join('')}</div></div>`;
+    const mios=pf.proy?cp.items.filter(i=>pf.proy.includes(i[1])):cp.items, reps=pf.replicas||[];
+    const colP=`<div class="col"><h3 style="background:#cdbcf2">${mios.length===1?'Proyecto':'Proyectos'}</h3>${mios.map(i=>`<button class="item" data-proj="${i[1]}" data-name="${i[0]}"><b>${i[0]}</b><small>Ver carátula &#10095;</small></button>`).join('')}</div>`;
+    const colR=reps.length?`<div class="col"><h3 style="background:#cdbcf2">${reps.length===1?'Réplica':'Réplicas'}</h3>${reps.map(r=>`<div class="item"><b>${r[0]}</b>${r[1]?`<small>${r[1]}</small>`:''}</div>`).join('')}</div>`:'';
+    b=head('Iniciativas <em>regionales</em>',pl.n)+`<div class="proj ${colR?'two':'one'}">${colP}${colR}</div>`;
   }
   return `<section class="view plaza">${b}</section>`;
 }
