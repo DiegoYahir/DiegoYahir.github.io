@@ -315,6 +315,8 @@ main{position:relative;z-index:1}
 .subs>*:first-child::after{top:50%}
 .subs>*:last-child::after{bottom:50%}
 .subs>*:only-child::after{display:none}
+.succs{display:flex;gap:24px;flex-wrap:wrap}
+a.go{text-decoration:none}
 @media (max-width:820px){.res,.tri{grid-template-columns:1fr}.step{margin-left:calc(var(--i)*22px)}.nextlvl{margin-left:40px}.vs{grid-template-columns:1fr}.vsb{justify-self:center}.ptiles,.foda,.proj.two,.rp{grid-template-columns:1fr}.arrow2{width:4px;height:28px;margin-left:40px;background:repeating-linear-gradient(var(--red) 0 6px,transparent 6px 12px)}.rh:nth-child(2){display:none}}
 @media (max-width:820px){.members{grid-template-columns:1fr;border-left:0;border-top:4px dotted var(--red);padding:24px 0 0}.wire{width:4px;height:36px;background:repeating-linear-gradient(var(--red) 0 6px,transparent 6px 12px);margin-left:60px}}
 @media (max-width:820px){.caps{grid-template-columns:1fr}.tier{border-radius:28px;padding:20px}.tier .name{flex:1 0 100%}}
@@ -562,6 +564,7 @@ const PROY=[
  {n:'Villahermosa',c:'#6fd08a',items:[['Happy Moments','happy-moments'],['Concil.IA','concil-ia'],['Admin Bus360','admin-bus360']]},
  {n:'Coatzacoalcos',c:'#cdbcf2',items:[['Digital Formats','digital-formats'],['Alerta Gerencial','alerta-gerencial'],['Monitor de pistas en efectivo','monitor-pistas-efectivo']]}];
 const SUCESOR = PLAZAS[0].people[1];
+const SUCESORES = ['lilia','leonides'].map(id=>PLAZAS.flatMap(pl=>pl.people).find(p=>p.id===id));
 const SHOW_CLAVE = true; /* pon false para ocultar los números de empleado */
 PLAZAS.forEach(pl=>pl.people.forEach(p=>{ if(p.team) SUBS['equipo-'+p.id]='Equipo de '+p.n.split(' ')[0]; }));
 const mem = (m,link=true) => { const a=`<article class="mem"><div class="pic">${ini(m.n)}<img src="img/${m.id}.jpg" alt="Foto de ${m.n}" onerror="this.remove()"></div>
@@ -685,10 +688,10 @@ function render(){
     <div class="caps">${C.map(c=>`<article class="cap">${shot('img/'+c[2]+'.jpg',c[0])}<h3>${c[0]}</h3><p>${c[1]}</p></article>`).join('')}</div></section>`;
   } else if(page==='parrilla'){
     h=`<section class="view plaza">${backBtn('gerencia','Gerencia')}<h2>Parrilla de <em>reemplazo</em></h2>
-    <p class="sub">Quién asume la gerencia divisional si llega a ser necesario.</p>
+    <p class="sub">Quiénes asumirían la gerencia divisional si llega a ser necesario.</p>
     <div class="succ"><div><span class="tag">Puesto actual</span>${card(GERENTE,'big')}</div><div class="arrow"></div>
-    <div><span class="tag">Reemplazo</span>${card(SUCESOR,'big')}</div></div>
-    <div class="facts"><div><b>Plan de desarrollo</b>Anexo 1</div><div><b>Última actualización</b>01-06-2026</div></div>
+    <div><span class="tag">Reemplazos</span><div class="succs">${SUCESORES.map(x=>card(x,'big')).join('')}</div></div></div>
+    <div class="facts"><div><b>Plan de desarrollo</b>Anexo 1</div><div><b>Última actualización</b>06/10/2026</div></div>
     <a class="go" href="docs/parrilla-reemplazo.pdf" target="_blank" rel="noopener">Abrir el formato completo</a></section>`;
   } else if(page==='proyectos'){
     h=`<section class="view plaza">${backBtn('gerencia','Gerencia')}<h2>Proyectos <em>regionales</em></h2>
