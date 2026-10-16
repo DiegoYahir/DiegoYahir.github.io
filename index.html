@@ -319,6 +319,16 @@ main{position:relative;z-index:1}
 a.go{text-decoration:none}
 .tos{display:flex;flex-direction:row;flex-wrap:wrap;gap:14px}
 .tos>*{flex:1 1 280px;max-width:380px}
+
+.doc .evbtn{display:block;width:100%;max-width:1000px;padding:10px;border-radius:18px;background:#fff;box-shadow:0 12px 34px rgba(58,21,96,.22);border:1px solid rgba(122,63,184,.2);cursor:zoom-in;transition:transform .2s}
+.doc .evbtn:hover{transform:translateY(-3px)}
+.evbtn img{display:block;width:100%;height:auto;border-radius:10px}
+.evph{display:none}
+.evbtn.empty{cursor:default;pointer-events:none;background:transparent;box-shadow:none;border:3px dashed rgba(122,63,184,.4);aspect-ratio:16/7;place-items:center;display:grid}
+.evbtn.empty .evph{display:grid;gap:8px;text-align:center;color:var(--mute);font-weight:700;font-size:18px}
+.evph small{font-size:13px;font-weight:600}
+.evcap{font-size:14px;color:var(--mute);font-weight:600;margin-top:-8px}
+.evbtn.empty + .evcap{display:none}
 @media (max-width:820px){.res,.tri{grid-template-columns:1fr}.step{margin-left:calc(var(--i)*22px)}.nextlvl{margin-left:40px}.vs{grid-template-columns:1fr}.vsb{justify-self:center}.ptiles,.foda,.proj.two,.rp{grid-template-columns:1fr}.arrow2{width:4px;height:28px;margin-left:40px;background:repeating-linear-gradient(var(--red) 0 6px,transparent 6px 12px)}.rh:nth-child(2){display:none}}
 @media (max-width:820px){.members{grid-template-columns:1fr;border-left:0;border-top:4px dotted var(--red);padding:24px 0 0}.wire{width:4px;height:36px;background:repeating-linear-gradient(var(--red) 0 6px,transparent 6px 12px);margin-left:60px}}
 @media (max-width:820px){.caps{grid-template-columns:1fr}.tier{border-radius:28px;padding:20px}.tier .name{flex:1 0 100%}}
@@ -680,7 +690,10 @@ function render(){
   } else if(page==='desempeno'){
     h=`<section class="view plaza">${backBtn('mapa','Mapa estratégico')}<h2>Evaluación de <em>desempeño</em></h2>
     <p class="sub">1er semestre 2026</p>
-    <div class="doc">${shot('img/evaluacion-desempeno.png','Evaluación de desempeño')}
+    <div class="doc"><button class="evbtn" data-img="img/evaluacion-desempeno.png" data-name="Calificación de su jefe" aria-label="Ampliar la captura de la calificación de su jefe">
+      <img src="img/evaluacion-desempeno.png" alt="Captura donde su jefe lo califica" onerror="this.parentNode.classList.add('empty');this.remove()">
+      <span class="evph">Aquí va la captura donde su jefe lo calificó<small>Guárdala como img/evaluacion-desempeno.png</small></span></button>
+    <p class="evcap">Calificación de su jefe. Toca la imagen para ampliarla.</p>
     <a class="go" href="docs/evaluacion-desempeno.pdf" target="_blank" rel="noopener">Abrir la evaluación completa</a></div></section>`;
   } else if(page==='integracion'){
     h=`<section class="view plaza">${backBtn('mapa','Mapa estratégico')}<h2>Mejora de <em>habilidades</em></h2>
