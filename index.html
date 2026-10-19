@@ -468,8 +468,34 @@ const PLAZAS = [
       {id:'guadalupe', k:'1060347', n:'Guadalupe Cruz Cabrera', r:'Analista de Ingresos', team:[
         {id:'isis', k:'1334078', n:'Isis Mariana Gómez Crisanto', r:'Auxiliar Administrativo'},
         {id:'zayda', k:'1417275', n:'Zayda Natalia Sánchez Maya', r:'Auxiliar Administrativo'},
-        {id:'kristell', k:'1349426', n:'Kristell Yamileth Gómez Fuentes', r:'Sup. de Ingresos Regional'},
-        {id:'andres', k:'1426841', n:'Andrés Armando Ortiz Revilla', r:'Auxiliar Administrativo'}]},
+        {id:'kristell', k:'1349426', n:'Kristell Yamileth Gómez Fuentes', r:'Sup. de Ingresos Regional',
+          perfil:{
+      psico:'Procura apegarse a las normas y estándares establecidos y basa en ellos sus decisiones. Tiende a ser cuidadosa y conservadora. Muestra disposición a adaptarse para lograr resultados precisos.',
+      tiles:[['resultados','Resultados psicométricos','t2'],['mapa','Mapa estratégico','t2']],
+      comp:[['Análisis y toma de decisiones','Crítica',3,3],['Comunicación','Crítica',3,3],['Enfoque a resultados','Importante',3,3],['Enfoque a la calidad','Importante',2,3],['Planeación, organización y seguimiento','Importante',3,3],['Trabajo en equipo','Crítica',3,4]],
+      pasos:[['estrategia','Competencias a mejorar','s1'],['cursos','Capacitaciones','s2'],['trimestres','Desarrollo continuo','s3']],
+      siguiente:'Analista',
+      estrategia:{filas:[['Acción PR 1','Escuchar el podcast “Trabajar juntos sin tener que estar de acuerdo”.','Charlar sobre lo aprendido.','30/12/2026'],['Acción PR 2','Ver la película “Jefa por accidente”, la puedes encontrar en YouTube.','Analiza y comparte lo aprendido.','30/12/2026']],programa:{nombre:['Gestión de otros'],cursos:['Curso de Control Interno','Integración','Evaluación de Desempeño'],periodo:'2do. semestre 2026'}},
+      cursos:[
+        {t:'Coursera 2026',items:['Gestión de organizaciones efectivas','Fundamentos de Excel para Negocios','¿Cómo persuadir? Jugando con palabras, imágenes y números']},
+        {t:'LinkedIn Learning 2026',items:['Sharpen Your Logic','Toma de decisiones ejecutivas','Coaching para la mejora continua','Pensamiento crítico y resolución de problemas','Estrategias de toma de decisiones','Cómo tomar decisiones (2014)','Estrategias para tomar decisiones','Técnicas de resolución de problemas','Diez hábitos de los grandes tomadores de decisiones','Desarrolle sus habilidades de pensamiento lógico','Pensamiento crítico','Toma de decisiones en situaciones de gran estrés','Pensamiento crítico para ponderar y decidir mejor','Trucos rápidos de Excel (Office 365/Microsoft 365)','Cómo usar preguntas para fomentar el pensamiento crítico y la curiosidad','Tomar decisiones rápidas','Cómo mejorar tu capacidad de toma de decisiones','Desarrollar una mentalidad de pensamiento crítico','Curiosidad aplicada','Mejorando tu pensamiento']},
+        {t:'EFA 2026',sub:'Cursos ERP financiero',items:['Fundamentos Comunes JDE','Estructuras Contables']}],
+      trimestres:[['EDI 1er trimestre','img/kristell-1er-trimestre.png'],['EDI 2do trimestre','img/kristell-2do-trimestre.png']]
+    }},
+        {id:'andres', k:'1426841', n:'Andrés Armando Ortiz Revilla', r:'Auxiliar Administrativo'}],
+      perfil:{
+      psico:'Tiende al trabajo reflexivo, que requiere mucha concentración y visión especializada. Es ordenada y disciplinada. Cuida los detalles y evita errores que disminuyan la calidad de sus resultados.',
+      tiles:[['resultados','Resultados psicométricos','t2'],['mapa','Mapa estratégico','t2']],
+      comp:[['Análisis y toma de decisiones','Crítica',3,2],['Comunicación','Crítica',3,2],['Enfoque a resultados','Importante',3,1],['Enfoque a la calidad','Importante',2,3],['Planeación, organización y seguimiento','Importante',3,3],['Trabajo en equipo','Crítica',3,3]],
+      pasos:[['estrategia','Competencias a mejorar','s1'],['cursos','Capacitaciones','s2'],['trimestres','Desarrollo continuo','s3']],
+      siguiente:'Jefatura',
+      estrategia:{filas:[['Acción PR 1','Escuchar el podcast “Hoy puede ser un gran día” de Juan Manuel Martín Menéndez.','Plática lo aprendido con tu jefe inmediato.','30/12/2026'],['Acción PR 2','Ver la película “Hambre de poder” (The Founder).','Analiza y comparte lo aprendido.','30/12/2026']],programa:{nombre:['Enfoque a resultados','Análisis y toma de decisiones','Comunicación'],cursos:['Linkedin Learning','Linkedin Learning / Control Interno','Curso de Asertividad','Evaluación de Desempeño'],periodo:'2do. semestre 2026'}},
+      cursos:[
+        {t:'Coursera 2026',items:['Gestión de organizaciones efectivas','Escalamiento exitoso e innovación en los negocios','Diseño de experiencia en servicios','¿Cómo persuadir? Jugando con palabras, imágenes y números','Gestionar de forma responsable']},
+        {t:'LinkedIn Learning 2026',items:['Cómo usar preguntas para fomentar el pensamiento crítico y la curiosidad','¿Qué es Scrum?','Cómo mejorar tu capacidad de toma de decisiones','Curiosidad aplicada','Coaching para la mejora continua','Tomar decisiones rápidas','Consejos y trucos para proyectos complejos','Toma de decisiones en situaciones de gran estrés','Pensamiento crítico','Diez hábitos de los grandes tomadores de decisiones','Técnicas de resolución de problemas','Toma de decisiones ejecutivas','Cómo tomar decisiones (2014)','Pensamiento crítico para ponderar y decidir mejor','Estrategias para tomar decisiones','Agudiza tu lógica']},
+        {t:'EFA 2026',sub:'Cursos ERP financiero',items:['Fundamentos Comunes JDE','Estructuras Contables']}],
+      trimestres:[['1er trimestre','img/guadalupe-1er-trimestre.png'],['2do trimestre','img/guadalupe-2do-trimestre.png']]
+    }},
       {id:'veronica', k:'1195826', n:'Verónica Gómez Morales', r:'Analista Administrativo'}],
     perfil:{
       tiles:[['foda','FODA','t4'],['obs','Observaciones','t3'],['mapa','Mapa estratégico','t1'],['parrilla','Parrilla de reemplazo','t2']], extra:['proyectos','Proyectos'],
@@ -496,9 +522,35 @@ const PLAZAS = [
       {id:'carla', k:'1234410', n:'Carla María Hernández', r:'Analista de Nómina'},
       {id:'joel', k:'1279715', n:'Joel Hernández Morales', r:'Analista de CXC', team:[
         {id:'gabriela', k:'1311678', n:'Gabriela Ovando Sánchez', r:'Auxiliar Administrativo'},
-        {id:'argelia', k:'1304989', n:'Argelia Pérez Arias', r:'Auxiliar Administrativo'},
+        {id:'argelia', k:'1304989', n:'Argelia Pérez Arias', r:'Auxiliar Administrativo',
+          perfil:{
+      psico:'Se caracteriza por tomar un papel pasivo dentro del grupo en el que se encuentre. Por lo general tiende a escuchar más que hablar. Presenta poca confianza en sí misma y, por lo mismo, permite que otras personas tomen las decisiones. Puede sobredepender de las opiniones y consejos de los demás. Estricta seguidora del orden y los sistemas, muy cuidadosa del cumplimiento de los detalles, trabaja con alta precisión para asegurar que los estándares fijados se cumplan sin error.',
+      tiles:[['resultados','Resultados psicométricos','t2'],['mapa','Mapa estratégico','t2']],
+      comp:[['Enfoque a resultados','Importante',3,2],['Enfoque a la calidad','Importante',2,2],['Planeación, organización y seguimiento','Importante',3,1],['Trabajo en equipo','Crítica',2,2]],
+      pasos:[['estrategia','Competencias a mejorar','s1'],['cursos','Capacitaciones','s2'],['trimestres','Desarrollo continuo','s3']],
+      siguiente:'Analista',
+      estrategia:{filas:[['Acción PR 1','Leer el libro Los siete hábitos de la gente altamente efectiva, escrito por Stephen Covey.','Elaborar un análisis sobre lo aprendido y cómo lo aplica en su área de trabajo.','30/12/2026'],['Acción PR 2','Ver la película Moneyball: rompiendo las reglas.','Analiza y comparte lo aprendido.','30/12/2026']],programa:{nombre:['Enfoque a resultados','Planeación, organización y seguimiento'],cursos:['Linkedin Learning','Curso de Control Interno'],periodo:'2do. semestre 2026'}},
+      cursos:[
+        {t:'Coursera 2026',items:['Gestión de organizaciones efectivas','Orden y manejo del tiempo','Diseño de experiencias en servicio']},
+        {t:'LinkedIn Learning 2026',items:['Making Quick Decisions','Gestión de proyectos simplificada (2017)','Toma de decisiones ejecutivas','Decision-Making Strategies','Ten Habits of Great Decision Makers','Sharpen Your Logic','Coaching for Continuous Improvement','Curiosidad aplicada','Cómo mejorar tu capacidad de toma de decisiones','Fundamentos de la gestión de proyectos: Proyectos pequeños','Build Your Logical Thinking Skills','Cómo usar preguntas para fomentar el pensamiento crítico y la curiosidad','Critical Thinking and Problem Solving','Técnicas de resolución de problemas','Toma de decisiones en situaciones de gran estrés']},
+        {t:'EFA 2026',sub:'Cursos ERP financiero',items:['Fundamentos Comunes JDE','Estructuras Contables']}],
+      trimestres:[['1er trimestre','img/argelia-1er-trimestre.png'],['2do trimestre','img/argelia-2do-trimestre.png']]
+    },},
         {id:'guadalupe-valencia', k:'1340780', n:'Guadalupe Valencia Hernández', r:'Auxiliar Administrativo'},
-        {id:'juana-ovando', k:'1345856', n:'Juana Ovando Contreras', r:'Auxiliar Administrativo'}]},
+        {id:'juana-ovando', k:'1345856', n:'Juana Ovando Contreras', r:'Auxiliar Administrativo'}],
+      perfil:{
+      psico:'Se orienta al trabajo específico y concreto. Es capaz de seguir procesos y fórmulas que lo llevan a obtener resultados precisos en áreas de trabajo donde está involucrada la gente. Le interesa buscar la verdad y el conocimiento. Es curioso por naturaleza. Desea aprender, actualizarse en los conocimientos y desarrollarse en su área de competencia. Es un intelectual que lleva sus proyectos al plano científico, a la investigación y al estudio profundo de los problemas.',
+      tiles:[['resultados','Resultados psicométricos','t2'],['mapa','Mapa estratégico','t2']],
+      comp:[['Orientación al cliente','Crítica',3,2],['Comunicación','Crítica',2,2],['Enfoque a resultados','Importante',3,3],['Enfoque a la calidad','Importante',3,3],['Planeación, organización y seguimiento','Importante',3,2],['Trabajo en equipo','Crítica',3,2]],
+      pasos:[['estrategia','Competencias a mejorar','s1'],['cursos','Capacitaciones','s2'],['trimestres','Desarrollo continuo','s3']],
+      siguiente:'Jefatura',
+      estrategia:{filas:[['Acción PR 1','Leer el libro Los siete hábitos de la gente altamente efectiva, escrito por Stephen Covey.','Elaborar un análisis sobre lo aprendido y cómo lo aplica en su área de trabajo.','30/12/2026'],['Acción PR 2','Ver la película Moneyball: rompiendo las reglas.','Analiza y comparte lo aprendido.','30/12/2026']],programa:{nombre:['Orientación al cliente','Planeación, organización y seguimiento','Trabajo en equipo'],cursos:['Linkedin Learning','Curso de Control Interno','Actividad de integración'],periodo:'2do. semestre 2026'}},
+      cursos:[
+        {t:'Coursera 2026',items:['Gestión de organizaciones efectivas','Diseño de experiencia en servicios','Habilidades de Excel para el negocio: conceptos básicos']},
+        {t:'LinkedIn Learning 2026',items:['Mentor de programación: Paciencia','Estrategias para tomar decisiones','Cómo tomar decisiones (2014)','Cómo mejorar tu capacidad de toma de decisiones']},
+        {t:'EFA 2026',sub:'Cursos ERP financiero',items:['Fundamentos Comunes JDE','Estructuras Contables']}],
+      trimestres:[['1er trimestre','img/joel-1er-trimestre.png'],['2do trimestre','img/joel-2do-trimestre.png']]
+    }},
       {id:'cristian', k:'1278601', n:'Cristian Alejandro Hernández Díaz', r:'Analista Contable C', team:[
         {id:'azucena', k:'1409595', n:'Azucena del Carmen Silva Ramos', r:'Auxiliar Contable de Egreso'}]}],
     perfil:{
@@ -551,8 +603,41 @@ const PLAZAS = [
       {id:'obdulia-ramirez', n:'Obdulia Ramírez Gordillo', r:'Analista Contable "C"', team:[
         {id:'francisco-cervantes', n:'Francisco Rafael Cervantes del Valle', r:'Auxiliar Administrativo (5ta Norte)'},
         {id:'barbara-velasco', n:'Bárbara Yornely Velasco Sandoval', r:'Auxiliar Administrativo (Comitán)'},
-        {id:'maria-vazquez', n:'María Leticia Vázquez', r:'Auxiliar Administrativo (Central Camionera y 4ta Poniente)'}]}
-    ]},
+        {id:'maria-vazquez', n:'María Leticia Vázquez', r:'Auxiliar Administrativo (Central Camionera y 4ta Poniente)'}],
+      perfil:{
+      psico:'Estricta seguidora del orden y los sistemas, muy cuidadosa del cumplimiento de los detalles, trabaja con alta precisión para asegurar que los estándares fijados se cumplan sin error. Es conservadora en su toma de decisiones y muy fría en sus relaciones con la gente, siempre actúa de acuerdo a principios y objetivos organizacionales. Respeta órdenes de la autoridad y sigue con precisión los manuales de operación. Le gusta dominar y controlar a los demás, prefiere situaciones en donde tenga mando y poder, puede ser competitiva y tener dificultad para aceptar la autoridad.',
+      tiles:[['resultados','Resultados psicométricos','t2'],['mapa','Mapa estratégico','t2']],
+      comp:[['Análisis y toma de decisiones','Crítica',3,3],['Comunicación','Importante',3,2],['Enfoque a resultados','Importante',4,2],['Gestión de otros','Crítica',4,1],['Planeación, organización y seguimiento','Importante',3,2],['Trabajo en equipo','Crítica',3,3]],
+      pasos:[['estrategia','Competencias a mejorar','s1'],['cursos','Capacitaciones','s2'],['trimestres','Desarrollo continuo','s3']],
+      siguiente:'Jefatura',
+      estrategia:{filas:[['Acción PR 1','Se recomienda ver la película “Hambre de poder” (The Founder).','Análisis: qué puedo aplicar en mi vida profesional y personal.','30/12/2026'],['Acción PR 2','Al no tener personal a cargo deberá enfocarse en proyectos donde sea la líder y pueda mejorar, ya que con la experiencia que tiene puede ser un gran mentor.','Analiza y comparte lo aprendido.','30/12/2026']],programa:{nombre:['Enfoque a resultados','Gestión de otros','Comunicación','Planeación, organización y seguimiento'],cursos:['Linkedin Learning','Curso de Control Interno','Curso de Asertividad','Evaluación de Desempeño'],periodo:'2do. semestre 2026'}},
+      cursos:[
+        {t:'Coursera 2026',items:['Gestión de organizaciones efectivas','Escalamiento exitoso e innovación en los negocios','Diseño de experiencia en servicios','¿Cómo persuadir? Jugando con palabras, imágenes y números','Gestionar de forma responsable']},
+        {t:'LinkedIn Learning 2026',items:['Curiosidad aplicada','Cómo usar preguntas para fomentar el pensamiento crítico y la curiosidad','Aprende a hablar con una inteligencia artificial generativa','Nano Tips para ser más productivo y potenciar tu progreso','Técnicas avanzadas de resolución de conflictos','Critical Thinking and Problem Solving','Piense como un abogado para tomar decisiones y resolver problemas','Cómo trabajar con gente difícil','Mejorando tu pensamiento','Desarrollar una mentalidad de pensamiento crítico','Cómo resolver tus conflictos internos con efectividad','Tomar decisiones rápidas','Del conflicto al coraje: una guía para líderes','Coaching para la mejora continua','Resolución de conflictos para principiantes','Gestión de conflictos en un entorno de trabajo remoto','Fred Kofman sobre la gestión de conflictos','Scrum esencial','Embracing Conflict as a Gift','Nano Tips on How to Use Storytelling for Problem Solving with Ash Rathod','Improving Your Conflict Competence']},
+        {t:'EFA 2026',sub:'Cursos ERP financiero',items:['Fundamentos Comunes JDE','Estructuras Contables']}],
+      trimestres:[['EDI 1er trimestre','img/obdulia-1er-trimestre.png'],['EDI 2do trimestre','img/obdulia-2do-trimestre.png']]
+    }}
+    ],
+    perfil:{
+      tiles:[['foda','FODA','t4'],['obs','Observaciones','t3'],['mapa','Mapa estratégico','t1'],['parrilla','Parrilla de reemplazo','t2']], extra:['proyectos','Proyectos'],
+      psico:'Es diplomático y socialmente hábil, dice lo que le conviene y entiende los motivos de los demás. Puede manipular a otros para obtener lo que quiere. Conservador y respetuoso de las ideas establecidas, se muestra leal y estable, alineándose con la cultura de la empresa y siguiendo políticas definidas. Disfruta trabajar en equipo y colabora bien, mostrando necesidad de pertenencia y siguiendo las normas del grupo. Tiene dificultad para emitir juicios personales, ya que es influenciable por las opiniones ajenas. Es disciplinado, cumplido, ordenado y organizado, y controla bien sus emociones.',
+      foda:{
+        debilidades:{items:['Tiene dificultad para emitir juicios personales, pues es influenciable por las opiniones de otros.','Planea su trabajo de manera inconsistente. Cuando ejecuta su trabajo olvida la planeación realizada.','Organiza su trabajo de manera confusa. Busca organizar su trabajo, aunque le resulta complicado determinar prioridades.','Es inconsistente en el seguimiento de su trabajo.','Conoce la ejecución de los proyectos, aunque suele ignorar datos importantes.'],
+          acciones:['Se toman cursos para trabajar sobre las áreas de oportunidad.','Se emplean herramientas de medición de desempeño cuantificar resultados y apoyar con la planeación.','Se emplean métodos de planeación para adelantarse a la problemática.']},
+        amenazas:{items:['Busca organizar su trabajo, aunque le resulta complicado determinar prioridades.','Actividades que requieren seguimiento constante.','Es inconsistente en el seguimiento de su trabajo.','Acumulación de actividades no delegables.'],
+          acciones:['Reconociendo las amenazas se implementan diferentes acciones de mejora para mejorar el desempeño.','Se trabaja en automatizar procesos para agilizar el cumplimiento de actividades.','Soporte con herramientas digitales de seguimiento de actividades.']},
+        fortalezas:['Soluciona los problemas que se le presentan con base en un análisis.','Participa como parte de la solución y no del problema.','Muestra control y velocidad para responder ante situaciones de presión.','Tolera la presión ante la presencia de situaciones adversas.','Reconoce y agradece oportunamente y de manera imparcial los logros obtenidos por los colaboradores.'],
+        oportunidades:['Asume su responsabilidad para el logro de los objetivos.','Alienta a las personas para alcanzar los objetivos.','Conoce las capacidades actuales y potenciales propias y de sus colaboradores.','Retroalimenta de manera privada, constructiva, respetuosa y oportuna el desempeño de su personal a cargo.']},
+      obs:['Asume su responsabilidad para el logro de los objetivos. Soluciona los problemas que se le presentan con base en un análisis. Participa como parte de la solución y no del problema.','Reconoce y agradece oportunamente y de manera imparcial los logros obtenidos por los colaboradores. Alienta a las personas para alcanzar los objetivos.','Planea su trabajo de manera inconsistente. Cuando ejecuta su trabajo olvida la planeación realizada. Organiza su trabajo de manera confusa.','Busca organizar su trabajo, aunque le resulte complicado determinar prioridades. Es inconsistente en el seguimiento de su trabajo.'],
+      tiers:[
+        {c:'a',n:'Desarrollo continuo',chips:['Seguimiento a sus resultados a través del EDI trimestral','Participación en plenarias regionales','Se promueve la integración de proyectos DCAF']},
+        {c:'b',n:'Mejora de habilidades',chips:['Expresión emocional','Relaciones interpersonales','Asertividad']},
+        {c:'c',n:'Capacitaciones',chips:['Coursera 2026','LinkedIn Learning','EFA: RP Financiero']},
+        {c:'d',n:'Competencias a mejorar',chips:['Enfoque a resultados','Gestión de otros','Planeación, organización y seguimiento']}],
+      parrilla:{fecha:'16/05/2026',doc:'docs/parrilla-ricardo.pdf',rows:[['ricardo','obdulia-ramirez']]},
+      proy:['control-gate'],
+      replicas:[['MecaFix','']]
+    }},
     {id:'julio', n:'Julio César Hernández Gómez', r:'Jefe Centro de Pago', team:[
       {id:'johnny', k:'1326986', n:'Johnny Alonso de Paz Vázquez', r:'Analista Administrativo', team:[
         {id:'jazmin', k:'1436608', n:'Jazmín Elizabeth Montoya Maza', r:'Cajero "C"'},
@@ -561,7 +646,20 @@ const PLAZAS = [
         {id:'montserrat', k:'1423492', n:'Montserrat Borges López', r:'Cajero "C"'},
         {id:'brenda', k:'1414876', n:'Brenda Janeth Ramos Gómez', r:'Cajero "C"'},
         {id:'maria-carmen', k:'1416422', n:'María del Carmen Hernández Carrasco', r:'Cajero "C"'},
-        {id:'carlos', k:'1438602', n:'Carlos Alejandro Gómez González', r:'Cajero "C"'}]}],
+        {id:'carlos', k:'1438602', n:'Carlos Alejandro Gómez González', r:'Cajero "C"'}],
+      perfil:{
+      psico:'Posee un carácter emprendedor, activo y dinámico. Le gusta tomar riesgos en ocasiones sin medir las consecuencias, le atraen los retos, es rápido para tomar decisiones y es capaz de tolerar situaciones de presión. Puede ser considerado como una persona práctica y objetiva en su forma de actuar. Consciente y preocupado por sus obligaciones, no divaga ni fantasea.',
+      tiles:[['resultados','Resultados psicométricos','t2'],['mapa','Mapa estratégico','t2']],
+      comp:[['Análisis y toma de decisiones','Crítica',3,3],['Comunicación','Crítica',3,3],['Enfoque a resultados','Importante',4,2],['Planeación, organización y seguimiento','Importante',3,3],['Gestión de otros','Crítica',4,3],['Trabajo en equipo','Crítica',3,3]],
+      pasos:[['estrategia','Competencias a mejorar','s1'],['cursos','Capacitaciones','s2'],['trimestres','Desarrollo continuo','s3']],
+      siguiente:'Jefatura',
+      estrategia:{filas:[['Acción PR 1','Se recomienda ver la película “Hambre de poder” (The Founder).','Análisis: qué puedo aplicar en mi vida profesional y personal.','30/12/2026'],['Acción PR 2','Lidere una reunión de trabajo donde genere acuerdos y compromisos.','Analiza y comparte lo aprendido.','30/12/2026']],programa:{nombre:['Planeación, organización y seguimiento','Gestión de otros'],cursos:['Linkedin Learning','Curso de Control Interno','Curso de Asertividad'],periodo:'2do. semestre 2026'}},
+      cursos:[
+        {t:'Coursera 2026',items:['Gestión de organizaciones efectivas','Escalamiento exitoso e innovación en los negocios','Diseño de experiencia en servicios','¿Cómo persuadir? Jugando con palabras, imágenes y números','Gestionar de forma responsable']},
+        {t:'LinkedIn Learning 2026',items:['Técnicas de resolución de problemas','Cómo mejorar tu capacidad de toma de decisiones','Diez hábitos de los grandes tomadores de decisiones','Desarrolle sus habilidades de pensamiento lógico','Pensamiento crítico','Toma de decisiones en situaciones de gran estrés','Pensamiento crítico para ponderar y decidir mejor','Mejorando tu pensamiento','Cómo usar preguntas para fomentar el pensamiento crítico y la curiosidad','Agudiza tu lógica','Toma de decisiones ejecutivas','Decision-Making Strategies','Estrategias para tomar decisiones','Cómo tomar decisiones (2014)','Curiosidad aplicada','Desarrollar una mentalidad de pensamiento crítico','Tomar decisiones rápidas','Coaching para la mejora continua']},
+        {t:'EFA 2026',sub:'Cursos ERP financiero',items:['Fundamentos Comunes JDE','Estructuras Contables']}],
+      trimestres:[['1er trimestre','img/johnny-1er-trimestre.png'],['2do trimestre','img/johnny-2do-trimestre.png']]
+    }}],
     perfil:{
       tiles:[['foda','FODA','t4'],['obs','Observaciones','t3'],['mapa','Mapa estratégico','t1'],['parrilla','Parrilla de reemplazo','t2']], extra:['proyectos','Proyectos'],
       psico:'Es conservador y respetuoso de las ideas establecidas. Puede mostrarse como una persona leal y estable e identificarse con la cultura de la empresa, así como seguir políticas y procedimientos claramente definidos. Le gusta trabajar en equipo y tiene sentido de colaboración. Muestra necesidad de pertenencia y es fiel seguidor de las normas del grupo. Tiene dificultad para emitir juicios personales, pues es influenciable por las opiniones de otros. Es disciplinado y cumplido. Puede ser ordenado y organizado y está acostumbrado a tener sus emociones bajo control. Puede canalizar su energía con efectividad y llevar a cabo con éxito las labores emprendidas. Es enérgico en la realización de su trabajo, por lo que es productivo y eficiente.',
@@ -596,7 +694,19 @@ const PLAZAS = [
         {t:'EFA 2026',sub:'Cursos ERP financiero',items:['Fundamentos Comunes JDE','Estructuras Contables']}],
       trimestres:[['EDI 1er trimestre','img/anna-1er-trimestre.png'],['EDI 2do trimestre','img/anna-2do-trimestre.png']]
     }},
-      {id:'eber', n:'Eber Daniel López Ochoa', r:''}],
+      {id:'eber', n:'Eber Daniel López Ochoa', r:'Analista Administrativo',
+          perfil:{
+      psico:'Está orientada a planear su trabajo día con día. Se desempeña mejor en procesos de trabajo estructurados y que no presentan cambios frecuentes. Realiza pocas actividades de manera simultánea. Dispuesto a ayudar y seguir las instrucciones de sus superiores. Rechaza los cambios, especialmente cuando son inesperados, por lo que desea tiempo para adaptarse.',
+      tiles:[['resultados','Resultados psicométricos','t2'],['mapa','Mapa estratégico','t2']],
+      comp:[['Orientación al cliente','Crítica',3,1],['Comunicación','Importante',2,1],['Enfoque a resultados','Importante',3,1],['Enfoque a la calidad','Importante',3,2],['Planeación, organización y seguimiento','Importante',3,2],['Trabajo en equipo','Crítica',3,1]],
+      pasos:[['estrategia','Competencias a mejorar','s1'],['cursos','Capacitaciones','s2'],['trimestres','Desarrollo continuo','s3']],
+      siguiente:'Analista',
+      estrategia:{filas:[['Acción PR 1','Se recomienda ver la película “Hambre de poder” (The Founder).','Elaborar un análisis sobre lo aprendido y cómo lo aplica en su área de trabajo.','30/12/2026'],['Acción PR 2','Leer el libro Los siete hábitos de la gente altamente efectiva, escrito por Stephen Covey.','Analiza y comparte lo aprendido.','30/12/2026']],programa:{nombre:['Enfoque a resultados','Gestión de otros','Toma de decisiones','Comunicación'],cursos:['Linkedin Learning','Curso de Control Interno','Curso de Asertividad'],periodo:'2do. semestre 2026'}},
+      cursos:[
+        {t:'LinkedIn Learning 2026',items:['Cómo tomar decisiones (2014)','Critical Thinking and Problem Solving','Pensamiento crítico','Developing a Critical Thinking Mindset','Técnicas de resolución de problemas','Ten Habits of Great Decision Makers','Pensamiento crítico para ponderar y decidir mejor','Toma de decisiones en situaciones de gran estrés','Making Quick Decisions','Sharpen Your Logic']},
+        {t:'EFA 2026',sub:'Cursos ERP financiero',items:['Fundamentos Comunes JDE','Estructuras Contables']}],
+      trimestres:[['1er trimestre','img/eber-1er-trimestre.png'],['2do trimestre','img/eber-2do-trimestre.png']]
+    }}],
     perfil:{
       tiles:[['foda','FODA','t4'],['obs','Observaciones','t3'],['mapa','Mapa estratégico','t1'],['parrilla','Parrilla de reemplazo','t2']], extra:['proyectos','Proyectos'],
       psico:'Tiene problemas evidentes en sus relaciones interpersonales, pues no soporta los errores de otros, es siempre un opositor y le gusta la disputa y las situaciones antagónicas. Piensa con facilidad que los demás tratan de ofenderlo. Resentido y hostil, frecuentemente proyecta su agresión en los otros. Impone sus puntos de vista, es suspicaz y oposicionista. Es disciplinado y cumplido. Puede ser ordenado y organizado y está acostumbrado a tener sus emociones bajo control. Puede canalizar su energía con efectividad y llevar a cabo con éxito las labores emprendidas.',
@@ -675,7 +785,8 @@ const CURSOS=[
 const GALERIA=Array.from({length:8},(_,i)=>`img/integracion/${i+1}.jpg`);
 const SECS={foda:'FODA',obs:'Observaciones',mapa:'Mapa estratégico',parrilla:'Parrilla de reemplazo',proyectos:'Proyectos',resultados:'Resultados psicométricos',estrategia:'Estrategia de desarrollo',cursos:'Capacitaciones',trimestres:'Desarrollo continuo'};
 const PERFILES=[];
-PLAZAS.forEach(pl=>pl.people.forEach(b=>[b,...(b.team||[])].forEach(p=>{ if(p.perfil){ PERFILES.push({pl,p,boss:p===b?null:b}); SUBS['p-'+p.id]='Perfil de '+p.n.split(' ')[0]; Object.keys(SECS).forEach(k=>{SUBS['p-'+p.id+'-'+k]=SECS[k];}); } })));
+const flatAll=t=>[t,...(t.team||[]).flatMap(flatAll)];
+PLAZAS.forEach(pl=>pl.people.forEach(b=>flatAll(b).forEach(p=>{ if(p.perfil){ PERFILES.push({pl,p,boss:p===b?null:b}); SUBS['p-'+p.id]='Perfil de '+p.n.split(' ')[0]; Object.keys(SECS).forEach(k=>{SUBS['p-'+p.id+'-'+k]=SECS[k];}); } })));
 const findPerfil=sub=>{ for(const {pl,p,boss} of PERFILES){ if(sub==='p-'+p.id) return {pl,p,boss,sec:''}; for(const k in SECS) if(sub==='p-'+p.id+'-'+k) return {pl,p,boss,sec:k}; } return null; };
 const ladder=T=>`<div class="ladder">${T.map((t,i)=>`${i?'<div class="rise" aria-hidden="true"></div>':''}<div class="tier ${t.c}">${t.to?`<button class="name" data-go="${t.to}">${t.n}<small>Ver detalle &#10095;</small></button>`:`<span class="name">${t.n}</span>`}<div class="chips">${t.chips.map(c=>`<span class="chip">${c}</span>`).join('')}</div></div>`).join('')}</div>`;
 function perfilPage({pl,p,sec,boss}){
