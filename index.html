@@ -583,7 +583,7 @@ const PLAZAS = [
       compGraf:[['Enfoque a resultados',4,3],['Planeación, organización y seguimiento',3,3],['Análisis y toma de decisiones',3,3],['Gestión de otros',4,3],['Trabajo en equipo',3,3],['Comunicación',3,3]],
       parrilla:{fecha:'01/05/2026',doc:'docs/parrilla-leonides.pdf',rows:[['leonides','joel'],['joel','argelia']]},
       proy:['admin-bus360','digirem'],
-      replicas:[]
+      replicas:[['Transformación digital de la venta manual','PY-GRU-CTR-25-003']]
     }},
     {id:'jaime', k:'1182393', n:'Jaime Díaz Rodríguez', r:'Jefe Centro de Pago y Recaudación', team:[
       {id:'jose-morales', k:'1365003', n:'José Manuel Morales Osorio', r:'Analista Administrativo', team:[
@@ -886,6 +886,7 @@ const GALERIA=Array.from({length:8},(_,i)=>`img/integracion/${i+1}.jpg`);
 const SECS={foda:'FODA',obs:'Observaciones',mapa:'Mapa estratégico',parrilla:'Parrilla de reemplazo',proyectos:'Proyectos',resultados:'Resultados psicométricos',estrategia:'Estrategia de desarrollo',cursos:'Capacitaciones',trimestres:'Desarrollo continuo',desempeno:'Evaluación de desempeño',integracion:'Integración',capacitaciones:'Capacitaciones',competencias:'Competencias psicométricas'};
 const flatAll=t=>[t,...(t.team||[]).flatMap(flatAll)];
 const EXTRA={
+ leonides:[['Estrategia, planeación e innovación','img/capacitaciones/leonides-estrategia-planeacion-innovacion.png']],
  ricardo:[['ICAMI','img/capacitaciones/icami-ricardo.png']],
  jaime:[['ICAMI','img/capacitaciones/jaime-icami.png'],['NRLE','img/capacitaciones/jaime-nrle.png'],['The 10 Pillars of Customer Experience','img/capacitaciones/jaime-10-pillars-customer-experience.png'],['Design Thinking: Experiencia del cliente','img/capacitaciones/jaime-design-thinking.png'],['Dar y recibir feedback o retroalimentación','img/capacitaciones/jaime-feedback.png']]};
 const PERFILES=[];
