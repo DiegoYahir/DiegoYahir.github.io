@@ -886,7 +886,7 @@ const GALERIA=Array.from({length:8},(_,i)=>`img/integracion/${i+1}.jpg`);
 const SECS={foda:'FODA',obs:'Observaciones',mapa:'Mapa estratégico',parrilla:'Parrilla de reemplazo',proyectos:'Proyectos',resultados:'Resultados psicométricos',estrategia:'Estrategia de desarrollo',cursos:'Capacitaciones',trimestres:'Desarrollo continuo',desempeno:'Evaluación de desempeño',integracion:'Integración',capacitaciones:'Capacitaciones',competencias:'Competencias psicométricas'};
 const flatAll=t=>[t,...(t.team||[]).flatMap(flatAll)];
 const PERFILES=[];
-PLAZAS.forEach(pl=>pl.people.forEach(b=>flatAll(b).forEach(p=>{ if(p.perfil) p.perfil.caps=CAPS6; })));
+PLAZAS.forEach(pl=>pl.people.forEach(b=>flatAll(b).forEach(p=>{ if(p.perfil) p.perfil.caps=p.id==='ricardo'?[...CAPS6,['ICAMI','img/capacitaciones/icami-ricardo.png']]:CAPS6; })));
 PLAZAS.forEach(pl=>pl.people.forEach(b=>flatAll(b).forEach(p=>{ if(p.perfil){ PERFILES.push({pl,p,boss:p===b?null:b}); SUBS['p-'+p.id]='Perfil de '+p.n.split(' ')[0]; Object.keys(SECS).forEach(k=>{SUBS['p-'+p.id+'-'+k]=SECS[k];}); } })));
 const findPerfil=sub=>{ for(const {pl,p,boss} of PERFILES){ if(sub==='p-'+p.id) return {pl,p,boss,sec:''}; for(const k in SECS) if(sub==='p-'+p.id+'-'+k) return {pl,p,boss,sec:k}; } return null; };
 const ladder=(T,pre='')=>`<div class="ladder">${T.map((t,i)=>`${i?'<div class="rise" aria-hidden="true"></div>':''}<div class="tier ${t.c}">${t.to?`<button class="name" data-go="${pre}${t.to}">${t.n}<small>Ver detalle &#10095;</small></button>`:`<span class="name">${t.n}</span>`}<div class="chips">${t.chips.map(c=>`<span class="chip">${c}</span>`).join('')}</div></div>`).join('')}</div>`;
