@@ -394,6 +394,15 @@ a.go{text-decoration:none}
 .zoomchart{background:#fff;border-radius:18px;padding:10px 18px 14px;width:min(94vw,1150px);max-height:88vh;overflow:auto}
 .zoomchart .chart{margin:0;box-shadow:none;cursor:default;padding:24px 10px 10px}.zoomchart .chart::after{display:none}.zoomchart .pair{height:min(46vh,420px);gap:8px}
 .zoomchart .bar{max-width:64px;width:38%}.zoomchart .grp label{font-size:clamp(12px,1.5vw,17px);margin-top:10px}.zoomchart .legend{font-size:clamp(14px,1.6vw,18px);margin-top:16px}
+
+.tree.grouped{flex-direction:row;align-items:center;gap:60px;padding:6px 0 6px 30px;--g:14px}
+.fl{display:flex;flex-direction:column;gap:14px;flex:0 0 min(340px,100%)}
+.fl>.flrow{position:relative}
+.fl>.flrow::before{content:"";position:absolute;left:-30px;top:50%;width:30px;border-top:4px dotted var(--red)}
+.fl>.flrow::after{content:"";position:absolute;left:-32px;top:-9px;bottom:-9px;border-left:4px dotted var(--red)}
+.fl>.flrow:first-child::after{top:50%}.fl>.flrow:last-child::after{bottom:50%}
+.kidwire{position:absolute;left:100%;top:50%;width:58px;height:4px;transform:translateY(-50%);background:repeating-linear-gradient(90deg,var(--red) 0 8px,transparent 8px 16px)}
+@media (max-width:900px){.tree.grouped{flex-direction:column;align-items:flex-start;gap:14px}.kidwire{display:none}.tree.grouped .subs{margin-left:28px}}
 </style>
 </head>
 <body>
@@ -1006,7 +1015,7 @@ function render(){
     h=`<section class="view plaza">${backBtn(eq.k,eq.n)}<h2>Equipo de <em>${boss.n.split(' ')[0]}</em></h2>
     <p class="sub">${boss.r}, ${eq.n}. ${cnt(boss.team)} colaboradores a su cargo.</p>
     <div class="branch">${boss.perfil?`<button class="bosslink team" data-go="p-${boss.id}" aria-label="Ver el perfil de ${boss.n}">${card(boss,'big')}<span class="badge">Ver perfil &#10095;</span></button>`:card(boss,'big')}<div class="wire" aria-hidden="true"></div>
-    ${(boss.team.some(m=>m.team)||boss.team.length<=3)?`<div class="tree${boss.team.length===1?' single':''}">${boss.team.map(m=>`<div class="trow">${mem(m)}${m.team?`<div class="wire" aria-hidden="true"></div><div class="subs">${m.team.map(x=>mem(x)).join('')}</div>`:''}</div>`).join('')}</div>`:`<div class="members">${boss.team.map(m=>mem(m)).join('')}</div>`}</div></section>`;
+    ${(boss.team.filter(m=>m.team).length===1&&boss.team.length>=3)?(()=>{const g=boss.team.find(m=>m.team);return `<div class="tree grouped"><div class="fl">${boss.team.map(m=>`<div class="flrow">${mem(m)}${m===g?'<i class="kidwire" aria-hidden="true"></i>':''}</div>`).join('')}</div><div class="subs">${g.team.map(x=>mem(x)).join('')}</div></div>`;})():(boss.team.some(m=>m.team)||boss.team.length<=3)?`<div class="tree${boss.team.length===1?' single':''}">${boss.team.map(m=>`<div class="trow">${mem(m)}${m.team?`<div class="wire" aria-hidden="true"></div><div class="subs">${m.team.map(x=>mem(x)).join('')}</div>`:''}</div>`).join('')}</div>`:`<div class="members">${boss.team.map(m=>mem(m)).join('')}</div>`}</div></section>`;
   } else if(page==='mapa'){
     h=`<section class="view plaza">${backBtn('gerencia','Gerencia')}<h2>Mapa <em>estratégico</em></h2>
     <p class="sub">Se construye de abajo hacia arriba. Toca cada nivel para ver el detalle.</p>
