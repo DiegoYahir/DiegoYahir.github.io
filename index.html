@@ -374,8 +374,25 @@ a.go{text-decoration:none}
   nav{width:100%}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-.gear{align-self:start;justify-self:start;display:inline-flex;flex-direction:column;align-items:center;gap:6px;margin:0;padding:16px 26px;border:0;border-radius:22px;background:#fff;color:#5b2aa8;font:800 15px inherit;font-family:inherit;box-shadow:0 10px 26px rgba(76,29,149,.16);cursor:pointer;transition:transform .2s}
-.gear:hover{transform:translateY(-3px)}.gear svg{width:54px;height:54px}.gear span{color:#c8102e;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+.gear3d{position:relative;align-self:start;justify-self:start;margin-top:30px;display:flex;flex-direction:column;align-items:center;gap:2px;padding:20px 34px 18px;border:0;border-radius:26px;cursor:pointer;font-family:inherit;color:#2a0a55;
+ background:linear-gradient(145deg,#fff 0%,#f3e9ff 55%,#ffe3e8 100%);box-shadow:0 1px 0 #fff inset,0 -6px 14px rgba(124,58,237,.12) inset,0 18px 34px rgba(76,29,149,.28),0 4px 0 #d9c6f5,0 8px 0 rgba(124,58,237,.18);
+ transform:perspective(700px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .18s ease-out,box-shadow .25s;overflow:hidden;animation:gfloat 3.4s ease-in-out infinite}
+.gear3d:hover{box-shadow:0 1px 0 #fff inset,0 -6px 14px rgba(124,58,237,.12) inset,0 26px 44px rgba(76,29,149,.38),0 4px 0 #d9c6f5,0 8px 0 rgba(124,58,237,.22)}
+.gear3d:active{transform:perspective(700px) translateY(4px) scale(.98)}
+.gear3d .gscene{width:150px;height:120px;filter:drop-shadow(0 10px 8px rgba(58,21,96,.35))}.gear3d svg{width:100%;height:100%;overflow:visible}
+.gear3d .g1,.gear3d .g2{transform-box:view-box}
+.gear3d .g1{transform-origin:58px 62px;animation:gspin 9s linear infinite}.gear3d .g2{transform-origin:113px 34px;animation:gspin 7.2s linear infinite reverse}
+.gear3d:hover .g1{animation-duration:2.4s}.gear3d:hover .g2{animation-duration:1.9s}
+.gear3d .gtxt{font-weight:900;font-size:20px;letter-spacing:.12em;text-transform:uppercase;background:linear-gradient(90deg,#6d28d9,#d7132f);-webkit-background-clip:text;background-clip:text;color:transparent}
+.gear3d small{font-size:12px;font-weight:700;color:#7a5ca0}
+.gear3d .shine{position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.75),transparent);transform:skewX(-18deg);animation:gshine 4.2s ease-in-out infinite;pointer-events:none}
+@keyframes gspin{to{transform:rotate(360deg)}}@keyframes gshine{0%,55%{left:-60%}100%{left:130%}}@keyframes gfloat{50%{translate:0 -5px}}
+@media (prefers-reduced-motion:reduce){.gear3d,.gear3d .g1,.gear3d .g2,.gear3d .shine{animation:none}}
+.chart[role=button]{cursor:zoom-in;position:relative;transition:transform .2s,box-shadow .2s}.chart[role=button]:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(58,21,96,.24)}
+.chart[role=button]::after{content:"\1F50D  Toca para ampliar";position:absolute;top:10px;right:12px;font-size:11px;font-weight:700;color:#6d28d9;background:#f3e9ff;border-radius:999px;padding:4px 10px}
+.zoomchart{background:#fff;border-radius:18px;padding:10px 18px 14px;width:min(94vw,1150px);max-height:88vh;overflow:auto}
+.zoomchart .chart{margin:0;box-shadow:none;cursor:default;padding:24px 10px 10px}.zoomchart .chart::after{display:none}.zoomchart .pair{height:min(46vh,420px);gap:8px}
+.zoomchart .bar{max-width:64px;width:38%}.zoomchart .grp label{font-size:clamp(12px,1.5vw,17px);margin-top:10px}.zoomchart .legend{font-size:clamp(14px,1.6vw,18px);margin-top:16px}
 </style>
 </head>
 <body>
@@ -891,6 +908,10 @@ PLAZAS.forEach(pl=>pl.people.forEach(b=>flatAll(b).forEach(p=>{ if(p.perfil) p.p
 PLAZAS.forEach(pl=>pl.people.forEach(b=>flatAll(b).forEach(p=>{ if(p.perfil){ PERFILES.push({pl,p,boss:p===b?null:b}); SUBS['p-'+p.id]='Perfil de '+p.n.split(' ')[0]; Object.keys(SECS).forEach(k=>{SUBS['p-'+p.id+'-'+k]=SECS[k];}); } })));
 const findPerfil=sub=>{ for(const {pl,p,boss} of PERFILES){ if(sub==='p-'+p.id) return {pl,p,boss,sec:''}; for(const k in SECS) if(sub==='p-'+p.id+'-'+k) return {pl,p,boss,sec:k}; } return null; };
 const ladder=(T,pre='')=>`<div class="ladder">${T.map((t,i)=>`${i?'<div class="rise" aria-hidden="true"></div>':''}<div class="tier ${t.c}">${t.to?`<button class="name" data-go="${pre}${t.to}">${t.n}<small>Ver detalle &#10095;</small></button>`:`<span class="name">${t.n}</span>`}<div class="chips">${t.chips.map(c=>`<span class="chip">${c}</span>`).join('')}</div></div>`).join('')}</div>`;
+const gearPath=(cx,cy,R,r,n)=>{let d='';for(let i=0;i<n;i++){const a=i*2*Math.PI/n,w=Math.PI/n,p=(t,rad)=>[(cx+rad*Math.cos(a+t)).toFixed(1),(cy+rad*Math.sin(a+t)).toFixed(1)].join(' ');d+=(i?'L':'M')+p(-w*.62,r)+'L'+p(-w*.34,R)+'L'+p(w*.34,R)+'L'+p(w*.62,r)+'L'+p(w*1.38,r);}return d+'Z';};
+const gear3d=to=>`<button class="gear3d" data-go="${to}" aria-label="Ver la estrategia de desarrollo"><span class="gscene"><svg viewBox="0 0 150 120" aria-hidden="true"><defs><linearGradient id="gA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b57cff"/><stop offset=".55" stop-color="#6d28d9"/><stop offset="1" stop-color="#3b0f7a"/></linearGradient><linearGradient id="gB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff6b81"/><stop offset=".55" stop-color="#d7132f"/><stop offset="1" stop-color="#7d0a1d"/></linearGradient><radialGradient id="gH" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#d9cdf0"/></radialGradient></defs>
+<g class="g1"><path d="${gearPath(58,62,50,40,10)}" fill="url(#gA)"/><circle cx="58" cy="62" r="29" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="3"/><circle cx="58" cy="62" r="15" fill="url(#gH)"/><circle cx="58" cy="62" r="6" fill="#4c1d95"/></g>
+<g class="g2"><path d="${gearPath(113,34,30,23,8)}" fill="url(#gB)"/><circle cx="113" cy="34" r="14" fill="none" stroke="#fff" stroke-opacity=".3" stroke-width="2.5"/><circle cx="113" cy="34" r="8" fill="url(#gH)"/><circle cx="113" cy="34" r="3.5" fill="#9b0f26"/></g></svg></span><span class="gtxt">Estrategia</span><small>Ver el plan de desarrollo &#10095;</small><i class="shine" aria-hidden="true"></i></button>`;
 function perfilPage({pl,p,sec,boss}){
   const pf=p.perfil, me='p-'+p.id, first=p.n.split(' ')[0], bk=boss||p, flat=t=>t.flatMap(m=>[m,...(m.team?flat(m.team):[])]), P=id=>typeof id==='object'?id:(id===p.id?p:flat(p.team).find(m=>m.id===id));
   if(!sec) return `<section class="view plaza">${backBtn('equipo-'+bk.id,'Equipo de '+bk.n.split(' ')[0])}
@@ -923,7 +944,7 @@ function perfilPage({pl,p,sec,boss}){
     b=head('Capacitaciones <em>2026</em>')+`<p class="hint" style="margin:0 0 6px;text-align:left">Toca una para ver su imagen.</p>${capGrid(pf.caps)}`;
   } else if(sec==='competencias'){
     const cs=pf.compGraf;
-    b=head('Competencias en examen <em>psicométrico</em>')+`<div class="res"><div class="chart" role="img" aria-label="Gráfica de perfil contra nivel de dominio por competencia"><div class="plot">${cs.map(c=>`<div class="grp"><div class="pair"><div class="bar d" style="height:${c[1]/4*100}%"></div><div class="bar r" style="height:${c[2]/4*100}%"></div></div><label>${c[0]}</label></div>`).join('')}</div><div class="legend"><i class="d"></i>Perfil<i class="r"></i>Nivel de dominio</div></div>${pf.estrategia?`<button class="gear" data-go="${me}-estrategia"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.4 13a7.6 7.6 0 0 0 0-2l2.1-1.6-2-3.4-2.5 1a7.6 7.6 0 0 0-1.7-1L15 3.3h-4l-.3 2.7a7.6 7.6 0 0 0-1.7 1l-2.5-1-2 3.4L6.6 11a7.6 7.6 0 0 0 0 2l-2.1 1.6 2 3.4 2.500-1c.5.4 1.100.7 1.700 1l.3 2.700h4l.3-2.700c.6-.3 1.200-.6 1.700-1l2.500 1 2-3.400zM13 15.500a3.500 3.500 0 1 1 0-7 3.500 3.500 0 0 1 0 7z"/></svg><span>Estrategia</span></button>`:''}</div>`;
+    b=head('Competencias en examen <em>psicométrico</em>')+`<div class="res"><div class="chart" role="img" aria-label="Gráfica de perfil contra nivel de dominio por competencia"><div class="plot">${cs.map(c=>`<div class="grp"><div class="pair"><div class="bar d" style="height:${c[1]/4*100}%"></div><div class="bar r" style="height:${c[2]/4*100}%"></div></div><label>${c[0]}</label></div>`).join('')}</div><div class="legend"><i class="d"></i>Perfil<i class="r"></i>Nivel de dominio</div></div>${pf.estrategia?gear3d(me+'-estrategia'):''}</div>`;
   } else if(sec==='resultados'){
     const cs=pf.comp, t0=cs.reduce((a,c)=>a+c[2],0), t1=cs.reduce((a,c)=>a+c[3],0);
     b=head('Competencias en examen <em>psicométrico</em>')+`<div class="res"><div class="tblwrap"><table class="tbl"><thead><tr><th>#</th><th>Competencias</th><th>Clasificación</th><th>Dominio</th><th>Resultado</th></tr></thead><tbody>${cs.map((c,i)=>`<tr><td>${i+1}</td><td>${c[0]}</td><td>${c[1]}</td><td>${c[2]}</td><td class="${c[3]>c[2]?'up':c[3]<c[2]?'down':''}">${c[3]}</td></tr>`).join('')}</tbody><tfoot><tr><td></td><td colspan="2">Resultados</td><td>${t0}</td><td>${t1}</td></tr></tfoot></table></div>
@@ -1024,10 +1045,13 @@ function render(){
     <p class="hint"><button class="back" data-go="${nx.k}">Siguiente parada: ${nx.n} &#10095;</button></p></section>`;
   }
   app.innerHTML=h; scrollTo(0,0);
+  app.querySelectorAll('.chart').forEach(c=>{c.setAttribute('role','button');c.setAttribute('tabindex','0');c.setAttribute('aria-label','Ampliar la gráfica');});
   const mark = SUBS[page] || (PLAZAS.find(p=>p.k===page)||VIEWS.find(x=>x.k===page)||{}).n;
   const vw = app.querySelector('.view'); if(vw && page!=='inicio' && mark) vw.dataset.mark = mark;
 }
+function openChart(ch){ lastBtn=document.activeElement; galI=-1; modal.classList.remove('has-gal'); modal.querySelector('.sheet').innerHTML='<div class="zoomchart">'+ch.outerHTML.replace(' role="button"','').replace(/ tabindex="0"/,'')+'</div>'; modal.hidden=false; modal.querySelector('.x').focus(); }
 app.onclick = e => {
+  const ch=e.target.closest('.chart'); if(ch) return openChart(ch);
   const g=e.target.closest('[data-gal]'); if(g) return openGal(+g.dataset.gal);
   const im=e.target.closest('[data-img]'); if(im) return openProj(null,im.dataset.name,im.dataset.img);
   const p=e.target.closest('[data-proj]'); if(p) return openProj(p.dataset.proj,p.dataset.name);
@@ -1054,6 +1078,9 @@ function openProj(slug,name,src){
 }
 function closeProj(){ modal.hidden=true; if(lastBtn) lastBtn.focus(); }
 modal.onclick = e => { if(e.target.closest('.prev')) return stepGal(-1); if(e.target.closest('.next')) return stepGal(1); if(e.target===modal || e.target.closest('.x')) closeProj(); };
+app.addEventListener('keydown',e=>{ const c=e.target.closest&&e.target.closest('.chart'); if(c&&(e.key==='Enter'||e.key===' ')){ e.preventDefault(); openChart(c);} });
+app.addEventListener('pointermove',e=>{ const g=e.target.closest&&e.target.closest('.gear3d'); if(!g) return; const b=g.getBoundingClientRect(); g.style.setProperty('--ry',((e.clientX-b.left)/b.width-.5)*18+'deg'); g.style.setProperty('--rx',(-((e.clientY-b.top)/b.height-.5))*14+'deg'); });
+app.addEventListener('pointerout',e=>{ const g=e.target.closest&&e.target.closest('.gear3d'); if(g&&!g.contains(e.relatedTarget)){ g.style.removeProperty('--rx'); g.style.removeProperty('--ry'); } });
 addEventListener('keydown',e=>{ if(modal.hidden) return; if(e.key==='Escape') closeProj(); if(galI>=0&&e.key==='ArrowRight') stepGal(1); if(galI>=0&&e.key==='ArrowLeft') stepGal(-1); });
 
 /* ===== TRANSICIONES entre apartados (elige una con el selector de la esquina) ===== */
