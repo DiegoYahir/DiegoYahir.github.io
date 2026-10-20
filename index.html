@@ -523,7 +523,7 @@ const PLAZAS = [
       compGraf:[['Enfoque a resultados',4,3],['Adaptación al cambio',3,3],['Análisis y toma de decisiones',4,3],['Gestión de otros',4,3],['Visión sistémica',3,3]],
       parrilla:{fecha:'29/03/2026',doc:'docs/parrilla-lilia.pdf',rows:[['lilia','guadalupe'],['guadalupe','kristell']]},
       proy:['digital-formats','monitor-pistas-efectivo'],
-      replicas:[['Consultas de viajes pagados','RP-GRU-CTR-25-002'],['Digital Driver, el futuro de la capacitación','RP-GRU-CTR-25-002']]
+      replicas:[['Retiros Parciales Digitales','','retiros-parciales-digitales']]
     }}]},
   {k:'villahermosa', n:'Villahermosa', people:[
     {id:'leonides', n:'Leonides Campañ Velázquez', r:'Jefe de Equipo de Apoyo Administrativo', team:[
@@ -929,7 +929,7 @@ function perfilPage({pl,p,sec,boss}){
     const cp=PROY.find(x=>x.n===pl.n);
     const mios=pf.proy?cp.items.filter(i=>pf.proy.includes(i[1])):cp.items, reps=pf.replicas||[];
     const colP=`<div class="col"><h3 style="background:#cdbcf2">${mios.length===1?'Proyecto':'Proyectos'}</h3>${mios.map(i=>`<button class="item" data-proj="${i[1]}" data-name="${i[0]}"><b>${i[0]}</b><small>Ver carátula &#10095;</small></button>`).join('')}</div>`;
-    const colR=reps.length?`<div class="col"><h3 style="background:#cdbcf2">${reps.length===1?'Réplica':'Réplicas'}</h3>${reps.map(r=>`<div class="item"><b>${r[0]}</b>${r[1]?`<small>${r[1]}</small>`:''}</div>`).join('')}</div>`:'';
+    const colR=reps.length?`<div class="col"><h3 style="background:#cdbcf2">${reps.length===1?'Réplica':'Réplicas'}</h3>${reps.map(r=>r[2]?`<button class="item" data-proj="${r[2]}" data-name="${r[0]}"><b>${r[0]}</b><small>Ver carátula &#10095;</small></button>`:`<div class="item"><b>${r[0]}</b>${r[1]?`<small>${r[1]}</small>`:''}</div>`).join('')}</div>`:'';
     b=head('Iniciativas <em>regionales</em>',pl.n)+(mios.length||colR?`<div class="proj ${colR?'two':'one'}">${colP}${colR}</div>`:'<p class="hint" style="text-align:left">Por ahora no tiene proyectos ni réplicas.</p>');
   }
   return `<section class="view plaza">${b}</section>`;
