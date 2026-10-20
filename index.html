@@ -857,20 +857,7 @@ const cnt = t => t.reduce((a,m)=>a+1+(m.team?cnt(m.team):0),0);
 const pc = (p,cls='') => p.team ? `<button class="bosslink team" data-go="equipo-${p.id}" aria-label="Ver el equipo de ${p.n}">${card(p,cls)}<span class="badge">Ver equipo (${cnt(p.team)}) &#10095;</span></button>` : card(p,cls);
 const backBtn=(to,t)=>`<button class="back" data-go="${to}">&#10094; ${t}</button>`;
 
-const BUS_SVG=`<svg viewBox="0 0 520 170" role="img" aria-label="Autobús ADO">
-<path d="M12 40Q12 18 38 18H428Q482 22 502 72L508 112Q510 128 494 128H26Q12 128 12 112Z" fill="#c8102e"/>
-<path d="M12 100H510V112Q510 128 494 128H26Q12 128 12 112Z" fill="#e8e1f0"/>
-<rect x="150" y="8" width="150" height="12" rx="6" fill="#d9d2e3"/>
-<path d="M34 32H424Q456 34 470 64L476 82H34Z" fill="#2a1442"/>
-<path d="M60 32L96 82H70L40 32Z M200 32L236 82H210L180 32Z M340 32L376 82H350L320 32Z" fill="#fff" opacity=".12"/>
-<g stroke="#c8102e" stroke-width="5"><path d="M120 32V82"/><path d="M200 32V82"/><path d="M280 32V82"/><path d="M360 32V82"/><path d="M420 32V82"/></g>
-<path d="M28 92Q120 70 210 90T400 88T500 84" fill="none" stroke="#fff" stroke-width="3" opacity=".85"/>
-<text x="44" y="118" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="26" font-style="italic" fill="#c8102e">ADO</text>
-<g fill="none" stroke="#a894bf" stroke-width="1.5"><rect x="150" y="105" width="80" height="18" rx="4"/><rect x="240" y="105" width="80" height="18" rx="4"/></g>
-<ellipse cx="500" cy="100" rx="7" ry="5" fill="#ffd36b"/>
-<circle cx="120" cy="128" r="31" fill="#1a0a2b"/><circle cx="410" cy="128" r="31" fill="#1a0a2b"/>
-<circle cx="120" cy="136" r="24" fill="#2b2b33"/><circle cx="410" cy="136" r="24" fill="#2b2b33"/>
-<circle cx="120" cy="136" r="10" fill="#b9b3c4"/><circle cx="410" cy="136" r="10" fill="#b9b3c4"/></svg>`;
+const BUS_SVG=`<img class="busimg" src="img/camion-ado-real.png" alt="Autobús ADO rojo">`;
 const CURSOS=[
  ['ICAMI','icami'],
  ['LinkedIn Learning','linkedin-learning'],
@@ -1067,7 +1054,7 @@ let trMode='bus'; try{ trMode=localStorage.getItem('tr')||'bus'; }catch(e){}
 if(!TR_OPTS[trMode]) trMode='bus';
 let trBusy=false, lastXY=[innerWidth/2,innerHeight/2];
 const trEl=document.getElementById('tr'), trSel=document.getElementById('trsel');
-trEl.innerHTML=`<div class="road2"></div><div class="trbus">${BUS_SVG}<img src="img/camion-ado.png" alt="" onload="this.previousElementSibling.remove()" onerror="this.remove()"></div>
+trEl.innerHTML=`<div class="road2"></div><div class="trbus">${BUS_SVG}</div>
 <div class="pl"></div><div class="pr"></div>
 <svg class="rsvg" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path class="rp" pathLength="1" d="M-100 420C200 100 450 700 700 330S1000 250 1150 300"/><circle r="18" fill="#c8102e" stroke="#fff" stroke-width="5"><animateMotion id="rpin" begin="indefinite" fill="freeze" dur="1s" path="M-100 420C200 100 450 700 700 330S1000 250 1150 300"/></circle></svg>`;
 trSel.innerHTML=Object.keys(TR_OPTS).map(k=>`<option value="${k}"${k===trMode?' selected':''}>${TR_OPTS[k]}</option>`).join('');
