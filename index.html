@@ -582,6 +582,7 @@ const PLAZAS = [
       caps:[['LinkedIn Learning','img/leonides-cap-linkedin.jpg'],['Cursos ERP financiero','img/leonides-cap-erp.jpg']],
       compGraf:[['Enfoque a resultados',4,3],['Planeación, organización y seguimiento',3,3],['Análisis y toma de decisiones',3,3],['Gestión de otros',4,3],['Trabajo en equipo',3,3],['Comunicación',3,3]],
       parrilla:{fecha:'01/05/2026',doc:'docs/parrilla-leonides.pdf',rows:[['leonides','joel'],['joel','argelia']]},
+      proy:['admin-bus360','digirem'],
       replicas:[['AITA','RP-GRU-CTR-25-005'],['Reporte de incidencias del estado de valores','RP-GRU-CTR-25-012']]
     }},
     {id:'jaime', k:'1182393', n:'Jaime Díaz Rodríguez', r:'Jefe Centro de Pago y Recaudación', team:[
@@ -760,6 +761,7 @@ const PLAZAS = [
       compGraf:[['Análisis y toma de decisiones',3,3],['Comunicación',3,3],['Enfoque a resultados',4,4],['Gestión de otros',4,3],['Planeación, organización y seguimiento',3,2],['Trabajo en equipo',3,3]],
       parrilla:{doc:'docs/parrilla-julio.pdf',rows:[['julio','johnny'],['johnny','montserrat']],
         extra:[['Tiempo aproximado para ocupar el cargo','2 años'],['Competencias a desarrollar','Trabajo con personal a cargo, liderazgo, análisis de problemas y toma de decisiones']]},
+      proy:['semaforo-cia'],
       replicas:[['App incidencias traslado de valores','RP-GRU-CTR-25-010'],['Consulta de viajes pagados',''],['Inmebus','']]
     }},
     {id:'miguel', n:'Miguel Ángel Sánchez Ovando', r:'Jefe Administrativo Central Prepago', team:[
@@ -810,6 +812,7 @@ const PLAZAS = [
       caps:[['LinkedIn Learning','img/miguel-cap-linkedin.jpg'],['Cursos ERP financiero','img/miguel-cap-erp.jpg']],
       compGraf:[['Análisis y toma de decisiones',3,2],['Comunicación',3,2],['Enfoque a resultados',4,2],['Gestión de otros',4,2],['Planeación, organización y seguimiento',3,2],['Trabajo en equipo',3,2]],
       parrilla:{fecha:'30/06/2026',doc:'docs/parrilla-miguel.pdf',rows:[['miguel','anna'],['miguel','eber']]},
+      proy:[],
       replicas:[['App incidencias traslado de valores','RP-GRU-CTR-25-010'],['Consulta de viajes pagados',''],['Inmebus','']]
     }}]}
 ];
@@ -927,7 +930,7 @@ function perfilPage({pl,p,sec,boss}){
     const mios=pf.proy?cp.items.filter(i=>pf.proy.includes(i[1])):cp.items, reps=pf.replicas||[];
     const colP=`<div class="col"><h3 style="background:#cdbcf2">${mios.length===1?'Proyecto':'Proyectos'}</h3>${mios.map(i=>`<button class="item" data-proj="${i[1]}" data-name="${i[0]}"><b>${i[0]}</b><small>Ver carátula &#10095;</small></button>`).join('')}</div>`;
     const colR=reps.length?`<div class="col"><h3 style="background:#cdbcf2">${reps.length===1?'Réplica':'Réplicas'}</h3>${reps.map(r=>`<div class="item"><b>${r[0]}</b>${r[1]?`<small>${r[1]}</small>`:''}</div>`).join('')}</div>`:'';
-    b=head('Iniciativas <em>regionales</em>',pl.n)+`<div class="proj ${colR?'two':'one'}">${colP}${colR}</div>`;
+    b=head('Iniciativas <em>regionales</em>',pl.n)+(mios.length||colR?`<div class="proj ${colR?'two':'one'}">${colP}${colR}</div>`:'<p class="hint" style="text-align:left">Por ahora no tiene proyectos ni réplicas.</p>');
   }
   return `<section class="view plaza">${b}</section>`;
 }
