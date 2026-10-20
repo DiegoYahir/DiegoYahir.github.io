@@ -403,6 +403,12 @@ a.go{text-decoration:none}
 .fl>.flrow:first-child::after{top:50%}.fl>.flrow:last-child::after{bottom:50%}
 .kidwire{position:absolute;left:100%;top:50%;width:58px;height:4px;transform:translateY(-50%);background:repeating-linear-gradient(90deg,var(--red) 0 8px,transparent 8px 16px)}
 @media (max-width:900px){.tree.grouped{flex-direction:column;align-items:flex-start;gap:14px}.kidwire{display:none}.tree.grouped .subs{margin-left:28px}}
+
+.mem.hlrp{background:linear-gradient(135deg,#fff 0%,#f6e9ff 55%,#ffe1e7 100%);box-shadow:0 0 0 3px #b455e8,0 0 0 6px rgba(200,16,46,.22),0 12px 28px rgba(124,58,237,.35);position:relative}
+.mem.hlrp .pic{border-color:#c8102e}
+.rpbadge{display:inline-block;margin-top:5px;padding:3px 10px;border-radius:999px;background:linear-gradient(90deg,#7c3aed,#c8102e);color:#fff;font-size:10.5px;font-weight:800;letter-spacing:.03em;white-space:nowrap}
+.rpkey{display:inline-flex;align-items:center;gap:7px;margin-left:12px;padding:3px 12px;border-radius:999px;background:#f6e9ff;color:#6d28d9;font-weight:700;font-size:13px}
+.rpkey i{width:14px;height:14px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#c8102e)}
 </style>
 </head>
 <body>
@@ -441,7 +447,7 @@ const PLAZAS = [
         {t:'Coursera 2026',items:['Competencias digitales: conceptos y herramientas básicas','¿Cómo hablar bien en público?']},
         {t:'LinkedIn Learning 2026',items:['Curiosidad aplicada','Cómo usar preguntas para fomentar el pensamiento crítico y la curiosidad','¿Qué es Scrum?','Nano Tips para ser más productivo y potenciar tu progreso, con Adrià Solà','Pensamiento crítico y resolución de problemas','Mejorando tu pensamiento','Gestión de proyectos con un café','Desarrollar una mentalidad de pensamiento crítico','Tomar decisiones rápidas','Cómo resolver tus conflictos internos con efectividad','Coaching para la mejora continua','Cómo mejorar tu capacidad de toma de decisiones','Fundamentos de la contabilidad','Diez hábitos de los grandes tomadores de decisiones']},
         {t:'EFA 2026',sub:'Cursos ERP financiero',items:['Fundamentos Comunes JDE','Estructuras Contables']}],
-      trimestres:[['1er trimestre','img/nicolas-1er-trimestre.png'],['2do trimestre','img/nicolas-2do-trimestre.png']]
+      trimestres:[['2do trimestre','img/nicolas-2do-trimestre.png']]
     }},
       {id:'flor', k:'1212248', n:'Flor P. Hernández T.', r:'Aux. Contable'},
       {id:'julio-cruz', k:'1173407', n:'Julio Cruz Rivero', r:'Analista Contable', perfil:{
@@ -455,7 +461,7 @@ const PLAZAS = [
         {t:'Coursera 2026',items:['Competencias digitales: conceptos y herramientas básicas','¿Cómo hablar bien en público?']},
         {t:'LinkedIn Learning 2026',items:['Curiosidad aplicada','Cómo usar preguntas para fomentar el pensamiento crítico y la curiosidad','¿Qué es Scrum?','Nano Tips para ser más productivo y potenciar tu progreso, con Adrià Solà','Pensamiento crítico y resolución de problemas','Mejorando tu pensamiento','Gestión de proyectos con un café','Desarrollar una mentalidad de pensamiento crítico','Tomar decisiones rápidas','Cómo resolver tus conflictos internos con efectividad','Coaching para la mejora continua','Cómo mejorar tu capacidad de toma de decisiones','Fundamentos de la contabilidad','Diez hábitos de los grandes tomadores de decisiones']},
         {t:'EFA 2026',sub:'Cursos ERP financiero',items:['Fundamentos Comunes JDE','Estructuras Contables']}],
-      trimestres:[['EDI 1er trimestre','img/julio-cruz-1er-trimestre.png'],['EDI 2do trimestre','img/julio-cruz-2do-trimestre.png']]
+      trimestres:[['2do trimestre','img/julio-cruz-2do-trimestre.png']]
     }},
       {id:'juana', k:'1061858', n:'Juana Santiago Gómez', r:'Auxiliar Contable', perfil:{
       psico:'Sigue de forma estricta el orden y los sistemas establecidos. Se esmera en cumplir hasta los pequeños detalles para asegurar la calidad de su trabajo. Sabe planear su trabajo.',
@@ -468,7 +474,7 @@ const PLAZAS = [
         {t:'Coursera 2026',items:['Gestión de Organizaciones Efectivas','¿Cómo tomar decisiones financieras que agreguen valor?']},
         {t:'LinkedIn Learning 2026',items:['Making Quick Decisions','Toma de decisiones ejecutivas','Decision-Making Strategies','Problem Solving Across An Organization','Ten Habits of Great Decision Makers','Sharpen Your Logic','Coaching for Continuous Improvement','Curiosidad aplicada','Cómo mejorar tu capacidad de toma de decisiones','Build Your Logical Thinking Skills','Cómo usar preguntas para fomentar el pensamiento crítico y la curiosidad','Estrategias para tomar decisiones','Improving Your Thinking','Cómo resolver tus conflictos internos con efectividad','Gestión de impuestos: Transformación digital','How to Manage High-Stakes Conflict','Pensamiento crítico para ponderar y decidir mejor']},
         {t:'EFA 2026',sub:'Cursos ERP financiero',items:['Fundamentos Comunes JDE','Estructuras Contables']}],
-      trimestres:[['1er trimestre','img/juana-1er-trimestre.png'],['2do trimestre','img/juana-2do-trimestre.png']]
+      trimestres:[['2do trimestre','img/juana-2do-trimestre.png']]
     }},
       {id:'david', k:'1191414', n:'David A. Saviñón Velázquez', r:'Analista Fiscal'},
       {id:'itzel', k:'1191414', n:'Itzel V. Santos Martínez', r:'Aux. Fiscal'}],
@@ -891,8 +897,8 @@ const SUCESOR = PLAZAS[0].people[1];
 const SUCESORES = ['lilia','leonides'].map(id=>PLAZAS.flatMap(pl=>pl.people).find(p=>p.id===id));
 const SHOW_CLAVE = true; /* pon false para ocultar los números de empleado */
 PLAZAS.forEach(pl=>pl.people.forEach(p=>{ if(p.team) SUBS['equipo-'+p.id]='Equipo de '+p.n.split(' ')[0]; }));
-const mem = (m,link=true) => { const a=`<article class="mem"><div class="pic">${ini(m.n)}<img src="img/${m.id}.jpg" alt="Foto de ${m.n}" onerror="this.remove()"></div>
-  <div class="mtxt">${SHOW_CLAVE&&m.k?`<small>${m.k}</small>`:''}<h3>${m.n}</h3><p>${m.r}</p>${link&&m.perfil?'<small class="more">Ver perfil &#10095;</small>':''}</div></article>`; return link&&m.perfil?`<button class="memlink" data-go="p-${m.id}" aria-label="Ver el perfil de ${m.n}">${a}</button>`:a; };
+const mem = (m,link=true,hl=false) => { const a=`<article class="mem${hl?' hlrp':''}"><div class="pic">${ini(m.n)}<img src="img/${m.id}.jpg" alt="Foto de ${m.n}" onerror="this.remove()"></div>
+  <div class="mtxt">${SHOW_CLAVE&&m.k?`<small>${m.k}</small>`:''}<h3>${m.n}</h3><p>${m.r}</p>${link&&m.perfil?'<small class="more">Ver perfil &#10095;</small>':''}${hl?'<span class="rpbadge">&#9733; Parrilla de reemplazo</span>':''}</div></article>`; return link&&m.perfil?`<button class="memlink" data-go="p-${m.id}" aria-label="Ver el perfil de ${m.n}">${a}</button>`:a; };
 const cnt = t => t.reduce((a,m)=>a+1+(m.team?cnt(m.team):0),0);
 const pc = (p,cls='') => p.team ? `<button class="bosslink team" data-go="equipo-${p.id}" aria-label="Ver el equipo de ${p.n}">${card(p,cls)}<span class="badge">Ver equipo (${cnt(p.team)}) &#10095;</span></button>` : card(p,cls);
 const backBtn=(to,t)=>`<button class="back" data-go="${to}">&#10094; ${t}</button>`;
@@ -1012,10 +1018,11 @@ function render(){
     h=perfilPage(pf);
   } else if(eq){
     const boss = eq.people.find(p=>'equipo-'+p.id===sub);
+    const RP=new Set(((boss.perfil&&boss.perfil.parrilla&&boss.perfil.parrilla.rows)||[]).flat().map(x=>typeof x==='object'?x.id:x).filter(id=>id!==boss.id)), mh=m=>mem(m,true,RP.has(m.id));
     h=`<section class="view plaza">${backBtn(eq.k,eq.n)}<h2>Equipo de <em>${boss.n.split(' ')[0]}</em></h2>
-    <p class="sub">${boss.r}, ${eq.n}. ${cnt(boss.team)} colaboradores a su cargo.</p>
+    <p class="sub">${boss.r}, ${eq.n}. ${cnt(boss.team)} colaboradores a su cargo.${RP.size?' <span class="rpkey"><i></i>Resaltados: parrilla de reemplazo</span>':''}</p>
     <div class="branch">${boss.perfil?`<button class="bosslink team" data-go="p-${boss.id}" aria-label="Ver el perfil de ${boss.n}">${card(boss,'big')}<span class="badge">Ver perfil &#10095;</span></button>`:card(boss,'big')}<div class="wire" aria-hidden="true"></div>
-    ${(boss.team.filter(m=>m.team).length===1&&boss.team.length>=2)?(()=>{const g=boss.team.find(m=>m.team);return `<div class="tree grouped"><div class="fl">${boss.team.map(m=>`<div class="flrow">${mem(m)}${m===g?'<i class="kidwire" aria-hidden="true"></i>':''}</div>`).join('')}</div><div class="subs">${g.team.map(x=>mem(x)).join('')}</div></div>`;})():(boss.team.some(m=>m.team)||boss.team.length<=3)?`<div class="tree${boss.team.length===1?' single':''}">${boss.team.map(m=>`<div class="trow">${mem(m)}${m.team?`<div class="wire" aria-hidden="true"></div><div class="subs">${m.team.map(x=>mem(x)).join('')}</div>`:''}</div>`).join('')}</div>`:`<div class="members">${boss.team.map(m=>mem(m)).join('')}</div>`}</div></section>`;
+    ${(boss.team.filter(m=>m.team).length===1&&boss.team.length>=2)?(()=>{const g=boss.team.find(m=>m.team);return `<div class="tree grouped"><div class="fl">${boss.team.map(m=>`<div class="flrow">${mh(m)}${m===g?'<i class="kidwire" aria-hidden="true"></i>':''}</div>`).join('')}</div><div class="subs">${g.team.map(x=>mh(x)).join('')}</div></div>`;})():(boss.team.some(m=>m.team)||boss.team.length<=3)?`<div class="tree${boss.team.length===1?' single':''}">${boss.team.map(m=>`<div class="trow">${mh(m)}${m.team?`<div class="wire" aria-hidden="true"></div><div class="subs">${m.team.map(x=>mh(x)).join('')}</div>`:''}</div>`).join('')}</div>`:`<div class="members">${boss.team.map(m=>mh(m)).join('')}</div>`}</div></section>`;
   } else if(page==='mapa'){
     h=`<section class="view plaza">${backBtn('gerencia','Gerencia')}<h2>Mapa <em>estratégico</em></h2>
     <p class="sub">Se construye de abajo hacia arriba. Toca cada nivel para ver el detalle.</p>
