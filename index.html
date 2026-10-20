@@ -722,7 +722,16 @@ const PLAZAS = [
         {id:'jazmin', k:'1436608', n:'Jazmín Elizabeth Montoya Maza', r:'Cajero "C"'},
         {id:'paola', k:'1434264', n:'Paola Arguello Hernández', r:'Cajero "C"'},
         {id:'adolfo', k:'1334726', n:'Adolfo Cuevas de la Cruz', r:'Cajero "C"'},
-        {id:'montserrat', k:'1423492', n:'Montserrat Borges López', r:'Cajero "C"'},
+        {id:'montserrat', k:'1423492', n:'Montserrat Borges López', r:'Cajero "C"', perfil:{
+      psico:'Es perseverante y determinada, tiende a asumir sus funciones con seriedad y responsabilidad. Generalmente es disciplinada, ordenada y dominada por el sentido del deber. Se preocupa por seguir las normas y reglas morales. Demuestra una buena adaptación al ambiente y encuentra satisfacción en las actividades que realiza. Posee un carácter emprendedor, activo y dinámico. Le gusta tomar riesgos, en ocasiones sin medir las consecuencias. Le atraen los retos, es rápida para tomar decisiones y es capaz de tolerar situaciones de presión.',
+      tiles:[['resultados','Resultados psicométricos','t2'],['mapa','Mapa estratégico','t2']],
+      comp:[['Orientación al cliente','Crítica',3,3],['Comunicación','Importante',2,3],['Enfoque a resultados','Importante',3,3],['Enfoque a la calidad','Importante',3,3],['Planeación, organización y seguimiento','Importante',3,3],['Trabajo en equipo','Crítica',3,3]],
+      pasos:[['estrategia','Competencias a mejorar','s1'],['cursos','Capacitaciones','s2'],['trimestres','Desarrollo continuo','s3']],
+      siguiente:'Jefatura',
+      estrategia:{filas:[['Acción PR 1','Se recomienda leer “La quinta disciplina” de Peter M. Senge.','Análisis: qué puedo aplicar en mi vida profesional y personal.','30/12/2026'],['Acción PR 2','Lidere un proyecto de mejora con su equipo de trabajo.','Analiza y comparte lo aprendido.','30/12/2026']],programa:{nombre:['Gestión de otros'],cursos:['Linkedin Learning','Curso de Control Interno'],periodo:'2do. semestre 2026'}},
+            cursos:[],
+      trimestres:[['1er trimestre','img/montserrat-1er-trimestre.png'],['2do trimestre','img/montserrat-2do-trimestre.png'],['3er trimestre','img/montserrat-3er-trimestre.png']]
+    }},
         {id:'brenda', k:'1414876', n:'Brenda Janeth Ramos Gómez', r:'Cajero "C"'},
         {id:'maria-carmen', k:'1416422', n:'María del Carmen Hernández Carrasco', r:'Cajero "C"'},
         {id:'carlos', k:'1438602', n:'Carlos Alejandro Gómez González', r:'Cajero "C"'}],
@@ -737,7 +746,7 @@ const PLAZAS = [
         {t:'Coursera 2026',items:['Gestión de organizaciones efectivas','Escalamiento exitoso e innovación en los negocios','Diseño de experiencia en servicios','¿Cómo persuadir? Jugando con palabras, imágenes y números','Gestionar de forma responsable']},
         {t:'LinkedIn Learning 2026',items:['Técnicas de resolución de problemas','Cómo mejorar tu capacidad de toma de decisiones','Diez hábitos de los grandes tomadores de decisiones','Desarrolle sus habilidades de pensamiento lógico','Pensamiento crítico','Toma de decisiones en situaciones de gran estrés','Pensamiento crítico para ponderar y decidir mejor','Mejorando tu pensamiento','Cómo usar preguntas para fomentar el pensamiento crítico y la curiosidad','Agudiza tu lógica','Toma de decisiones ejecutivas','Decision-Making Strategies','Estrategias para tomar decisiones','Cómo tomar decisiones (2014)','Curiosidad aplicada','Desarrollar una mentalidad de pensamiento crítico','Tomar decisiones rápidas','Coaching para la mejora continua']},
         {t:'EFA 2026',sub:'Cursos ERP financiero',items:['Fundamentos Comunes JDE','Estructuras Contables']}],
-      trimestres:[['1er trimestre','img/johnny-1er-trimestre.png'],['2do trimestre','img/johnny-2do-trimestre.png']]
+      trimestres:[['1er trimestre','img/johnny-1er-trimestre.png'],['2do trimestre','img/johnny-2do-trimestre.png'],['3er trimestre','img/johnny-3er-trimestre.png']]
     }}],
     perfil:{
       tiles:[['foda','FODA','t4'],['obs','Observaciones','t3'],['mapa','Mapa estratégico','t1'],['parrilla','Parrilla de reemplazo','t2']], extra:['proyectos','Proyectos'],
@@ -922,7 +931,7 @@ function perfilPage({pl,p,sec,boss}){
     const e=pf.estrategia;
     b=head('Estrategia de <em>desarrollo</em>')+`<div class="tblwrap"><table class="tbl est"><thead><tr><th>Práctica</th><th>Acción</th><th>Entregables</th><th>Fecha compromiso</th></tr></thead><tbody>${e.filas.map(f=>`<tr><th scope="row">${f[0]}</th><td>${f[1]||'&mdash;'}</td><td>${f[2]||'&mdash;'}</td><td>${f[3]||'&mdash;'}</td></tr>`).join('')}<tr><th scope="row">Programa</th><td><b>${[].concat(e.programa.nombre).join('</b><br><b>')}</b></td><td>${e.programa.cursos.join('<br>')}</td><td>${e.programa.periodo}</td></tr></tbody></table></div>`;
   } else if(sec==='cursos'){
-    b=head('Cursos <em>realizados</em>')+capGrid(pf.caps)+`<h3 style="margin:26px 0 10px">Detalle del 1er semestre 2026</h3><div class="caps">${pf.cursos.map(c=>`<article class="cap"><h3>${c.t}</h3>${c.sub?`<p><b>${c.sub}</b></p>`:''}<ul class="clist">${c.items.map(x=>`<li>${x}</li>`).join('')}</ul></article>`).join('')}</div>`;
+    b=head('Cursos <em>realizados</em>')+capGrid(pf.caps)+(pf.cursos.length?`<h3 style="margin:26px 0 10px">Detalle del 1er semestre 2026</h3>`:'')+`<div class="caps">${pf.cursos.map(c=>`<article class="cap"><h3>${c.t}</h3>${c.sub?`<p><b>${c.sub}</b></p>`:''}<ul class="clist">${c.items.map(x=>`<li>${x}</li>`).join('')}</ul></article>`).join('')}</div>`;
   } else if(sec==='trimestres'){
     b=head('Desarrollo <em>continuo</em>','Seguimiento de resultados a través del EDI trimestral')+`<div class="tri">${pf.trimestres.map(t=>`<button class="trib" data-img="${t[1]}" data-name="${t[0]}"><div class="shot">${t[0]}<img src="${t[1]}" alt="${t[0]}" onerror="this.remove()"></div><span>${t[0]}: ampliar &#10095;</span></button>`).join('')}</div>`;
   } else {
