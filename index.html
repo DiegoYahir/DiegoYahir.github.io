@@ -374,6 +374,8 @@ a.go{text-decoration:none}
   nav{width:100%}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.gear{align-self:start;justify-self:start;display:inline-flex;flex-direction:column;align-items:center;gap:6px;margin:0;padding:16px 26px;border:0;border-radius:22px;background:#fff;color:#5b2aa8;font:800 15px inherit;font-family:inherit;box-shadow:0 10px 26px rgba(76,29,149,.16);cursor:pointer;transition:transform .2s}
+.gear:hover{transform:translateY(-3px)}.gear svg{width:54px;height:54px}.gear span{color:#c8102e;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
 </style>
 </head>
 <body>
@@ -463,6 +465,7 @@ const PLAZAS = [
       integracion:'img/darwin-integracion.jpg',
       caps:[['LinkedIn Learning','img/darwin-cap-linkedin.jpg'],['Cursos ERP financiero','img/darwin-cap-erp.jpg'],['Convencional','img/darwin-cap-convencional.jpg']],
       compGraf:[['Enfoque a resultados',4,4],['Adaptación al cambio',3,3],['Análisis y toma de decisiones',4,3],['Gestión de otros',4,3],['Visión sistémica',3,3]],
+      estrategia:{filas:[['Acción PR 1','Se recomienda leer el libro "El hábito del ahora".','Análisis: qué puedo aplicar en mi vida profesional y personal.','30/12/2026'],['Acción PR 2','Ver la película "El Último Emperador" dirigida por Bernardo Bertolucci.','Analiza y comparte lo aprendido.','30/12/2026']],programa:{nombre:['Análisis y toma de decisiones','Gestión de otros'],cursos:['LinkedIn Learning','Curso de Control Interno','Certificación a Jefes','Capacitación convencional'],periodo:'2do. semestre 2026'}},
       parrilla:{fecha:'15/03/2026',doc:'docs/parrilla-darwin.pdf',rows:[['darwin','julio-cruz'],['darwin','nicolas'],['julio-cruz','juana']]},
       replicas:[],
       proy:['alerta-gerencial']
@@ -521,6 +524,7 @@ const PLAZAS = [
       integracion:'img/lilia-integracion.jpg',
       caps:[['LinkedIn Learning','img/lilia-cap-linkedin.jpg'],['Cursos ERP financiero','img/lilia-cap-erp.jpg']],
       compGraf:[['Enfoque a resultados',4,3],['Adaptación al cambio',3,3],['Análisis y toma de decisiones',4,3],['Gestión de otros',4,3],['Visión sistémica',3,3]],
+      estrategia:{filas:[['Acción PR 1','Leer el libro "Seis sombreros para pensar" del autor Edward de Bono.','Análisis: qué puedo aplicar en mi vida profesional y personal.','30/12/2026'],['Acción PR 2','Ver la película "Mejor imposible" dirigida por James L. Brooks.','Analiza y comparte lo aprendido.','30/12/2026']],programa:{nombre:['Enfoque a resultados','Gestión de otros','Análisis y toma de decisiones'],cursos:['LinkedIn Learning','Curso de Control Interno','Certificación a Jefes','Capacitación convencional'],periodo:'2do. semestre 2026'}},
       parrilla:{fecha:'29/03/2026',doc:'docs/parrilla-lilia.pdf',rows:[['lilia','guadalupe'],['guadalupe','kristell']]},
       proy:['digital-formats','monitor-pistas-efectivo'],
       replicas:[['Retiros Parciales Digitales','','retiros-parciales-digitales']]
@@ -581,6 +585,7 @@ const PLAZAS = [
       integracion:'img/leonides-integracion.jpg',
       caps:[['LinkedIn Learning','img/leonides-cap-linkedin.jpg'],['Cursos ERP financiero','img/leonides-cap-erp.jpg']],
       compGraf:[['Enfoque a resultados',4,3],['Planeación, organización y seguimiento',3,3],['Análisis y toma de decisiones',3,3],['Gestión de otros',4,3],['Trabajo en equipo',3,3],['Comunicación',3,3]],
+      estrategia:{filas:[['Acción PR 1','Leer el libro "Seis sombreros para pensar" del autor Edward de Bono.','Análisis: qué puedo aplicar en mi vida profesional y personal.','30/12/2026'],['Acción PR 2','Ver la película "Mejor imposible" dirigida por James L. Brooks.','Analiza y comparte lo aprendido.','30/12/2026']],programa:{nombre:['Enfoque a resultados','Gestión de otros'],cursos:['LinkedIn Learning','Curso de Control Interno','Integraciones'],periodo:'2do. semestre 2026'}},
       parrilla:{fecha:'01/05/2026',doc:'docs/parrilla-leonides.pdf',rows:[['leonides','joel'],['joel','argelia']]},
       proy:['admin-bus360','digirem'],
       replicas:[['Transformación digital de la venta manual','PY-GRU-CTR-25-003']]
@@ -645,6 +650,7 @@ const PLAZAS = [
       integracion:'img/jaime-integracion.jpg',
       caps:[['LinkedIn Learning','img/jaime-cap-linkedin.jpg'],['Cursos ERP financiero','img/jaime-cap-erp.jpg'],['ICAMI','img/jaime-cap-icami.jpg']],
       compGraf:[['Análisis y toma de decisiones',3,3],['Comunicación',3,3],['Enfoque a resultados',4,3],['Planeación, organización y seguimiento',3,3],['Trabajo en equipo',3,3]],
+      estrategia:{filas:[['Acción PR 1','Leer el libro "Seis sombreros para pensar" del autor Edward de Bono.','Análisis: qué puedo aplicar en mi vida profesional y personal.','30/12/2026'],['Acción PR 2','Ver la película "Mejor imposible" dirigida por James L. Brooks.','Analiza y comparte lo aprendido.','30/12/2026']],programa:{nombre:['Enfoque a resultados','Gestión de otros'],cursos:['LinkedIn Learning','Curso de Control Interno','Integraciones'],periodo:'2do. semestre 2026'}},
       parrilla:{fecha:'25/06/2026',doc:'docs/parrilla-jaime.pdf',rows:[['jaime','jose-morales'],['jose-morales','jose-angel-lopez']]},
       proy:['happy-moments','concil-ia'],
       replicas:[]
@@ -715,6 +721,7 @@ const PLAZAS = [
       integracion:'img/ricardo-integracion.jpg',
       caps:[['LinkedIn Learning','img/ricardo-cap-linkedin.jpg'],['Cursos ERP financiero','img/ricardo-cap-erp.jpg']],
       compGraf:[['Análisis y toma de decisiones',3,3],['Comunicación',3,3],['Enfoque a resultados',4,3],['Gestión de otros',4,3],['Planeación, organización y seguimiento',3,2],['Trabajo en equipo',3,3]],
+      estrategia:{filas:[['Acción PR 1','Leer el libro "Seis sombreros para pensar" del autor Edward de Bono.','Convoca al diálogo y comparte lo aprendido con tu equipo.','30/12/2026'],['Acción PR 2','Ver la película "Mejor Imposible" dirigida por James L. Brooks.','Analiza y comparte lo aprendido.','30/12/2026']],programa:{nombre:['Enfoque a resultados','Planeación, organización','Gestión de otros'],cursos:['LinkedIn Learning','Curso de Control Interno','Certificación a jefes'],periodo:'2do. semestre 2026'}},
       replicas:[['MecaFix','']]
     }},
     {id:'julio', n:'Julio César Hernández Gómez', r:'Jefe Centro de Pago', team:[
@@ -768,6 +775,7 @@ const PLAZAS = [
       integracion:'img/julio-integracion.jpg',
       caps:[['LinkedIn Learning','img/julio-cap-linkedin.jpg'],['Cursos ERP financiero','img/julio-cap-erp.jpg']],
       compGraf:[['Análisis y toma de decisiones',3,3],['Comunicación',3,3],['Enfoque a resultados',4,4],['Gestión de otros',4,3],['Planeación, organización y seguimiento',3,2],['Trabajo en equipo',3,3]],
+      estrategia:{filas:[['Acción PR 1','Leer el libro "Seis sombreros para pensar" del autor Edward de Bono.','Análisis: qué puedo aplicar en mi vida profesional y personal.','30/12/2026'],['Acción PR 2','Ver la película "El Último Emperador" dirigida por Bernardo Bertolucci.','Analiza y comparte lo aprendido.','30/12/2026']],programa:{nombre:['Gestión de otros','Planeación, organización y seguimiento'],cursos:['LinkedIn Learning','Curso de Control Interno','Certificación a Jefes'],periodo:'2do. semestre 2026'}},
       parrilla:{doc:'docs/parrilla-julio.pdf',rows:[['julio','johnny'],['johnny','montserrat']],
         extra:[['Tiempo aproximado para ocupar el cargo','2 años'],['Competencias a desarrollar','Trabajo con personal a cargo, liderazgo, análisis de problemas y toma de decisiones']]},
       proy:['semaforo-cia'],
@@ -820,6 +828,7 @@ const PLAZAS = [
       integracion:'img/miguel-integracion.jpg',
       caps:[['LinkedIn Learning','img/miguel-cap-linkedin.jpg'],['Cursos ERP financiero','img/miguel-cap-erp.jpg']],
       compGraf:[['Análisis y toma de decisiones',3,2],['Comunicación',3,2],['Enfoque a resultados',4,2],['Gestión de otros',4,2],['Planeación, organización y seguimiento',3,2],['Trabajo en equipo',3,2]],
+      estrategia:{filas:[['Acción PR 1','Se recomienda leer el libro "El hábito del ahora".','Análisis: qué puedo aplicar en mi vida profesional y personal.','30/12/2026'],['Acción PR 2','Ver la película "El Último Emperador" dirigida por Bernardo Bertolucci.','Analiza y comparte lo aprendido.','30/12/2026']],programa:{nombre:['Enfoque a resultados','Gestión de otros','Trabajo en equipo','Planeación, organización y seguimiento'],cursos:['Evaluación de desempeño','Curso de Control Interno','Certificación a Jefes','LinkedIn Learning'],periodo:'2do. semestre 2026'}},
       parrilla:{fecha:'30/06/2026',doc:'docs/parrilla-miguel.pdf',rows:[['miguel','anna'],['miguel','eber']]},
       proy:[],
       replicas:[]
@@ -888,7 +897,7 @@ function perfilPage({pl,p,sec,boss}){
     <div class="perfil">${card(p,'big')}<div class="pbody"><h3>Psicometría</h3><p class="psico">${pf.psico}</p>
     <div class="ptiles">${pf.tiles.map(t=>`<button class="tile ${t[2]}" data-go="${me}-${t[0]}">${t[1]}</button>`).join('')}</div>
     ${pf.extra?`<button class="go" data-go="${me}-${pf.extra[0]}">${pf.extra[1]}</button>`:''}</div></div></section>`;
-  const head=(t,sub)=>`${backBtn(me,'Perfil de '+first)}<h2>${t}</h2><p class="sub">${sub||p.n+', '+p.r}</p>`;
+  const head=(t,sub)=>`${sec==='estrategia'&&pf.compGraf?backBtn(me+'-competencias','Competencias'):backBtn(me,'Perfil de '+first)}<h2>${t}</h2><p class="sub">${sub||p.n+', '+p.r}</p>`;
   let b='';
   if(sec==='foda'){
     const Q=[['debilidades','Debilidades','q1','&#128078;'],['amenazas','Amenazas','q2','!'],['fortalezas','Fortalezas','q3','&#128077;'],['oportunidades','Oportunidades','q4','&#9733;']];
@@ -914,7 +923,7 @@ function perfilPage({pl,p,sec,boss}){
     b=head('Capacitaciones <em>2026</em>')+`<p class="hint" style="margin:0 0 6px;text-align:left">Toca una para ver su imagen.</p>${capGrid(pf.caps)}`;
   } else if(sec==='competencias'){
     const cs=pf.compGraf;
-    b=head('Competencias en examen <em>psicométrico</em>')+`<div class="res"><div class="chart" role="img" aria-label="Gráfica de perfil contra nivel de dominio por competencia"><div class="plot">${cs.map(c=>`<div class="grp"><div class="pair"><div class="bar d" style="height:${c[1]/4*100}%"></div><div class="bar r" style="height:${c[2]/4*100}%"></div></div><label>${c[0]}</label></div>`).join('')}</div><div class="legend"><i class="d"></i>Perfil<i class="r"></i>Nivel de dominio</div></div></div>`;
+    b=head('Competencias en examen <em>psicométrico</em>')+`<div class="res"><div class="chart" role="img" aria-label="Gráfica de perfil contra nivel de dominio por competencia"><div class="plot">${cs.map(c=>`<div class="grp"><div class="pair"><div class="bar d" style="height:${c[1]/4*100}%"></div><div class="bar r" style="height:${c[2]/4*100}%"></div></div><label>${c[0]}</label></div>`).join('')}</div><div class="legend"><i class="d"></i>Perfil<i class="r"></i>Nivel de dominio</div></div>${pf.estrategia?`<button class="gear" data-go="${me}-estrategia"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.4 13a7.6 7.6 0 0 0 0-2l2.1-1.6-2-3.4-2.5 1a7.6 7.6 0 0 0-1.7-1L15 3.3h-4l-.3 2.7a7.6 7.6 0 0 0-1.7 1l-2.5-1-2 3.4L6.6 11a7.6 7.6 0 0 0 0 2l-2.1 1.6 2 3.4 2.500-1c.5.4 1.100.7 1.700 1l.3 2.700h4l.3-2.700c.6-.3 1.200-.6 1.700-1l2.500 1 2-3.400zM13 15.500a3.500 3.500 0 1 1 0-7 3.500 3.500 0 0 1 0 7z"/></svg><span>Estrategia</span></button>`:''}</div>`;
   } else if(sec==='resultados'){
     const cs=pf.comp, t0=cs.reduce((a,c)=>a+c[2],0), t1=cs.reduce((a,c)=>a+c[3],0);
     b=head('Competencias en examen <em>psicométrico</em>')+`<div class="res"><div class="tblwrap"><table class="tbl"><thead><tr><th>#</th><th>Competencias</th><th>Clasificación</th><th>Dominio</th><th>Resultado</th></tr></thead><tbody>${cs.map((c,i)=>`<tr><td>${i+1}</td><td>${c[0]}</td><td>${c[1]}</td><td>${c[2]}</td><td class="${c[3]>c[2]?'up':c[3]<c[2]?'down':''}">${c[3]}</td></tr>`).join('')}</tbody><tfoot><tr><td></td><td colspan="2">Resultados</td><td>${t0}</td><td>${t1}</td></tr></tfoot></table></div>
