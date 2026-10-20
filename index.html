@@ -868,10 +868,13 @@ const CURSOS=[
  ['Inteligencia Artificial más allá de la ingeniería','ia-mas-alla-de-la-ingenieria'],
  ['¿Qué es la IA generativa?','ia-generativa'],
  ['Descubre Microsoft 365 Copilot','microsoft-365-copilot']];
+const CAPS6=['linkedin-learning','control-interno-efa-dcaf','inspira-lider','ia-mas-alla-de-la-ingenieria','ia-generativa','microsoft-365-copilot'].map(sl=>{const c=CURSOS.find(x=>x[1]===sl);return [c[0],'img/capacitaciones/'+sl+'.jpg'];});
+const capGrid=L=>`<div class="cursos">${L.map(c=>`<button class="curso" data-img="${c[1]}" data-name="${c[0]}" aria-label="Ampliar la imagen de ${c[0]}"><span class="cfoto"><img src="${c[1]}" alt="${c[0]}" loading="lazy" onerror="this.parentNode.classList.add('vacio');this.remove()"><span class="ph">Falta la foto<small>${c[1]}</small></span></span><span class="ctit">${c[0]}</span></button>`).join('')}</div>`;
 const GALERIA=Array.from({length:8},(_,i)=>`img/integracion/${i+1}.jpg`);
 const SECS={foda:'FODA',obs:'Observaciones',mapa:'Mapa estratégico',parrilla:'Parrilla de reemplazo',proyectos:'Proyectos',resultados:'Resultados psicométricos',estrategia:'Estrategia de desarrollo',cursos:'Capacitaciones',trimestres:'Desarrollo continuo',desempeno:'Evaluación de desempeño',integracion:'Integración',capacitaciones:'Capacitaciones',competencias:'Competencias psicométricas'};
-const PERFILES=[];
 const flatAll=t=>[t,...(t.team||[]).flatMap(flatAll)];
+const PERFILES=[];
+PLAZAS.forEach(pl=>pl.people.forEach(b=>flatAll(b).forEach(p=>{ if(p.perfil) p.perfil.caps=CAPS6; })));
 PLAZAS.forEach(pl=>pl.people.forEach(b=>flatAll(b).forEach(p=>{ if(p.perfil){ PERFILES.push({pl,p,boss:p===b?null:b}); SUBS['p-'+p.id]='Perfil de '+p.n.split(' ')[0]; Object.keys(SECS).forEach(k=>{SUBS['p-'+p.id+'-'+k]=SECS[k];}); } })));
 const findPerfil=sub=>{ for(const {pl,p,boss} of PERFILES){ if(sub==='p-'+p.id) return {pl,p,boss,sec:''}; for(const k in SECS) if(sub==='p-'+p.id+'-'+k) return {pl,p,boss,sec:k}; } return null; };
 const ladder=(T,pre='')=>`<div class="ladder">${T.map((t,i)=>`${i?'<div class="rise" aria-hidden="true"></div>':''}<div class="tier ${t.c}">${t.to?`<button class="name" data-go="${pre}${t.to}">${t.n}<small>Ver detalle &#10095;</small></button>`:`<span class="name">${t.n}</span>`}<div class="chips">${t.chips.map(c=>`<span class="chip">${c}</span>`).join('')}</div></div>`).join('')}</div>`;
@@ -904,7 +907,7 @@ function perfilPage({pl,p,sec,boss}){
     const g=pf.integracion;
     b=head('Mejora de <em>habilidades</em>')+`<div class="intro"><h3>Integración</h3><p>Actividades de integración para reforzar el trabajo en equipo e integración a equipos de trabajo dinámicos.</p></div><div class="tri" style="grid-template-columns:minmax(0,420px)"><button class="trib" data-img="${g}" data-name="Integración"><div class="shot">Integración<img src="${g}" alt="Integración" onerror="this.remove()"></div><span>Ampliar la foto &#10095;</span></button></div>`;
   } else if(sec==='capacitaciones'){
-    b=head('Capacitaciones <em>2026</em>')+`<p class="hint" style="margin:0 0 6px;text-align:left">Toca una para ver su imagen.</p><div class="cursos">${pf.caps.map(c=>`<button class="curso" data-img="${c[1]}" data-name="${c[0]}" aria-label="Ampliar la imagen de ${c[0]}"><span class="cfoto"><img src="${c[1]}" alt="${c[0]}" loading="lazy" onerror="this.parentNode.classList.add('vacio');this.remove()"><span class="ph">Falta la foto<small>${c[1]}</small></span></span><span class="ctit">${c[0]}</span></button>`).join('')}</div>`;
+    b=head('Capacitaciones <em>2026</em>')+`<p class="hint" style="margin:0 0 6px;text-align:left">Toca una para ver su imagen.</p>${capGrid(pf.caps)}`;
   } else if(sec==='competencias'){
     const cs=pf.compGraf;
     b=head('Competencias en examen <em>psicométrico</em>')+`<div class="res"><div class="chart" role="img" aria-label="Gráfica de perfil contra nivel de dominio por competencia"><div class="plot">${cs.map(c=>`<div class="grp"><div class="pair"><div class="bar d" style="height:${c[1]/4*100}%"></div><div class="bar r" style="height:${c[2]/4*100}%"></div></div><label>${c[0]}</label></div>`).join('')}</div><div class="legend"><i class="d"></i>Perfil<i class="r"></i>Nivel de dominio</div></div></div>`;
@@ -916,7 +919,7 @@ function perfilPage({pl,p,sec,boss}){
     const e=pf.estrategia;
     b=head('Estrategia de <em>desarrollo</em>')+`<div class="tblwrap"><table class="tbl est"><thead><tr><th>Práctica</th><th>Acción</th><th>Entregables</th><th>Fecha compromiso</th></tr></thead><tbody>${e.filas.map(f=>`<tr><th scope="row">${f[0]}</th><td>${f[1]||'&mdash;'}</td><td>${f[2]||'&mdash;'}</td><td>${f[3]||'&mdash;'}</td></tr>`).join('')}<tr><th scope="row">Programa</th><td><b>${[].concat(e.programa.nombre).join('</b><br><b>')}</b></td><td>${e.programa.cursos.join('<br>')}</td><td>${e.programa.periodo}</td></tr></tbody></table></div>`;
   } else if(sec==='cursos'){
-    b=head('Cursos realizados <em>1er semestre 2026</em>')+`<div class="caps">${pf.cursos.map(c=>`<article class="cap"><h3>${c.t}</h3>${c.sub?`<p><b>${c.sub}</b></p>`:''}<ul class="clist">${c.items.map(x=>`<li>${x}</li>`).join('')}</ul></article>`).join('')}</div>`;
+    b=head('Cursos <em>realizados</em>')+capGrid(pf.caps)+`<h3 style="margin:26px 0 10px">Detalle del 1er semestre 2026</h3><div class="caps">${pf.cursos.map(c=>`<article class="cap"><h3>${c.t}</h3>${c.sub?`<p><b>${c.sub}</b></p>`:''}<ul class="clist">${c.items.map(x=>`<li>${x}</li>`).join('')}</ul></article>`).join('')}</div>`;
   } else if(sec==='trimestres'){
     b=head('Desarrollo <em>continuo</em>','Seguimiento de resultados a través del EDI trimestral')+`<div class="tri">${pf.trimestres.map(t=>`<button class="trib" data-img="${t[1]}" data-name="${t[0]}"><div class="shot">${t[0]}<img src="${t[1]}" alt="${t[0]}" onerror="this.remove()"></div><span>${t[0]}: ampliar &#10095;</span></button>`).join('')}</div>`;
   } else {
