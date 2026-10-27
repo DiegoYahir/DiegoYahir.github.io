@@ -558,7 +558,7 @@ const PLAZAS = [
         {c:'c',n:'Capacitaciones',to:'capacitaciones',chips:['LinkedIn Learning','Control Interno EFA-DCAF','Inspira Líder']},
         {c:'d',n:'Competencias a mejorar',to:'competencias',chips:['Enfoque a resultados','Gestión de otros','Planeación, organización y seguimiento']}],
       desempeno:[['EDI','img/lilia-edi.png']],
-      integracion:['img/lilia-integracion.jpg','img/integracion/2.jpg','img/integracion/4.jpg','img/integracion/5.jpg','img/integracion/lilia-1.jpeg','img/integracion/lilia-2.jpeg','img/integracion/lilia-3.jpeg','img/integracion/lilia-4.jpeg','img/integracion/lilia-5.jpeg','img/integracion/lilia-6.jpeg'],
+      integracion:['img/lilia-integracion.jpg','img/integracion/2.jpg','img/integracion/4.jpg','img/integracion/5.jpg','img/integracion/lilia-1.jpeg','img/integracion/lilia-2.jpeg','img/integracion/lilia-3.jpeg','img/integracion/lilia-4.jpeg','img/integracion/lilia-5.jpeg','img/integracion/lilia-6.jpeg','img/integracion/darwin-4.jpeg','img/integracion/darwin-5.jpeg'],
       caps:[['LinkedIn Learning','img/lilia-cap-linkedin.jpg'],['Cursos ERP financiero','img/lilia-cap-erp.jpg']],
       compGraf:[['Enfoque a resultados',4,3],['Adaptación al cambio',3,3],['Análisis y toma de decisiones',4,3],['Gestión de otros',4,3],['Visión sistémica',3,3]],
       estrategia:{filas:[['Acción PR 1','Leer el libro "Seis sombreros para pensar" del autor Edward de Bono.','Análisis: qué puedo aplicar en mi vida profesional y personal.','30/12/2026'],['Acción PR 2','Ver la película "Mejor imposible" dirigida por James L. Brooks.','Analiza y comparte lo aprendido.','30/12/2026']],programa:{nombre:['Enfoque a resultados','Gestión de otros','Análisis y toma de decisiones'],cursos:['LinkedIn Learning','Curso de Control Interno','Certificación a Jefes','Capacitación convencional'],periodo:'2do. semestre 2026'}},
@@ -809,7 +809,7 @@ const PLAZAS = [
         {c:'c',to:'capacitaciones',n:'Capacitaciones',chips:['LinkedIn Learning','Control Interno EFA-DCAF','Inspira Líder']},
         {c:'d',to:'competencias',n:'Competencias a mejorar',chips:['Gestión de otros','Planeación, organización y seguimiento']}],
       desempeno:[['EDI','img/julio-edi.png']],
-      integracion:['img/integracion/ricardo-1.jpeg','img/integracion/julio-1.jpeg'],
+      integracion:['img/integracion/ricardo-1.jpeg','img/integracion/julio-1.jpeg','img/integracion/ricardo-2.jpeg'],
       caps:[['LinkedIn Learning','img/julio-cap-linkedin.jpg'],['Cursos ERP financiero','img/julio-cap-erp.jpg']],
       compGraf:[['Análisis y toma de decisiones',3,3],['Comunicación',3,3],['Enfoque a resultados',4,4],['Gestión de otros',4,3],['Planeación, organización y seguimiento',3,2],['Trabajo en equipo',3,3]],
       estrategia:{filas:[['Acción PR 1','Leer el libro "Seis sombreros para pensar" del autor Edward de Bono.','Análisis: qué puedo aplicar en mi vida profesional y personal.','30/12/2026'],['Acción PR 2','Ver la película "El Último Emperador" dirigida por Bernardo Bertolucci.','Analiza y comparte lo aprendido.','30/12/2026']],programa:{nombre:['Gestión de otros','Planeación, organización y seguimiento'],cursos:['LinkedIn Learning','Curso de Control Interno','Certificación a Jefes'],periodo:'2do. semestre 2026'}},
@@ -915,7 +915,7 @@ const CURSOS=[
  ['Descubre Microsoft 365 Copilot','microsoft-365-copilot']];
 const CAPS6=['linkedin-learning','control-interno-efa-dcaf','inspira-lider','ia-mas-alla-de-la-ingenieria','ia-generativa','microsoft-365-copilot'].map(sl=>{const c=CURSOS.find(x=>x[1]===sl);return [c[0],'img/capacitaciones/'+sl+'.jpg'];});
 const capGrid=L=>`<div class="cursos">${L.map(c=>`<button class="curso" data-img="${c[1]}" data-name="${c[0]}" aria-label="Ampliar la imagen de ${c[0]}"><span class="cfoto"><img src="${c[1]}" alt="${c[0]}" loading="lazy" onerror="this.parentNode.classList.add('vacio');this.remove()"><span class="ph">Falta la foto<small>${c[1]}</small></span></span><span class="ctit">${c[0]}</span></button>`).join('')}</div>`;
-const GALERIA=[...Array.from({length:8},(_,i)=>`img/integracion/${i+1}.jpg`),...[1,6,7].map(n=>`img/integracion/ricardo-${n}.jpeg`),'img/integracion/lilia-1.jpeg','img/integracion/jaime-1.jpeg','img/integracion/lilia-3.jpeg'];
+const GALERIA=[...Array.from({length:8},(_,i)=>`img/integracion/${i+1}.jpg`),...[1,6,7].map(n=>`img/integracion/ricardo-${n}.jpeg`),'img/integracion/lilia-1.jpeg','img/integracion/jaime-1.jpeg','img/integracion/lilia-3.jpeg','img/integracion/darwin-4.jpeg','img/integracion/darwin-5.jpeg','img/integracion/lilia-5.jpeg','img/integracion/lilia-6.jpeg'];
 const SECS={foda:'FODA',obs:'Observaciones',mapa:'Mapa estratégico',parrilla:'Parrilla de reemplazo',proyectos:'Proyectos',resultados:'Resultados psicométricos',estrategia:'Estrategia de desarrollo',cursos:'Capacitaciones',trimestres:'Desarrollo continuo',desempeno:'Evaluación de desempeño',integracion:'Integración',capacitaciones:'Capacitaciones',competencias:'Competencias psicométricas'};
 const flatAll=t=>[t,...(t.team||[]).flatMap(flatAll)];
 const EXTRA={
@@ -974,7 +974,7 @@ function perfilPage({pl,p,sec,boss}){
     const e=pf.estrategia;
     b=head('Estrategia de <em>desarrollo</em>')+`<div class="tblwrap"><table class="tbl est"><thead><tr><th>Práctica</th><th>Acción</th><th>Entregables</th><th>Fecha compromiso</th></tr></thead><tbody>${e.filas.map(f=>`<tr><th scope="row">${f[0]}</th><td>${f[1]||'&mdash;'}</td><td>${f[2]||'&mdash;'}</td><td>${f[3]||'&mdash;'}</td></tr>`).join('')}<tr><th scope="row">Programa</th><td><b>${[].concat(e.programa.nombre).join('</b><br><b>')}</b></td><td>${e.programa.cursos.join('<br>')}</td><td>${e.programa.periodo}</td></tr></tbody></table></div>`;
   } else if(sec==='cursos'){
-    b=head('Cursos <em>realizados</em>')+capGrid(pf.caps)+(pf.cursos.length?`<h3 style="margin:26px 0 10px">Detalle del 1er semestre 2026</h3>`:'')+`<div class="caps">${pf.cursos.map(c=>`<article class="cap"><h3>${c.t}</h3>${c.sub?`<p><b>${c.sub}</b></p>`:''}<ul class="clist">${c.items.map(x=>`<li>${x}</li>`).join('')}</ul></article>`).join('')}</div>`;
+    b=head('Cursos <em>realizados</em>')+capGrid(pf.caps);
   } else if(sec==='trimestres'){
     b=head('Desarrollo <em>continuo</em>','Seguimiento de resultados a través del EDI trimestral')+`<div class="tri">${pf.trimestres.map(t=>`<button class="trib" data-img="${t[1]}" data-name="${t[0]}"><div class="shot">${t[0]}<img src="${t[1]}" alt="${t[0]}" onerror="this.remove()"></div><span>${t[0]}: ampliar &#10095;</span></button>`).join('')}</div>`;
   } else {
