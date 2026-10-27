@@ -684,7 +684,7 @@ const PLAZAS = [
         {c:'c',n:'Capacitaciones',to:'capacitaciones',chips:['ICAMI','NRLE','LinkedIn Learning']},
         {c:'d',n:'Competencias a mejorar',to:'competencias',chips:['Enfoque a resultados','Gestión de otros']}],
       desempeno:[['EDI','img/jaime-edi.png']],
-      integracion:['img/jaime-integracion.jpg','img/integracion/ricardo-6.jpeg','img/integracion/jaime-1.jpeg'],
+      integracion:['img/integracion/jaime-1.jpeg'],
       caps:[['LinkedIn Learning','img/jaime-cap-linkedin.jpg'],['Cursos ERP financiero','img/jaime-cap-erp.jpg'],['ICAMI','img/jaime-cap-icami.jpg']],
       compGraf:[['Análisis y toma de decisiones',3,3],['Comunicación',3,3],['Enfoque a resultados',4,3],['Planeación, organización y seguimiento',3,3],['Trabajo en equipo',3,3]],
       estrategia:{filas:[['Acción PR 1','Leer el libro "Seis sombreros para pensar" del autor Edward de Bono.','Análisis: qué puedo aplicar en mi vida profesional y personal.','30/12/2026'],['Acción PR 2','Ver la película "Mejor imposible" dirigida por James L. Brooks.','Analiza y comparte lo aprendido.','30/12/2026']],programa:{nombre:['Enfoque a resultados','Gestión de otros'],cursos:['LinkedIn Learning','Curso de Control Interno','Integraciones'],periodo:'2do. semestre 2026'}},
@@ -915,7 +915,7 @@ const CURSOS=[
  ['Descubre Microsoft 365 Copilot','microsoft-365-copilot']];
 const CAPS6=['linkedin-learning','control-interno-efa-dcaf','inspira-lider','ia-mas-alla-de-la-ingenieria','ia-generativa','microsoft-365-copilot'].map(sl=>{const c=CURSOS.find(x=>x[1]===sl);return [c[0],'img/capacitaciones/'+sl+'.jpg'];});
 const capGrid=L=>`<div class="cursos">${L.map(c=>`<button class="curso" data-img="${c[1]}" data-name="${c[0]}" aria-label="Ampliar la imagen de ${c[0]}"><span class="cfoto"><img src="${c[1]}" alt="${c[0]}" loading="lazy" onerror="this.parentNode.classList.add('vacio');this.remove()"><span class="ph">Falta la foto<small>${c[1]}</small></span></span><span class="ctit">${c[0]}</span></button>`).join('')}</div>`;
-const GALERIA=[...[1,6,7].map(n=>`img/integracion/ricardo-${n}.jpeg`),'img/integracion/lilia-1.jpeg','img/integracion/jaime-1.jpeg','img/integracion/lilia-3.jpeg'];
+const GALERIA=[...Array.from({length:8},(_,i)=>`img/integracion/${i+1}.jpg`),...[1,6,7].map(n=>`img/integracion/ricardo-${n}.jpeg`),'img/integracion/lilia-1.jpeg','img/integracion/jaime-1.jpeg','img/integracion/lilia-3.jpeg'];
 const SECS={foda:'FODA',obs:'Observaciones',mapa:'Mapa estratégico',parrilla:'Parrilla de reemplazo',proyectos:'Proyectos',resultados:'Resultados psicométricos',estrategia:'Estrategia de desarrollo',cursos:'Capacitaciones',trimestres:'Desarrollo continuo',desempeno:'Evaluación de desempeño',integracion:'Integración',capacitaciones:'Capacitaciones',competencias:'Competencias psicométricas'};
 const flatAll=t=>[t,...(t.team||[]).flatMap(flatAll)];
 const EXTRA={
