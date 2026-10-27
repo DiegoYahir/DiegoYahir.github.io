@@ -619,7 +619,7 @@ const PLAZAS = [
         {c:'c',n:'Capacitaciones',to:'capacitaciones',chips:['LinkedIn Learning','Control Interno EFA-DCAF','Inspira Líder']},
         {c:'d',n:'Competencias a mejorar',to:'competencias',chips:['Enfoque a resultados','Gestión de otros','Planeación, organización y seguimiento']}],
       desempeno:[['EDI','img/leonides-edi.png']],
-      integracion:'img/leonides-integracion.jpg',
+      integracion:Array.from({length:8},(_,i)=>'img/integracion/leonides-'+(i+1)+'.jpeg'),
       caps:[['LinkedIn Learning','img/leonides-cap-linkedin.jpg'],['Cursos ERP financiero','img/leonides-cap-erp.jpg']],
       compGraf:[['Enfoque a resultados',4,3],['Planeación, organización y seguimiento',3,3],['Análisis y toma de decisiones',3,3],['Gestión de otros',4,3],['Trabajo en equipo',3,3],['Comunicación',3,3]],
       estrategia:{filas:[['Acción PR 1','Leer el libro "Seis sombreros para pensar" del autor Edward de Bono.','Análisis: qué puedo aplicar en mi vida profesional y personal.','30/12/2026'],['Acción PR 2','Ver la película "Mejor imposible" dirigida por James L. Brooks.','Analiza y comparte lo aprendido.','30/12/2026']],programa:{nombre:['Enfoque a resultados','Gestión de otros'],cursos:['LinkedIn Learning','Curso de Control Interno','Integraciones'],periodo:'2do. semestre 2026'}},
@@ -959,7 +959,8 @@ function perfilPage({pl,p,sec,boss}){
     b=head('Evaluación de <em>desempeño</em>')+`<div class="tri">${pf.desempeno.map(t=>`<button class="trib" data-img="${t[1]}" data-name="${t[0]}"><div class="shot">${t[0]}<img src="${t[1]}" alt="${t[0]}" onerror="this.remove()"></div><span>${t[0]}: ampliar &#10095;</span></button>`).join('')}</div>`;
   } else if(sec==='integracion'){
     const g=pf.integracion;
-    b=head('Mejora de <em>habilidades</em>')+`<div class="intro"><h3>Integración</h3><p>Actividades de integración para reforzar el trabajo en equipo e integración a equipos de trabajo dinámicos.</p></div><div class="tri" style="grid-template-columns:minmax(0,420px)"><button class="trib" data-img="${g}" data-name="Integración"><div class="shot">Integración<img src="${g}" alt="Integración" onerror="this.remove()"></div><span>Ampliar la foto &#10095;</span></button></div>`;
+    if(Array.isArray(g)) b=head('Mejora de <em>habilidades</em>')+`<div class="intro"><h3>Integración</h3><p>Actividades de integración para reforzar el trabajo en equipo e integración a equipos de trabajo dinámicos.</p></div><div class="gal" role="list" aria-label="Galería de integración">${g.map((x,i)=>`<button class="gitem" role="listitem" data-gal="${i}" data-galset="${p.id}" aria-label="Ampliar foto ${i+1} de ${g.length}"><img src="${x}" alt="Integración, foto ${i+1}" loading="lazy" onerror="this.parentNode.classList.add('vacio');this.remove()"><span class="ph">Foto ${i+1}<small>${x}</small></span></button>`).join('')}</div><p class="evcap">Toca una foto para ampliarla y usa las flechas para ver las demás.</p>`;
+    else b=head('Mejora de <em>habilidades</em>')+`<div class="intro"><h3>Integración</h3><p>Actividades de integración para reforzar el trabajo en equipo e integración a equipos de trabajo dinámicos.</p></div><div class="tri" style="grid-template-columns:minmax(0,420px)"><button class="trib" data-img="${g}" data-name="Integración"><div class="shot">Integración<img src="${g}" alt="Integración" onerror="this.remove()"></div><span>Ampliar la foto &#10095;</span></button></div>`;
   } else if(sec==='capacitaciones'){
     b=head('Capacitaciones <em>2026</em>')+`<p class="hint" style="margin:0 0 6px;text-align:left">Toca una para ver su imagen.</p>${capGrid(pf.caps)}`;
   } else if(sec==='competencias'){
@@ -1073,12 +1074,12 @@ function render(){
 function openChart(ch){ lastBtn=document.activeElement; galI=-1; modal.classList.remove('has-gal'); modal.querySelector('.sheet').innerHTML='<div class="zoomchart">'+ch.outerHTML.replace(' role="button"','').replace(/ tabindex="0"/,'')+'</div>'; modal.hidden=false; modal.querySelector('.x').focus(); }
 app.onclick = e => {
   const ch=e.target.closest('.chart'); if(ch) return openChart(ch);
-  const g=e.target.closest('[data-gal]'); if(g) return openGal(+g.dataset.gal);
+  const g=e.target.closest('[data-gal]'); if(g){ GAL=g.dataset.galset?PERFILES.find(x=>x.p.id===g.dataset.galset).p.perfil.integracion:GALERIA; return openGal(+g.dataset.gal); }
   const im=e.target.closest('[data-img]'); if(im) return openProj(null,im.dataset.name,im.dataset.img);
   const p=e.target.closest('[data-proj]'); if(p) return openProj(p.dataset.proj,p.dataset.name);
   const b=e.target.closest('[data-go]'); if(b) go(b.dataset.go);
 };
-const modal=document.getElementById('modal'); let lastBtn=null, galI=-1;
+const modal=document.getElementById('modal'); let lastBtn=null, galI=-1, GAL=GALERIA;
 function showImg(f,name){
   modal.querySelector('.sheet').innerHTML=`<img src="${f}" alt="${name}" onerror="this.replaceWith(Object.assign(document.createElement('p'),{className:'miss',textContent:'Falta la imagen de ${name}. Guárdala como ${f}'}))">`;
 }
@@ -1087,9 +1088,9 @@ function openGal(i){
   modal.hidden=false; modal.querySelector('.x').focus();
 }
 function stepGal(d){
-  galI=(galI+d+GALERIA.length)%GALERIA.length;
-  showImg(GALERIA[galI],'Integración, foto '+(galI+1));
-  modal.querySelector('.count').textContent=(galI+1)+' / '+GALERIA.length;
+  galI=(galI+d+GAL.length)%GAL.length;
+  showImg(GAL[galI],'Integración, foto '+(galI+1));
+  modal.querySelector('.count').textContent=(galI+1)+' / '+GAL.length;
 }
 function openProj(slug,name,src){
   galI=-1; modal.classList.remove('has-gal');
